@@ -4,294 +4,260 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>WASIF SHAH FITNESS</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
+<title>WASIF SHAH FITNESS | AI Personal Coaching</title>
+<meta name="description" content="WASIF SHAH FITNESS - Gym and Online AI Fitness Coaching">
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
+:root{--gold:#d4af37;--black:#080808;--panel:#151515;--white:#fff}
+*{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{background:#080808;color:white;font-family:Poppins,Arial,sans-serif}
-:root{--gold:#e6b94f}
-header{
-position:sticky;top:0;z-index:100;
-display:flex;justify-content:space-between;align-items:center;
-padding:18px 7%;background:#090909f5;
-border-bottom:1px solid #6c5425
-}
-.logo{font-family:Oswald;font-size:24px;color:var(--gold);font-weight:700}
-nav{display:flex;gap:18px}
-nav a{color:white;text-decoration:none;font-size:12px}
+body{margin:0;background:var(--black);color:var(--white);font-family:Arial,sans-serif}
+header{position:sticky;top:0;z-index:10;background:#090909ed;border-bottom:1px solid #55451d;padding:15px 5%;display:flex;justify-content:space-between;align-items:center;gap:15px;flex-wrap:wrap}
+.logo{font-weight:900;color:var(--gold);font-size:21px;letter-spacing:1px}
+nav{display:flex;gap:17px;flex-wrap:wrap}
+nav a{color:white;text-decoration:none;font-size:13px}
 nav a:hover{color:var(--gold)}
-.hero{
-min-height:90vh;display:flex;align-items:center;padding:65px 8%;
-background:linear-gradient(90deg,#050505 5%,#050505d9 60%,#05050588),
-url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1600') center/cover
-}
-.hero-content{max-width:720px}
-.profile{
-width:175px;height:175px;object-fit:cover;
-border-radius:50%;border:4px solid var(--gold);
-box-shadow:0 0 35px #e6b94f88;
-margin-bottom:20px
-}
-.tag{color:var(--gold);letter-spacing:3px;font-size:12px;font-weight:bold}
-.hero h1{font-family:Oswald;font-size:clamp(48px,9vw,88px);line-height:1.05;margin:20px 0}
-.gold{color:var(--gold)}
-.hero p{color:#ccc;line-height:1.9;max-width:580px}
-.btn{
-display:inline-block;background:var(--gold);color:#080808;
-padding:14px 27px;text-decoration:none;font-weight:800;
-margin-top:24px;border-radius:4px;transition:.3s
-}
-.btn:hover{background:white;transform:translateY(-3px)}
-section{padding:80px 8%}
-.heading{text-align:center;font-family:Oswald;font-size:clamp(32px,5vw,47px);margin-bottom:15px}
-.sub{text-align:center;color:#aaa;margin-bottom:40px}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:22px}
-.card{background:#151515;border:1px solid #44351e;border-radius:10px;overflow:hidden;transition:.3s}
-.card:hover{transform:translateY(-7px);border-color:var(--gold)}
-.card img{width:100%;height:200px;object-fit:cover}
-.card-content{padding:24px}
-.card h3{color:var(--gold);font-size:21px;margin-bottom:12px}
-.card p{color:#bbb;font-size:14px;line-height:1.8}
-.about{background:#111}
-.about-box{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
-.about-box img{width:100%;height:400px;object-fit:cover;border-radius:10px}
-.about-text h2{font-family:Oswald;font-size:43px;margin:20px 0}
-.about-text p{color:#bbb;line-height:1.9;margin-bottom:15px}
-.programs{background:#0d0d0d}
-.program{background:#171717;border:1px solid #49391e;padding:28px;border-radius:10px}
-.program h3{color:var(--gold);margin-bottom:15px}
-.program p,.program li{color:#bbb;line-height:1.9;font-size:14px}
-.program ul{padding-left:20px;margin-top:12px}
-.features{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:18px}
-.feature{background:#151515;padding:25px;text-align:center;border-bottom:2px solid var(--gold)}
-.feature h3{color:var(--gold);margin:10px 0}
-.feature p{color:#aaa;font-size:13px}
-.join{background:linear-gradient(120deg,#211908,#090909);text-align:center}
-.join p{color:#ccc;line-height:1.8}
-form{max-width:550px;margin:30px auto;display:grid;gap:14px;text-align:left}
-input,select,textarea{
-width:100%;padding:15px;background:#141414;color:white;
-border:1px solid #665024;border-radius:5px;font-family:inherit
-}
-button{background:var(--gold);color:#080808;padding:16px;border:0;font-weight:800;cursor:pointer;border-radius:5px}
-.contact{text-align:center;background:#101010}
-.contact p{color:#bbb;line-height:2}
-footer{text-align:center;padding:30px 15px;background:#050505;border-top:1px solid #49391b;color:#999;font-size:13px}
-footer span{color:var(--gold)}
-.whatsapp{
-position:fixed;right:18px;bottom:18px;z-index:200;
-background:#20c76a;color:white;text-decoration:none;
-padding:14px 20px;border-radius:40px;font-weight:bold
-}
-@media(max-width:700px){
-header{padding:14px 5%;flex-wrap:wrap;gap:12px}
-nav{width:100%;overflow-x:auto;gap:17px}
-nav a{white-space:nowrap}
-.hero{min-height:80vh;padding:55px 6%}
-section{padding:65px 6%}
-.about-box{grid-template-columns:1fr}
-.about-box img{height:280px}
-}
+.hero{min-height:600px;padding:70px 7%;display:flex;align-items:center;justify-content:space-around;gap:35px;flex-wrap:wrap;background:linear-gradient(90deg,#080808 35%,#080808b8),url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1600&q=85') center/cover}
+.heroText{max-width:600px}
+.eyebrow{color:var(--gold);letter-spacing:4px;font-size:13px;font-weight:bold}
+h1{font-size:clamp(42px,7vw,75px);line-height:1.05;margin:15px 0}
+h1 span,.gold{color:var(--gold)}
+.hero p{color:#ddd;line-height:1.8;font-size:17px}
+.profile{width:240px;height:240px;border-radius:50%;object-fit:cover;border:5px solid var(--gold);box-shadow:0 0 35px #d4af3766}
+.btn{display:inline-block;padding:14px 23px;border-radius:6px;background:var(--gold);color:#080808;text-decoration:none;font-weight:bold;border:0;cursor:pointer}
+section{padding:75px 7%}
+.sectionTitle{text-align:center;margin-bottom:35px}
+.sectionTitle h2{font-size:clamp(28px,5vw,42px);margin:0 0 12px}
+.sectionTitle p{color:#aaa}
+.about{display:flex;align-items:center;justify-content:center;gap:40px;flex-wrap:wrap}
+.about img{width:230px;height:280px;object-fit:cover;border:2px solid var(--gold);border-radius:15px}
+.aboutText{max-width:550px;line-height:1.9;color:#ccc}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:20px}
+.card{background:var(--panel);padding:25px;border:1px solid #3b321d;border-radius:12px}
+.card h3{color:var(--gold)}
+.card p{color:#bbb;line-height:1.7}
+.trainingImage{width:100%;height:150px;object-fit:cover;border-radius:8px}
+#ai-fitness{background:linear-gradient(145deg,#17130a,#080808 60%);border-top:1px solid #66501d;border-bottom:1px solid #66501d}
+.formWrap{max-width:760px;margin:auto;background:#111;padding:25px;border:1px solid #6b5521;border-radius:15px;box-shadow:0 15px 50px #000}
+#fitnessForm{display:grid;gap:14px}
+#fitnessForm input,#fitnessForm select,#fitnessForm textarea{width:100%;padding:15px;border-radius:7px;border:1px solid #484848;background:#1b1b1b;color:white;font-size:15px}
+#fitnessForm input::placeholder,#fitnessForm textarea::placeholder{color:#aaa}
+.consent{font-size:13px;color:#ccc;line-height:1.6}
+.consent input{width:auto!important}
+#generateBtn{padding:16px;background:var(--gold);color:#080808;border:0;border-radius:7px;font-weight:900;font-size:16px;cursor:pointer}
+#generateBtn:disabled{opacity:.6}
+#loading{display:none;text-align:center;color:var(--gold);padding:20px}
+#planBox{display:none;margin-top:25px;padding:22px;background:#101010;border:1px solid var(--gold);border-radius:12px}
+#planText{white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.8;color:#eee;font-family:Arial,sans-serif}
+.small{font-size:12px;color:#999;line-height:1.7}
+footer{text-align:center;padding:35px 15px;background:#050505;color:#aaa;border-top:1px solid #55451d}
+footer strong{color:var(--gold)}
+.whatsapp{position:fixed;right:18px;bottom:18px;z-index:20;background:#20c66b;color:#fff;padding:14px 18px;border-radius:30px;text-decoration:none;font-weight:bold}
+@media(max-width:600px){header{justify-content:center}nav{justify-content:center}.hero{text-align:center;padding-top:55px}.profile{width:190px;height:190px}section{padding:55px 5%}}
+@media print{header,.hero,.about,#programs,#training,#ai-fitness form,footer,.whatsapp{display:none!important}body{background:white;color:black}#planBox{display:block!important;border:0}#planText{color:black}}
 </style>
 </head>
-
 <body>
 
 <header>
-<div class="logo">WASIF SHAH FITNESS</div>
-<nav>
-<a href="#home">HOME</a>
-<a href="#about">ABOUT</a>
-<a href="#training">TRAINING</a>
-<a href="#programs">PROGRAMS</a>
-<a href="#join">JOIN NOW</a>
-<a href="#contact">CONTACT</a>
-</nav>
+  <div class="logo">WASIF SHAH FITNESS</div>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#training">Training</a>
+    <a href="#programs">Programs</a>
+    <a href="#ai-fitness">AI Plan</a>
+  </nav>
 </header>
 
-<!-- HOME PAGE -->
+<main>
 <section class="hero" id="home">
-<div class="hero-content">
-
-<img src="profile.jpg" alt="Wasif Shah Jadoon Profile Photo" class="profile">
-
-<p class="tag">FIRST MADE BY WASIF SHAH JADOON</p>
-
-<h1>BUILD YOUR <span class="gold">BODY.</span><br>
-TRANSFORM YOUR LIFE.</h1>
-
-<p>Welcome to WASIF SHAH FITNESS. Start your fitness journey with gym training and online coaching. Build strength, improve your fitness and become the best version of yourself.</p>
-
-<a href="#join" class="btn">START YOUR JOURNEY →</a>
-
-</div>
+  <div class="heroText">
+    <div class="eyebrow">YOUR FITNESS. YOUR FUTURE.</div>
+    <h1>BUILD YOUR<br><span>BEST SELF.</span></h1>
+    <p>Premium Gym Training and Online Fitness Coaching. Get a personalized fitness plan designed around your goals.</p>
+    <a class="btn" href="#ai-fitness">GET YOUR AI FITNESS PLAN</a>
+  </div>
+  <img class="profile" src="profile.jpg" alt="Wasif Shah">
 </section>
 
-<!-- ABOUT -->
-<section id="about" class="about">
-<div class="about-box">
-
-<img src="profile.jpg" alt="Wasif Shah Jadoon">
-
-<div class="about-text">
-<p class="tag">ABOUT OUR FITNESS COACHING</p>
-<h2>YOUR FITNESS.<br><span class="gold">OUR MISSION.</span></h2>
-<p>Welcome to WASIF SHAH FITNESS. We believe that fitness is a lifestyle. Our goal is to help people improve their strength, fitness and healthy habits.</p>
-<p>Whether you train in a gym or from home, take your next step towards a stronger and healthier lifestyle.</p>
-<a href="#training" class="btn">EXPLORE TRAINING</a>
-</div>
-
-</div>
+<section id="about">
+  <div class="sectionTitle"><h2>ABOUT <span class="gold">COACH</span></h2><p>FIRST MADE BY WASIF SHAH JADOON</p></div>
+  <div class="about">
+    <img src="profile.jpg" alt="Wasif Shah Jadoon">
+    <div class="aboutText">
+      <h2 class="gold">WASIF SHAH JADOON</h2>
+      <p>Welcome to WASIF SHAH FITNESS. Our mission is to help people improve their fitness with practical training guidance, realistic goals and personalized support.</p>
+      <p>Whether your goal is fat loss, muscle building, weight management or a stronger and healthier lifestyle, start your journey here.</p>
+      <a class="btn" href="#ai-fitness">START NOW</a>
+    </div>
+  </div>
 </section>
 
-<!-- TRAINING -->
 <section id="training">
-<h2 class="heading">OUR <span class="gold">TRAINING</span></h2>
-<p class="sub">Choose your fitness journey</p>
-
-<div class="cards">
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=700" alt="Gym">
-<div class="card-content">
-<h3>GYM TRAINING</h3>
-<p>Improve strength and fitness with structured gym workouts and exercise guidance.</p>
-</div>
-</div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=700" alt="Personal training">
-<div class="card-content">
-<h3>PERSONAL COACHING</h3>
-<p>Focused fitness guidance and training routines based on your goals.</p>
-</div>
-</div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?w=700" alt="Online fitness">
-<div class="card-content">
-<h3>ONLINE COACHING</h3>
-<p>Train from home with online guidance, workout routines and progress tracking.</p>
-</div>
-</div>
-
-</div>
+  <div class="sectionTitle"><h2>FITNESS <span class="gold">TRAINING</span></h2><p>Build strength with consistency and smart training.</p></div>
+  <div class="cards">
+    <div class="card">
+      <img class="trainingImage" src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?auto=format&fit=crop&w=700&q=80" alt="Strength training">
+      <h3>Strength Training</h3><p>Build strength through progressive and controlled exercise.</p>
+    </div>
+    <div class="card">
+      <img class="trainingImage" src="https://images.unsplash.com/photo-1538805060514-97d9cc17730c?auto=format&fit=crop&w=700&q=80" alt="Cardio">
+      <h3>Cardio Fitness</h3><p>Improve endurance and support overall health.</p>
+    </div>
+    <div class="card">
+      <img class="trainingImage" src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=700&q=80" alt="Gym workout">
+      <h3>Personal Coaching</h3><p>Follow a realistic plan based on your ability and goals.</p>
+    </div>
+  </div>
 </section>
 
-<!-- PROGRAMS -->
-<section class="programs" id="programs">
-<h2 class="heading">FITNESS <span class="gold">PROGRAMS</span></h2>
-<p class="sub">Programs to support your fitness goals</p>
-
-<div class="cards">
-
-<div class="program">
-<h3>💪 MUSCLE BUILDING</h3>
-<p>Build strength and muscle with progressive resistance training.</p>
-<ul><li>Strength workouts</li><li>Exercise guidance</li><li>Progress tracking</li></ul>
-</div>
-
-<div class="program">
-<h3>🔥 FAT LOSS FITNESS</h3>
-<p>Work towards better fitness through regular activity and sustainable habits.</p>
-<ul><li>Cardio training</li><li>Strength exercises</li><li>Healthy habits</li></ul>
-</div>
-
-<div class="program">
-<h3>🥗 DIET & NUTRITION</h3>
-<p>Learn balanced nutrition and healthy food choices to support your goals.</p>
-<ul><li>Balanced meal guidance</li><li>Nutrition basics</li><li>Healthy eating habits</li></ul>
-</div>
-
-</div>
+<section id="programs">
+  <div class="sectionTitle"><h2>OUR <span class="gold">PROGRAMS</span></h2><p>Choose a goal and work towards it safely.</p></div>
+  <div class="cards">
+    <div class="card"><h3>Muscle Building</h3><p>Strength-focused exercise, recovery and balanced nutrition.</p></div>
+    <div class="card"><h3>Fat Loss</h3><p>Healthy habits, activity and sustainable progress.</p></div>
+    <div class="card"><h3>Diet & Nutrition</h3><p>Simple balanced meal guidance and healthy food choices.</p></div>
+    <div class="card"><h3>Aesthetic Fitness</h3><p>Build strength, mobility and a balanced fitness routine.</p></div>
+  </div>
 </section>
 
-<!-- WHY CHOOSE US -->
-<section>
-<h2 class="heading">WHY CHOOSE <span class="gold">US?</span></h2>
-<p class="sub">Your progress matters</p>
+<section id="ai-fitness">
+  <div class="sectionTitle">
+    <h2>YOUR <span class="gold">AI FITNESS PLAN</span></h2>
+    <p>Complete your details. Your personalized plan will appear here automatically.</p>
+  </div>
+  <div class="formWrap">
+    <form id="fitnessForm">
+      <input name="name" maxlength="100" placeholder="Full Name" required>
+      <input name="address" maxlength="250" placeholder="Address" required>
+      <input name="whatsapp" maxlength="25" placeholder="Your WhatsApp Number" required>
+      <input name="age" type="number" min="13" max="100" placeholder="Age" required>
 
-<div class="features">
-<div class="feature"><h3>01</h3><h3>PERSONAL GOALS</h3><p>Training designed around your goals.</p></div>
-<div class="feature"><h3>02</h3><h3>FLEXIBLE TRAINING</h3><p>Gym and online options.</p></div>
-<div class="feature"><h3>03</h3><h3>CONSISTENCY</h3><p>Build habits that last.</p></div>
-<div class="feature"><h3>04</h3><h3>PROGRESS</h3><p>Track your fitness journey.</p></div>
-</div>
+      <select name="goal" required>
+        <option value="">Select Your Fitness Goal</option>
+        <option>Fat Loss</option><option>Weight Gain</option>
+        <option>Muscle Building</option><option>Aesthetic Look</option>
+        <option>General Fitness</option><option>Height and Posture Improvement</option>
+      </select>
+
+      <input name="height" type="number" min="80" max="250" placeholder="Height in cm" required>
+      <input name="weight" type="number" min="20" max="350" step="0.1" placeholder="Current Weight in kg" required>
+      <input name="targetWeight" type="number" min="20" max="350" step="0.1" placeholder="Target Weight in kg" required>
+
+      <select name="experience" required>
+        <option value="">Fitness Experience</option>
+        <option>Beginner</option><option>Intermediate</option><option>Advanced</option>
+      </select>
+
+      <textarea name="health" maxlength="1000" rows="3" placeholder="Medical condition, injury, medication or limitations? Write None if not applicable."></textarea>
+      <textarea name="review" maxlength="1000" rows="3" placeholder="Your review, expectations or extra information"></textarea>
+
+      <label class="consent">
+        <input type="checkbox" name="consent" required>
+        I agree to share these details with the fitness coach to generate my plan and contact me.
+      </label>
+
+      <button id="generateBtn" type="submit">GENERATE MY PERSONAL FITNESS PLAN</button>
+    </form>
+
+    <div id="loading">AI IS CREATING YOUR PERSONAL PLAN... PLEASE WAIT.</div>
+
+    <div id="planBox">
+      <h2 class="gold">YOUR PERSONALIZED FITNESS PLAN</h2>
+      <div id="planText"></div>
+      <button class="btn" onclick="window.print()">PRINT / SAVE PLAN</button>
+      <p class="small">This is general fitness guidance, not medical advice.</p>
+    </div>
+  </div>
+  <p class="small" style="text-align:center;max-width:750px;margin:20px auto">
+    Your details are used to generate your plan and prepare a message for the coach. Do not submit passwords or unnecessary sensitive information. If you have a medical condition or injury, seek professional advice before starting a new exercise plan.
+  </p>
 </section>
-
-<!-- REGISTRATION -->
-<section class="join" id="join">
-<h2 class="heading">JOIN <span class="gold">WASIF SHAH FITNESS</span></h2>
-<p>Fill in your details to enquire about gym or online coaching.</p>
-
-<form onsubmit="sendMessage(event)">
-<input id="name" placeholder="Your Full Name" required>
-<input id="age" type="number" placeholder="Your Age" min="14" max="100" required>
-
-<select id="type" required>
-<option value="">Select Coaching Type</option>
-<option>Gym Training</option>
-<option>Online Fitness Coaching</option>
-<option>Personal Coaching</option>
-</select>
-
-<select id="goal" required>
-<option value="">Your Fitness Goal</option>
-<option>Muscle Building</option>
-<option>Fat Loss</option>
-<option>General Fitness</option>
-<option>Strength Training</option>
-</select>
-
-<input id="phone" type="tel" placeholder="Your WhatsApp Number" required>
-<textarea id="message" rows="4" placeholder="Tell us about your fitness goals"></textarea>
-
-<button type="submit">SUBMIT REGISTRATION →</button>
-</form>
-
-<p><small>Registration details will open in WhatsApp. They are not stored on this website.</small></p>
-</section>
-
-<!-- CONTACT -->
-<section class="contact" id="contact">
-<h2 class="heading">GET IN <span class="gold">TOUCH</span></h2>
-<p>Ready to start your fitness journey?</p>
-<p>Contact WASIF SHAH FITNESS for gym and online coaching enquiries.</p>
-<a class="btn" href="https://wa.me/923462916891">CHAT ON WHATSAPP</a>
-</section>
+</main>
 
 <footer>
-<p>© 2026 <span>WASIF SHAH FITNESS</span>. All Rights Reserved.</p>
-<p>FIRST MADE BY WASIF SHAH JADOON</p>
+  <strong>WASIF SHAH FITNESS</strong>
+  <p>FIRST MADE BY WASIF SHAH JADOON</p>
+  <p>Gym Training | Online Coaching | AI Fitness Plans</p>
+  <p>© 2026 WASIF SHAH FITNESS. All Rights Reserved.</p>
 </footer>
 
-<a class="whatsapp" href="https://wa.me/923462916891" target="_blank">WhatsApp</a>
+<a class="whatsapp" href="https://wa.me/923462916891" target="_blank" rel="noopener">WhatsApp</a>
 
 <script>
-function sendMessage(e){
-e.preventDefault();
+const form = document.getElementById("fitnessForm");
+const btn = document.getElementById("generateBtn");
+const loading = document.getElementById("loading");
+const planBox = document.getElementById("planBox");
+const planText = document.getElementById("planText");
 
-const name=document.getElementById('name').value;
-const age=document.getElementById('age').value;
-const type=document.getElementById('type').value;
-const goal=document.getElementById('goal').value;
-const phone=document.getElementById('phone').value;
-const message=document.getElementById('message').value;
+form.addEventListener("submit", async function(event) {
+  event.preventDefault();
 
-const text=`Fitness Coaching Enquiry
-Name: ${name}
-Age: ${age}
-Coaching: ${type}
-Goal: ${goal}
-Phone: ${phone}
-Message: ${message}`;
+  const client = Object.fromEntries(new FormData(form).entries());
+  delete client.consent;
 
-window.open('https://wa.me/923462916891?text='+encodeURIComponent(text),'_blank');
-}
+  btn.disabled = true;
+  btn.textContent = "CREATING YOUR PLAN...";
+  loading.style.display = "block";
+  planBox.style.display = "none";
+
+  try {
+    const response = await fetch("/api/generate", {
+      method: "POST",
+      headers: {"Content-Type":"application/json"},
+      body: JSON.stringify(client)
+    });
+
+    const result = await response.json();
+    if (!response.ok) throw new Error(result.error || "Could not create plan.");
+
+    planText.textContent = result.plan;
+    planBox.style.display = "block";
+
+    const ownerNumber = "923462916891";
+    const whatsappMessage =
+`NEW FITNESS CLIENT - WASIF SHAH FITNESS
+
+Name: ${client.name}
+Address: ${client.address}
+WhatsApp: ${client.whatsapp}
+Age: ${client.age}
+Goal: ${client.goal}
+Height: ${client.height} cm
+Current Weight: ${client.weight} kg
+Target Weight: ${client.targetWeight} kg
+Experience: ${client.experience}
+Health Notes: ${client.health || "Not provided"}
+Review: ${client.review || "Not provided"}
+
+AI FITNESS PLAN:
+${result.plan}`;
+
+    const whatsappLink = "https://wa.me/" + ownerNumber + "?text=" + encodeURIComponent(whatsappMessage);
+    const waWindow = window.open(whatsappLink, "_blank");
+
+    if (!waWindow) {
+      const link = document.createElement("a");
+      link.href = whatsappLink;
+      link.target = "_blank";
+      link.rel = "noopener";
+      link.textContent = "SEND CLIENT DETAILS TO COACH ON WHATSAPP";
+      link.className = "btn";
+      link.style.marginTop = "15px";
+      planBox.appendChild(link);
+    }
+
+    planBox.scrollIntoView({behavior:"smooth"});
+
+  } catch (error) {
+    alert("Error: " + error.message);
+  } finally {
+    loading.style.display = "none";
+    btn.disabled = false;
+    btn.textContent = "GENERATE MY PERSONAL FITNESS PLAN";
+  }
+});
 </script>
-
 </body>
 </html>

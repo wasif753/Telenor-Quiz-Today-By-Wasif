@@ -4,127 +4,96 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>WASIF SHAH FITNESS | Premium Coaching</title>
+<title>WASIF SHAH FITNESS</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{
-background:#080808;
-color:#fff;
-font-family:'Poppins',sans-serif;
-overflow-x:hidden;
-}
-:root{--gold:#e6b94f;--dark:#101010}
+body{background:#080808;color:white;font-family:Poppins,Arial,sans-serif}
+:root{--gold:#e6b94f}
 header{
 position:sticky;top:0;z-index:100;
-display:flex;justify-content:space-between;
-align-items:center;padding:18px 7%;
-background:#090909ed;
-border-bottom:1px solid #6c5425;
+display:flex;justify-content:space-between;align-items:center;
+padding:18px 7%;background:#090909f5;
+border-bottom:1px solid #6c5425
 }
-.logo{font-family:Oswald;font-size:25px;color:var(--gold);font-weight:700}
-nav{display:flex;gap:20px}
-nav a{color:white;text-decoration:none;font-size:13px}
+.logo{font-family:Oswald;font-size:24px;color:var(--gold);font-weight:700}
+nav{display:flex;gap:18px}
+nav a{color:white;text-decoration:none;font-size:12px}
 nav a:hover{color:var(--gold)}
 .hero{
-min-height:90vh;display:flex;align-items:center;
-padding:80px 8%;
-background:linear-gradient(90deg,#050505 10%,#050505b8 65%,#05050555),
-url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1600') center/cover;
+min-height:90vh;display:flex;align-items:center;padding:65px 8%;
+background:linear-gradient(90deg,#050505 5%,#050505d9 60%,#05050588),
+url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1600') center/cover
 }
-.hero-content{max-width:700px}
-.tag{color:var(--gold);letter-spacing:4px;font-size:13px;font-weight:bold}
-.hero h1{
-font-family:Oswald;font-size:clamp(48px,9vw,95px);
-line-height:1.05;margin:22px 0;
+.hero-content{max-width:720px}
+.profile{
+width:175px;height:175px;object-fit:cover;
+border-radius:50%;border:4px solid var(--gold);
+box-shadow:0 0 35px #e6b94f88;
+margin-bottom:20px
 }
-.hero p{color:#ccc;line-height:1.9;max-width:580px}
+.tag{color:var(--gold);letter-spacing:3px;font-size:12px;font-weight:bold}
+.hero h1{font-family:Oswald;font-size:clamp(48px,9vw,88px);line-height:1.05;margin:20px 0}
 .gold{color:var(--gold)}
+.hero p{color:#ccc;line-height:1.9;max-width:580px}
 .btn{
-display:inline-block;background:var(--gold);color:#090909;
-padding:14px 28px;text-decoration:none;font-weight:800;
-margin-top:25px;border-radius:4px;transition:.3s;
+display:inline-block;background:var(--gold);color:#080808;
+padding:14px 27px;text-decoration:none;font-weight:800;
+margin-top:24px;border-radius:4px;transition:.3s
 }
 .btn:hover{background:white;transform:translateY(-3px)}
-section{padding:85px 8%}
-.heading{
-text-align:center;font-family:Oswald;
-font-size:clamp(32px,5vw,48px);margin-bottom:15px;
-}
-.sub{text-align:center;color:#aaa;margin-bottom:45px}
-.cards{
-display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
-gap:23px;
-}
-.card{
-background:#151515;border:1px solid #382d19;
-border-radius:10px;overflow:hidden;transition:.35s;
-}
-.card:hover{transform:translateY(-8px);border-color:var(--gold)}
+section{padding:80px 8%}
+.heading{text-align:center;font-family:Oswald;font-size:clamp(32px,5vw,47px);margin-bottom:15px}
+.sub{text-align:center;color:#aaa;margin-bottom:40px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:22px}
+.card{background:#151515;border:1px solid #44351e;border-radius:10px;overflow:hidden;transition:.3s}
+.card:hover{transform:translateY(-7px);border-color:var(--gold)}
 .card img{width:100%;height:200px;object-fit:cover}
-.card-content{padding:25px}
+.card-content{padding:24px}
 .card h3{color:var(--gold);font-size:21px;margin-bottom:12px}
 .card p{color:#bbb;font-size:14px;line-height:1.8}
 .about{background:#111}
-.about-box{
-display:grid;grid-template-columns:1fr 1fr;
-gap:45px;align-items:center;
-}
-.about-box img{width:100%;height:420px;object-fit:cover;border-radius:10px}
-.about-text h2{font-family:Oswald;font-size:45px;margin-bottom:20px}
-.about-text p{color:#bbb;line-height:2;margin-bottom:15px}
+.about-box{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.about-box img{width:100%;height:400px;object-fit:cover;border-radius:10px}
+.about-text h2{font-family:Oswald;font-size:43px;margin:20px 0}
+.about-text p{color:#bbb;line-height:1.9;margin-bottom:15px}
+.programs{background:#0d0d0d}
+.program{background:#171717;border:1px solid #49391e;padding:28px;border-radius:10px}
+.program h3{color:var(--gold);margin-bottom:15px}
+.program p,.program li{color:#bbb;line-height:1.9;font-size:14px}
+.program ul{padding-left:20px;margin-top:12px}
 .features{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:18px}
 .feature{background:#151515;padding:25px;text-align:center;border-bottom:2px solid var(--gold)}
-.feature h3{color:var(--gold);margin:10px}
+.feature h3{color:var(--gold);margin:10px 0}
 .feature p{color:#aaa;font-size:13px}
-.programs{background:#0d0d0d}
-.program{
-background:linear-gradient(145deg,#1c1c1c,#101010);
-padding:30px;border:1px solid #44361b;border-radius:10px;
-}
-.program h3{color:var(--gold);font-size:23px;margin-bottom:15px}
-.program p{color:#bbb;line-height:1.8;font-size:14px}
-.program ul{padding-left:20px;color:#ccc;line-height:2;margin-top:15px;font-size:14px}
-.join{
-background:linear-gradient(120deg,#211908,#090909);
-text-align:center;
-}
+.join{background:linear-gradient(120deg,#211908,#090909);text-align:center}
 .join p{color:#ccc;line-height:1.8}
-form{max-width:550px;margin:30px auto;display:grid;gap:15px;text-align:left}
+form{max-width:550px;margin:30px auto;display:grid;gap:14px;text-align:left}
 input,select,textarea{
 width:100%;padding:15px;background:#141414;color:white;
-border:1px solid #665024;border-radius:5px;font-family:inherit;
+border:1px solid #665024;border-radius:5px;font-family:inherit
 }
-input:focus,select:focus,textarea:focus{outline:1px solid var(--gold)}
-button{
-background:var(--gold);color:#080808;padding:16px;
-border:0;font-weight:800;font-size:15px;cursor:pointer;border-radius:5px;
-}
+button{background:var(--gold);color:#080808;padding:16px;border:0;font-weight:800;cursor:pointer;border-radius:5px}
 .contact{text-align:center;background:#101010}
 .contact p{color:#bbb;line-height:2}
-footer{
-text-align:center;padding:30px 15px;background:#050505;
-border-top:1px solid #49391b;color:#999;font-size:13px;
-}
+footer{text-align:center;padding:30px 15px;background:#050505;border-top:1px solid #49391b;color:#999;font-size:13px}
 footer span{color:var(--gold)}
 .whatsapp{
-position:fixed;right:20px;bottom:20px;z-index:200;
+position:fixed;right:18px;bottom:18px;z-index:200;
 background:#20c76a;color:white;text-decoration:none;
-padding:14px 19px;border-radius:40px;font-weight:bold;
-box-shadow:0 5px 25px #000;
+padding:14px 20px;border-radius:40px;font-weight:bold
 }
 @media(max-width:700px){
-header{padding:15px 5%;flex-wrap:wrap;gap:12px}
-nav{width:100%;overflow-x:auto;gap:17px;padding-bottom:5px}
+header{padding:14px 5%;flex-wrap:wrap;gap:12px}
+nav{width:100%;overflow-x:auto;gap:17px}
 nav a{white-space:nowrap}
-.hero{min-height:75vh;padding:60px 6%}
+.hero{min-height:80vh;padding:55px 6%}
 section{padding:65px 6%}
 .about-box{grid-template-columns:1fr}
-.about-box img{height:300px}
-.about-text h2{font-size:35px}
+.about-box img{height:280px}
 }
 </style>
 </head>
@@ -143,72 +112,108 @@ section{padding:65px 6%}
 </nav>
 </header>
 
+<!-- HOME PAGE -->
 <section class="hero" id="home">
 <div class="hero-content">
-<div class="tag">GYM & ONLINE FITNESS COACHING</div>
-<h1>BUILD YOUR <span class="gold">BODY.</span><br>TRANSFORM<br>YOUR LIFE.</h1>
-<p>Welcome to WASIF SHAH FITNESS. Your fitness journey starts here. Build strength, improve your body and become the best version of yourself with dedicated coaching.</p>
+
+<img src="profile.jpg" alt="Wasif Shah Jadoon Profile Photo" class="profile">
+
+<p class="tag">FIRST MADE BY WASIF SHAH JADOON</p>
+
+<h1>BUILD YOUR <span class="gold">BODY.</span><br>
+TRANSFORM YOUR LIFE.</h1>
+
+<p>Welcome to WASIF SHAH FITNESS. Start your fitness journey with gym training and online coaching. Build strength, improve your fitness and become the best version of yourself.</p>
+
 <a href="#join" class="btn">START YOUR JOURNEY →</a>
+
 </div>
 </section>
 
+<!-- ABOUT -->
 <section id="about" class="about">
 <div class="about-box">
-<img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=900" alt="Fitness training">
+
+<img src="profile.jpg" alt="Wasif Shah Jadoon">
+
 <div class="about-text">
-<div class="tag">ABOUT OUR FITNESS COACHING</div>
+<p class="tag">ABOUT OUR FITNESS COACHING</p>
 <h2>YOUR FITNESS.<br><span class="gold">OUR MISSION.</span></h2>
-<p>WASIF SHAH FITNESS is designed to help people improve their fitness through structured training, healthy habits and consistent effort.</p>
-<p>Whether you train in a gym or from home, our goal is to help you move towards a stronger and healthier lifestyle.</p>
+<p>Welcome to WASIF SHAH FITNESS. We believe that fitness is a lifestyle. Our goal is to help people improve their strength, fitness and healthy habits.</p>
+<p>Whether you train in a gym or from home, take your next step towards a stronger and healthier lifestyle.</p>
 <a href="#training" class="btn">EXPLORE TRAINING</a>
 </div>
+
 </div>
 </section>
 
+<!-- TRAINING -->
 <section id="training">
 <h2 class="heading">OUR <span class="gold">TRAINING</span></h2>
 <p class="sub">Choose your fitness journey</p>
+
 <div class="cards">
+
 <div class="card">
-<img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=700" alt="Gym workout">
-<div class="card-content"><h3>GYM TRAINING</h3><p>Improve strength and fitness with structured gym workouts and proper exercise techniques.</p></div>
+<img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=700" alt="Gym">
+<div class="card-content">
+<h3>GYM TRAINING</h3>
+<p>Improve strength and fitness with structured gym workouts and exercise guidance.</p>
 </div>
+</div>
+
 <div class="card">
-<img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=700" alt="Personal fitness">
-<div class="card-content"><h3>PERSONAL COACHING</h3><p>Get focused guidance and a training routine based on your fitness goals and experience.</p></div>
+<img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=700" alt="Personal training">
+<div class="card-content">
+<h3>PERSONAL COACHING</h3>
+<p>Focused fitness guidance and training routines based on your goals.</p>
 </div>
+</div>
+
 <div class="card">
-<img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?w=700" alt="Online workout">
-<div class="card-content"><h3>ONLINE COACHING</h3><p>Train from home with online fitness guidance, workout routines and progress tracking.</p></div>
+<img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?w=700" alt="Online fitness">
+<div class="card-content">
+<h3>ONLINE COACHING</h3>
+<p>Train from home with online guidance, workout routines and progress tracking.</p>
 </div>
+</div>
+
 </div>
 </section>
 
+<!-- PROGRAMS -->
 <section class="programs" id="programs">
 <h2 class="heading">FITNESS <span class="gold">PROGRAMS</span></h2>
-<p class="sub">Programs to support your personal goals</p>
+<p class="sub">Programs to support your fitness goals</p>
+
 <div class="cards">
+
 <div class="program">
 <h3>💪 MUSCLE BUILDING</h3>
-<p>Build strength and muscle with a progressive resistance training routine.</p>
+<p>Build strength and muscle with progressive resistance training.</p>
 <ul><li>Strength workouts</li><li>Exercise guidance</li><li>Progress tracking</li></ul>
 </div>
+
 <div class="program">
 <h3>🔥 FAT LOSS FITNESS</h3>
-<p>Work towards improved fitness with regular activity and sustainable habits.</p>
-<ul><li>Cardio training</li><li>Strength exercises</li><li>Healthy lifestyle habits</li></ul>
+<p>Work towards better fitness through regular activity and sustainable habits.</p>
+<ul><li>Cardio training</li><li>Strength exercises</li><li>Healthy habits</li></ul>
 </div>
+
 <div class="program">
 <h3>🥗 DIET & NUTRITION</h3>
-<p>Learn about balanced nutrition and healthy food choices to support your goals.</p>
+<p>Learn balanced nutrition and healthy food choices to support your goals.</p>
 <ul><li>Balanced meal guidance</li><li>Nutrition basics</li><li>Healthy eating habits</li></ul>
 </div>
+
 </div>
 </section>
 
+<!-- WHY CHOOSE US -->
 <section>
 <h2 class="heading">WHY CHOOSE <span class="gold">US?</span></h2>
 <p class="sub">Your progress matters</p>
+
 <div class="features">
 <div class="feature"><h3>01</h3><h3>PERSONAL GOALS</h3><p>Training designed around your goals.</p></div>
 <div class="feature"><h3>02</h3><h3>FLEXIBLE TRAINING</h3><p>Gym and online options.</p></div>
@@ -217,18 +222,22 @@ section{padding:65px 6%}
 </div>
 </section>
 
+<!-- REGISTRATION -->
 <section class="join" id="join">
 <h2 class="heading">JOIN <span class="gold">WASIF SHAH FITNESS</span></h2>
 <p>Fill in your details to enquire about gym or online coaching.</p>
+
 <form onsubmit="sendMessage(event)">
 <input id="name" placeholder="Your Full Name" required>
 <input id="age" type="number" placeholder="Your Age" min="14" max="100" required>
+
 <select id="type" required>
 <option value="">Select Coaching Type</option>
 <option>Gym Training</option>
 <option>Online Fitness Coaching</option>
 <option>Personal Coaching</option>
 </select>
+
 <select id="goal" required>
 <option value="">Your Fitness Goal</option>
 <option>Muscle Building</option>
@@ -236,13 +245,17 @@ section{padding:65px 6%}
 <option>General Fitness</option>
 <option>Strength Training</option>
 </select>
+
 <input id="phone" type="tel" placeholder="Your WhatsApp Number" required>
 <textarea id="message" rows="4" placeholder="Tell us about your fitness goals"></textarea>
+
 <button type="submit">SUBMIT REGISTRATION →</button>
 </form>
-<p><small>Submitting opens WhatsApp with your details. Your enquiry is not stored on this website.</small></p>
+
+<p><small>Registration details will open in WhatsApp. They are not stored on this website.</small></p>
 </section>
 
+<!-- CONTACT -->
 <section class="contact" id="contact">
 <h2 class="heading">GET IN <span class="gold">TOUCH</span></h2>
 <p>Ready to start your fitness journey?</p>
@@ -252,7 +265,7 @@ section{padding:65px 6%}
 
 <footer>
 <p>© 2026 <span>WASIF SHAH FITNESS</span>. All Rights Reserved.</p>
-<p>BUILD YOUR BODY • TRANSFORM YOUR LIFE</p>
+<p>FIRST MADE BY WASIF SHAH JADOON</p>
 </footer>
 
 <a class="whatsapp" href="https://wa.me/923462916891" target="_blank">WhatsApp</a>
@@ -260,14 +273,23 @@ section{padding:65px 6%}
 <script>
 function sendMessage(e){
 e.preventDefault();
+
 const name=document.getElementById('name').value;
 const age=document.getElementById('age').value;
 const type=document.getElementById('type').value;
 const goal=document.getElementById('goal').value;
 const phone=document.getElementById('phone').value;
 const message=document.getElementById('message').value;
-const text=`Fitness Coaching Enquiry%0AName: ${encodeURIComponent(name)}%0AAge: ${encodeURIComponent(age)}%0ACoaching: ${encodeURIComponent(type)}%0AGoal: ${encodeURIComponent(goal)}%0APhone: ${encodeURIComponent(phone)}%0AMessage: ${encodeURIComponent(message)}`;
-window.open('https://wa.me/923462916891?text='+text,'_blank');
+
+const text=`Fitness Coaching Enquiry
+Name: ${name}
+Age: ${age}
+Coaching: ${type}
+Goal: ${goal}
+Phone: ${phone}
+Message: ${message}`;
+
+window.open('https://wa.me/923462916891?text='+encodeURIComponent(text),'_blank');
 }
 </script>
 

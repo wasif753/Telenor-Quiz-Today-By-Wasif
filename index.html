@@ -6,19 +6,24 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!-- WEBSITE SEO -->
-<title>Telenor Quiz Pakistan | Daily Quiz Answers 2026</title>
-<meta name="description" content="Get daily Telenor quiz answers in Pakistan. Explore quiz questions, four options, correct answers and My Telenor app information.">
-<meta name="keywords" content="Telenor Quiz Pakistan, Telenor Daily Quiz Answers, My Telenor, Free MBs Pakistan">
+<title>Telenor Quiz Today By Wasif | Daily Quiz Answers Pakistan</title>
+<meta name="description" content="Telenor Quiz Today By Wasif provides daily Telenor quiz questions, four options, correct answers and My Telenor App information in Pakistan.">
+<meta name="keywords" content="Telenor Quiz Today By Wasif, Telenor Quiz Pakistan, Daily Telenor Quiz Answers, My Telenor Quiz, Telenor Daily Answers">
 <meta name="author" content="Wasif Shah Jadoon">
+<meta name="robots" content="index, follow">
 <meta name="theme-color" content="#080b14">
 
 <!-- GOOGLE SEARCH CONSOLE VERIFICATION -->
 <meta name="google-site-verification" content="L78btOyhUxKDEd8NeEgvkfHkNK1_WmHz39LeXgQj18k" />
 
+<!-- WEBSITE URL -->
+<link rel="canonical" href="https://wasif753.github.io/Telenor-Quiz-Today-By-Wasif/">
+
 <!-- SOCIAL SHARING -->
-<meta property="og:title" content="Telenor Quiz Pakistan">
-<meta property="og:description" content="Daily Telenor Quiz Answers and Information">
+<meta property="og:title" content="Telenor Quiz Today By Wasif">
+<meta property="og:description" content="Daily Telenor Quiz Answers and Information in Pakistan.">
 <meta property="og:type" content="website">
+<meta property="og:url" content="https://wasif753.github.io/Telenor-Quiz-Today-By-Wasif/">
 
 <style>
 :root {
@@ -153,8 +158,7 @@ nav a:hover {
     justify-content: center;
     text-align: center;
     padding: 65px 18px;
-    background:
-        radial-gradient(ellipse at center, #1a3558 0%, #101a2b 40%, #080b14 80%);
+    background: radial-gradient(ellipse at center, #1a3558 0%, #101a2b 40%, #080b14 80%);
     position: relative;
     overflow: hidden;
 }
@@ -684,7 +688,7 @@ footer strong {
 
 <!-- HEADER -->
 <header>
-    <div class="logo">TELENOR QUIZ PAKISTAN</div>
+    <div class="logo">TELENOR QUIZ TODAY BY WASIF</div>
     <p class="header-subtitle">DAILY QUIZ • ANSWERS • INFORMATION</p>
 </header>
 
@@ -920,7 +924,7 @@ footer strong {
 <!-- FOOTER -->
 <footer>
 
-    <div class="footer-logo">TELENOR QUIZ PAKISTAN</div>
+    <div class="footer-logo">TELENOR QUIZ TODAY BY WASIF</div>
 
     <div class="footer-links">
         <a href="#home">Home</a>
@@ -943,6 +947,19 @@ footer strong {
 
 <!-- QUIZ DATA LOADER -->
 <script>
+
+function escapeHTML(value) {
+    return String(value ?? "").replace(/[&<>"']/g, function(char) {
+        const entities = {
+            "&": "&amp;",
+            "<": "&lt;",
+            ">": "&gt;",
+            '"': "&quot;",
+            "'": "&#39;"
+        };
+        return entities[char];
+    });
+}
 
 async function loadQuiz() {
 
@@ -970,7 +987,9 @@ async function loadQuiz() {
 
         if (data.date !== pakistanDate) {
             box.innerHTML =
-                '<div class="empty-message">Today\'s quiz answers have not been added yet. Please check back later.</div>';
+                '<div class="empty-message">' +
+                "Today's quiz answers are not available yet. Please check again later." +
+                "</div>";
             return;
         }
 
@@ -989,7 +1008,7 @@ async function loadQuiz() {
 
             const number = document.createElement("div");
             number.className = "question-number";
-            number.textContent = "QUESTION " + String(index + 1).padStart(2, "0");
+            number.textContent = "QUESTION " + (index + 1);
 
             const heading = document.createElement("h3");
             heading.textContent = item.question || "Question";
@@ -998,34 +1017,31 @@ async function loadQuiz() {
             question.appendChild(heading);
 
             if (Array.isArray(item.options)) {
-
                 item.options.forEach(option => {
-
                     const optionDiv = document.createElement("div");
                     optionDiv.className = "option";
                     optionDiv.textContent = option;
-
                     question.appendChild(optionDiv);
-
                 });
-
             }
 
-            const answer = document.createElement("div");
-            answer.className = "correct";
-            answer.textContent = "✓ Correct Answer: " + (item.answer || "Not provided");
+            const correct = document.createElement("div");
+            correct.className = "correct";
+            correct.textContent = "✓ Correct Answer: " + (item.answer || "Not provided");
 
-            question.appendChild(answer);
+            question.appendChild(correct);
             box.appendChild(question);
 
         });
 
     } catch (error) {
 
-        box.innerHTML =
-            '<div class="empty-message">Unable to load quiz answers. Please check your answers.json file and try again.</div>';
-
         console.error(error);
+
+        box.innerHTML =
+            '<div class="empty-message">' +
+            "Unable to load quiz answers. Please check answers.json and try again." +
+            "</div>";
 
     }
 

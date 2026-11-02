@@ -1,25 +1,56 @@
+
 {
   "date": "2026-11-02",
   "questions": [
     {
-      "question": "Telenor Daily Quiz Question 1?",
-      "answer": "Write Correct Answer 1"
+      "question": "Who is the founder of Pakistan?",
+      "options": [
+        "1. Quaid-e-Azam",
+        "2. Allama Iqbal",
+        "3. Hafeez Jalandhari",
+        "4. Zia-ul-Haq"
+      ],
+      "answer": "Quaid-e-Azam"
     },
     {
-      "question": "Telenor Daily Quiz Question 2?",
-      "answer": "Write Correct Answer 2"
+      "question": "Write your second question here?",
+      "options": [
+        "1. Option One",
+        "2. Option Two",
+        "3. Option Three",
+        "4. Option Four"
+      ],
+      "answer": "Correct Answer"
     },
     {
-      "question": "Telenor Daily Quiz Question 3?",
-      "answer": "Write Correct Answer 3"
+      "question": "Write your third question here?",
+      "options": [
+        "1. Option One",
+        "2. Option Two",
+        "3. Option Three",
+        "4. Option Four"
+      ],
+      "answer": "Correct Answer"
     },
     {
-      "question": "Telenor Daily Quiz Question 4?",
-      "answer": "Write Correct Answer 4"
+      "question": "Write your fourth question here?",
+      "options": [
+        "1. Option One",
+        "2. Option Two",
+        "3. Option Three",
+        "4. Option Four"
+      ],
+      "answer": "Correct Answer"
     },
     {
-      "question": "Telenor Daily Quiz Question 5?",
-      "answer": "Write Correct Answer 5"
+      "question": "Write your fifth question here?",
+      "options": [
+        "1. Option One",
+        "2. Option Two",
+        "3. Option Three",
+        "4. Option Four"
+      ],
+      "answer": "Correct Answer"
     }
   ]
 }

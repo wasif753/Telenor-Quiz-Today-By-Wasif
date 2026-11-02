@@ -4,185 +4,1090 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Telenor Daily Quiz Answers Pakistan</title>
-<meta name="description" content="Daily Telenor quiz questions and answers in Pakistan.">
-<meta name="theme-color" content="#0875e1">
+<meta name="theme-color" content="#061b49">
+
+<title>Telenor Daily Quiz Answers Pakistan | Wasif Shah</title>
+<meta name="description" content="Check daily Telenor quiz questions, four options and correct answers in Pakistan. Step-by-step quiz guide and My Telenor app download.">
+<meta name="keywords" content="Telenor Quiz, Telenor Daily Answers, My Telenor Quiz Answers Pakistan">
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:Arial,sans-serif;background:#f1f7ff;color:#14243a}
-header{
-background:linear-gradient(135deg,#0056b3,#149cff);
-color:white;text-align:center;padding:30px 15px 40px;
-border-radius:0 0 30px 30px
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+:root {
+  --navy: #061b49;
+  --blue: #0866e9;
+  --cyan: #31c9ff;
+  --light: #eef6ff;
+  --text: #142747;
+  --muted: #71819b;
+  --white: #ffffff;
 }
-.logo{font-size:27px;font-weight:900;letter-spacing:1px}
-header p{margin-top:10px;color:#e6f4ff}
-.container{max-width:850px;margin:auto;padding:18px}
-.datebox,.info{
-background:white;padding:20px;border-radius:17px;
-margin:15px 0;box-shadow:0 5px 20px #0875e115
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-.datebox{text-align:center}
-.datebox h2,.info h3{color:#0875e1}
-.datebox p{margin-top:8px;color:#66778c}
-.status{
-background:#e1f1ff;color:#0756a4;padding:14px;
-border-radius:12px;text-align:center;font-weight:bold;
-margin:18px 0
+
+html {
+  scroll-behavior: smooth;
 }
-.question{
-background:white;padding:20px;margin:15px 0;
-border-radius:17px;border:1px solid #e0edfa;
-box-shadow:0 5px 18px #0875e10d
+
+body {
+  font-family: 'Inter', Arial, sans-serif;
+  background: #f4f8ff;
+  color: var(--text);
+  overflow-x: hidden;
 }
-.qtitle{color:#0875e1;font-weight:bold;margin-bottom:12px}
-.question h3{font-size:17px;line-height:1.5;margin-bottom:14px}
-.answer{background:#e7f7ee;color:#087b43;padding:13px;border-radius:10px;font-weight:bold}
-.copy{
-margin-top:12px;border:0;background:#0875e1;color:white;
-padding:11px 17px;border-radius:9px;font-weight:bold;cursor:pointer
+
+a {
+  text-decoration: none;
 }
-.gallery-title{text-align:center;color:#0875e1;margin:28px 0 15px}
-.gallery{
-display:grid;grid-template-columns:repeat(2,1fr);gap:13px
+
+/* NAVIGATION */
+
+.navbar {
+  width: 100%;
+  padding: 17px 6%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #061b49;
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 5px 25px #001b4d35;
 }
-.gallery img{
-width:100%;height:210px;object-fit:cover;
-border-radius:16px;border:3px solid white;
-box-shadow:0 5px 18px #0875e125
+
+.brand {
+  font-size: 20px;
+  font-weight: 900;
+  letter-spacing: 1px;
 }
-.info{line-height:1.8}
-footer{text-align:center;padding:25px;color:#64748b;font-size:13px}
-@media(min-width:650px){
-.gallery{grid-template-columns:repeat(4,1fr)}
-.gallery img{height:220px}
+
+.brand span {
+  color: #39caff;
+}
+
+.nav-link {
+  color: white;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 10px 15px;
+  border: 1px solid #ffffff35;
+  border-radius: 30px;
+}
+
+/* HERO */
+
+.hero {
+  min-height: 550px;
+  padding: 95px 7% 85px;
+  text-align: center;
+  color: white;
+  background:
+    radial-gradient(circle at 15% 20%, #1c8fff66, transparent 32%),
+    radial-gradient(circle at 85% 75%, #16caff55, transparent 30%),
+    linear-gradient(135deg, #041536, #0755bd 60%, #061b49);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before,
+.hero::after {
+  content: "";
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  border: 1px solid #ffffff20;
+  border-radius: 50%;
+}
+
+.hero::before {
+  top: -100px;
+  right: -70px;
+}
+
+.hero::after {
+  bottom: -150px;
+  left: -70px;
+  width: 350px;
+  height: 350px;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 850px;
+  margin: auto;
+}
+
+.hero-tag {
+  display: inline-block;
+  background: #ffffff18;
+  border: 1px solid #ffffff50;
+  padding: 10px 19px;
+  border-radius: 30px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  margin-bottom: 27px;
+}
+
+.hero h1 {
+  font-size: clamp(38px, 7vw, 72px);
+  line-height: 1.08;
+  font-weight: 900;
+  letter-spacing: -2px;
+}
+
+.hero h1 span {
+  color: #55d7ff;
+}
+
+.hero p {
+  max-width: 620px;
+  margin: 24px auto 30px;
+  color: #d6eaff;
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 13px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-block;
+  padding: 15px 24px;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 800;
+  transition: .3s;
+}
+
+.btn:hover {
+  transform: translateY(-4px);
+}
+
+.btn-primary {
+  background: white;
+  color: #0755bd;
+  box-shadow: 0 10px 30px #00000030;
+}
+
+.btn-outline {
+  border: 1px solid #ffffff80;
+  color: white;
+  background: #ffffff12;
+}
+
+/* STATS */
+
+.stats {
+  width: 90%;
+  max-width: 900px;
+  margin: -35px auto 55px;
+  position: relative;
+  z-index: 5;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.stat {
+  background: white;
+  text-align: center;
+  padding: 25px 10px;
+  border-radius: 17px;
+  box-shadow: 0 10px 35px #123b7020;
+  border: 1px solid #e4edfa;
+}
+
+.stat strong {
+  display: block;
+  font-size: 23px;
+  color: #075fce;
+  margin-bottom: 7px;
+}
+
+.stat span {
+  font-size: 10px;
+  color: var(--muted);
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+/* GENERAL SECTIONS */
+
+.container {
+  width: 90%;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.section {
+  padding: 35px 0 55px;
+}
+
+.section-heading {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.section-heading small {
+  color: #0874e9;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 3px;
+}
+
+.section-heading h2 {
+  font-size: clamp(26px, 5vw, 38px);
+  margin-top: 10px;
+  color: #071f50;
+  font-weight: 900;
+}
+
+.section-heading p {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.8;
+  max-width: 600px;
+  margin: 12px auto 0;
+}
+
+/* QUIZ DATE */
+
+.date-card {
+  background: linear-gradient(120deg, #ffffff, #eaf4ff);
+  padding: 25px;
+  border-radius: 20px;
+  text-align: center;
+  border: 1px solid #d8eaff;
+  box-shadow: 0 10px 30px #164b8510;
+  margin-bottom: 22px;
+}
+
+.date-card h3 {
+  color: #075bc5;
+  font-size: 21px;
+}
+
+#todayDate {
+  margin-top: 10px;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+#status {
+  margin-top: 12px;
+  color: #0875d9;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+/* QUESTIONS */
+
+.question {
+  background: white;
+  padding: 25px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  border: 1px solid #e0eafa;
+  box-shadow: 0 8px 28px #163d7110;
+  transition: .3s;
+}
+
+.question:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 35px #163d711c;
+}
+
+.qtitle {
+  display: inline-block;
+  background: #e5f2ff;
+  color: #0866d6;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 1px;
+  margin-bottom: 16px;
+}
+
+.question h3 {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #102b54;
+}
+
+.options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 11px;
+  margin-top: 19px;
+}
+
+.option {
+  background: #f1f7ff;
+  border: 1px solid #d8eaff;
+  padding: 15px;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #25466d;
+  line-height: 1.5;
+}
+
+.answer {
+  margin-top: 18px;
+  padding: 16px;
+  background: linear-gradient(110deg, #e5fff0, #f2fff7);
+  border: 1px solid #b8f0cf;
+  color: #087a43;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 1.5;
+}
+
+.empty-message {
+  background: white;
+  padding: 25px;
+  text-align: center;
+  border-radius: 15px;
+  color: #64758b;
+  line-height: 1.8;
+}
+
+/* HOW TO PLAY */
+
+.steps {
+  display: grid;
+  gap: 15px;
+}
+
+.step {
+  display: flex;
+  align-items: flex-start;
+  gap: 17px;
+  padding: 22px;
+  background: white;
+  border-radius: 17px;
+  border: 1px solid #e0eafa;
+  box-shadow: 0 7px 25px #1234560c;
+}
+
+.step-number {
+  min-width: 43px;
+  height: 43px;
+  display: grid;
+  place-items: center;
+  border-radius: 13px;
+  color: white;
+  font-size: 17px;
+  font-weight: 900;
+  background: linear-gradient(135deg, #0875ed, #25c5ff);
+}
+
+.step h3 {
+  color: #0a2d62;
+  font-size: 15px;
+  margin-bottom: 7px;
+}
+
+.step p {
+  color: #71819b;
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+/* APP DOWNLOAD */
+
+.app-section {
+  padding: 55px 25px;
+  margin: 20px auto 60px;
+  border-radius: 25px;
+  text-align: center;
+  color: white;
+  background:
+    radial-gradient(circle at 80% 20%, #37c9ff55, transparent 35%),
+    linear-gradient(130deg, #04183e, #075bc5);
+  box-shadow: 0 15px 40px #0756b82b;
+}
+
+.app-icon {
+  width: 75px;
+  height: 75px;
+  margin: 0 auto 20px;
+  display: grid;
+  place-items: center;
+  background: #ffffff20;
+  border: 1px solid #ffffff50;
+  border-radius: 22px;
+  font-size: 35px;
+}
+
+.app-section h2 {
+  font-size: clamp(25px, 5vw, 37px);
+  font-weight: 900;
+}
+
+.app-section p {
+  max-width: 600px;
+  margin: 15px auto 25px;
+  color: #d9ebff;
+  font-size: 13px;
+  line-height: 1.9;
+}
+
+.download-btn {
+  display: inline-block;
+  background: white;
+  color: #0755bd;
+  padding: 16px 26px;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 900;
+  transition: .3s;
+}
+
+.download-btn:hover {
+  transform: scale(1.04);
+}
+
+/* GALLERY */
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 13px;
+}
+
+.gallery img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 17px;
+  border: 3px solid white;
+  box-shadow: 0 8px 25px #12345618;
+  transition: .3s;
+}
+
+.gallery img:hover {
+  transform: scale(1.025);
+}
+
+/* FAQ */
+
+.faq-list {
+  display: grid;
+  gap: 12px;
+}
+
+.faq {
+  background: white;
+  padding: 20px;
+  border-radius: 14px;
+  border: 1px solid #e0eafa;
+}
+
+.faq h3 {
+  font-size: 14px;
+  color: #0a3b7b;
+  margin-bottom: 9px;
+}
+
+.faq p {
+  font-size: 13px;
+  color: #71819b;
+  line-height: 1.8;
+}
+
+/* NOTICE */
+
+.notice {
+  background: #fff8e8;
+  border: 1px solid #ffe0a3;
+  padding: 18px;
+  border-radius: 14px;
+  color: #76521a;
+  font-size: 12px;
+  line-height: 1.8;
+  margin: 15px 0;
+}
+
+/* FOOTER */
+
+footer {
+  background: #041532;
+  color: white;
+  padding: 55px 7% 25px;
+  text-align: center;
+}
+
+.footer-brand {
+  font-size: 25px;
+  font-weight: 900;
+}
+
+.footer-brand span {
+  color: #38caff;
+}
+
+footer p {
+  color: #a8bedc;
+  font-size: 12px;
+  line-height: 1.9;
+  margin: 13px auto;
+  max-width: 550px;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 18px;
+  margin: 22px 0;
+}
+
+.footer-links a {
+  color: #d8eaff;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.copyright {
+  border-top: 1px solid #ffffff20;
+  margin-top: 30px;
+  padding-top: 20px;
+  font-size: 11px;
+  color: #8da5c7;
+}
+
+/* MOBILE */
+
+@media(max-width: 600px) {
+  .navbar {
+    padding: 15px 5%;
+  }
+
+  .brand {
+    font-size: 16px;
+  }
+
+  .hero {
+    min-height: 500px;
+    padding: 80px 6% 70px;
+  }
+
+  .hero h1 {
+    letter-spacing: -1px;
+  }
+
+  .stats {
+    gap: 8px;
+  }
+
+  .stat {
+    padding: 20px 5px;
+  }
+
+  .stat strong {
+    font-size: 19px;
+  }
+
+  .stat span {
+    font-size: 8px;
+  }
+
+  .options {
+    grid-template-columns: 1fr;
+  }
+
+  .question {
+    padding: 20px;
+  }
+
+  .gallery img {
+    height: 175px;
+  }
+
+  .step {
+    padding: 17px;
+  }
 }
 </style>
 </head>
 
 <body>
 
-<header>
-<div class="logo">TELENOR QUIZ</div>
-<p>Daily Questions & Answers Pakistan</p>
-</header>
+<nav class="navbar">
+  <div class="brand">TELENOR<span> QUIZ</span></div>
+  <a class="nav-link" href="#answers">VIEW ANSWERS ↓</a>
+</nav>
 
-<main class="container">
+<!-- HERO -->
 
-<section class="datebox">
-<h2>Today's Telenor Answers</h2>
-<p id="todayDate">Loading date...</p>
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-tag">PAKISTAN'S DAILY QUIZ GUIDE</div>
+
+    <h1>
+      DAILY QUIZ<br>
+      <span>ANSWERS</span>
+    </h1>
+
+    <p>
+      Welcome to Telenor Daily Quiz Answers.
+      Find daily questions, all four options,
+      correct answers and an easy step-by-step guide.
+    </p>
+
+    <div class="hero-buttons">
+      <a href="#answers" class="btn btn-primary">
+        EXPLORE ANSWERS
+      </a>
+
+      <a href="#how-to-play" class="btn btn-outline">
+        HOW TO PLAY
+      </a>
+    </div>
+  </div>
 </section>
 
-<div class="status" id="status">Loading today's answers...</div>
-<section id="questions"></section>
+<!-- STATS -->
 
-<h2 class="gallery-title">MY PHOTO GALLERY</h2>
-<section class="gallery">
-<img src="profile.jpg" alt="Profile photo 1">
-<img src="profile(2).jpg" alt="Profile photo 2">
-<img src="profile(3).jpg" alt="Profile photo 3">
-<img src="profile(4).jpg" alt="Profile photo 4">
-<img src="profile(5).jpg" alt="Profile photo 5">
-<img src="profile(6).jpg" alt="Profile photo 6">
-<img src="profile(7).jpg" alt="Profile photo 7">
-<img src="profile(8).jpg" alt="Profile photo 8">
+<section class="stats">
+  <div class="stat">
+    <strong>DAILY</strong>
+    <span>QUIZ UPDATES</span>
+  </div>
+
+  <div class="stat">
+    <strong>4</strong>
+    <span>OPTIONS PER QUESTION</span>
+  </div>
+
+  <div class="stat">
+    <strong>24/7</strong>
+    <span>WEBSITE ACCESS</span>
+  </div>
 </section>
 
-<section class="info">
-<h3>How to Use</h3>
-1. Open My Telenor App.<br>
-2. Open the daily quiz section.<br>
-3. Match the question with this website.<br>
-4. Select the matching answer in your app.
+<!-- ANSWERS -->
+
+<section class="container section" id="answers">
+
+  <div class="section-heading">
+    <small>YOUR DAILY QUIZ DESTINATION</small>
+    <h2>Today's Correct Answers</h2>
+    <p>
+      Explore the questions, read all four options
+      and check the correct answer below each question.
+    </p>
+  </div>
+
+  <div class="date-card">
+    <h3>Today's Quiz Updates</h3>
+    <div id="todayDate"></div>
+    <div id="status">Loading answers...</div>
+  </div>
+
+  <div id="questions"></div>
+
 </section>
 
-<section class="info">
-<h3>Important Notice</h3>
-This is an independent informational website. It is not
-affiliated with or endorsed by Telenor Pakistan.
-Please verify answers with your app.
+<!-- HOW TO PLAY -->
+
+<section class="container section" id="how-to-play">
+
+  <div class="section-heading">
+    <small>SIMPLE STEP-BY-STEP GUIDE</small>
+    <h2>How to Play Telenor Quiz?</h2>
+    <p>
+      Follow these simple steps to find the quiz
+      in the My Telenor App. App screens and menus
+      may change with updates.
+    </p>
+  </div>
+
+  <div class="steps">
+
+    <div class="step">
+      <div class="step-number">01</div>
+      <div>
+        <h3>Download My Telenor App</h3>
+        <p>
+          Install the official My Telenor App
+          from Google Play Store on your Android phone.
+        </p>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-number">02</div>
+      <div>
+        <h3>Open the Application</h3>
+        <p>
+          Open My Telenor App and sign in using
+          your Telenor number and the verification
+          method shown in the app.
+        </p>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-number">03</div>
+      <div>
+        <h3>Find the Quiz or Rewards Section</h3>
+        <p>
+          Look for available sections such as
+          Test Your Skills, Play & Win, Games
+          or Rewards. The exact location can vary.
+        </p>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-number">04</div>
+      <div>
+        <h3>Open the Available Quiz</h3>
+        <p>
+          If a quiz is available for your account,
+          open it and read the instructions carefully.
+        </p>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-number">05</div>
+      <div>
+        <h3>Read the Questions</h3>
+        <p>
+          Read each question and check the four
+          answer options before selecting your answer.
+        </p>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-number">06</div>
+      <div>
+        <h3>Select Your Answer</h3>
+        <p>
+          Choose the option you believe is correct
+          and submit it if the quiz asks you to do so.
+        </p>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-number">07</div>
+      <div>
+        <h3>Check Your Result</h3>
+        <p>
+          Follow the result or reward instructions
+          displayed inside the official app.
+        </p>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-number">08</div>
+      <div>
+        <h3>Visit This Website Again</h3>
+        <p>
+          Return to this website to check the
+          available daily questions and answers.
+        </p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="notice">
+    <strong>Important:</strong>
+    Quiz availability, rewards and rules are controlled
+    by Telenor. They may change or may not be available
+    to every account. Always follow the instructions
+    inside the official app.
+  </div>
+
 </section>
 
-</main>
+<!-- APP DOWNLOAD -->
+
+<section class="container">
+  <div class="app-section">
+
+    <div class="app-icon">📱</div>
+
+    <h2>Download My Telenor App</h2>
+
+    <p>
+      Get the official My Telenor App from Google Play.
+      Manage your Telenor account, explore available offers
+      and access the features provided by Telenor.
+    </p>
+
+    <a
+      class="download-btn"
+      href="https://play.google.com/store/apps/details?id=com.telenor.pakistan.mytelenor"
+      target="_blank"
+      rel="noopener"
+    >
+      DOWNLOAD ON PLAY STORE ↗
+    </a>
+
+  </div>
+</section>
+
+<!-- GALLERY -->
+
+<section class="container section">
+
+  <div class="section-heading">
+    <small>OUR PHOTO COLLECTION</small>
+    <h2>Profile Gallery</h2>
+    <p>Explore our photo collection.</p>
+  </div>
+
+  <div class="gallery">
+    <img src="profile.jpg" alt="Profile photo 1" loading="lazy">
+    <img src="profile(2).jpg" alt="Profile photo 2" loading="lazy">
+    <img src="profile(3).jpg" alt="Profile photo 3" loading="lazy">
+    <img src="profile(4).jpg" alt="Profile photo 4" loading="lazy">
+    <img src="profile(5).jpg" alt="Profile photo 5" loading="lazy">
+    <img src="profile(6).jpg" alt="Profile photo 6" loading="lazy">
+    <img src="profile(7).jpg" alt="Profile photo 7" loading="lazy">
+    <img src="profile(8).jpg" alt="Profile photo 8" loading="lazy">
+  </div>
+
+</section>
+
+<!-- FAQ -->
+
+<section class="container section">
+
+  <div class="section-heading">
+    <small>NEED HELP?</small>
+    <h2>Frequently Asked Questions</h2>
+    <p>Some useful information about this website.</p>
+  </div>
+
+  <div class="faq-list">
+
+    <div class="faq">
+      <h3>1. What is this website?</h3>
+      <p>
+        This is an independent website that displays
+        daily quiz questions, options and answers
+        added to its answers file.
+      </p>
+    </div>
+
+    <div class="faq">
+      <h3>2. Are answers updated automatically?</h3>
+      <p>
+        The website loads answers automatically
+        from its answers.json file. The actual
+        questions and answers must be added and updated.
+      </p>
+    </div>
+
+    <div class="faq">
+      <h3>3. Why are today's answers not showing?</h3>
+      <p>
+        The answers file may not have been updated,
+        the date may be incorrect, or the file may
+        contain an error.
+      </p>
+    </div>
+
+    <div class="faq">
+      <h3>4. Is My Telenor App free to download?</h3>
+      <p>
+        The app is listed on Google Play. Check
+        the Play Store listing for current details.
+        Some services or mobile data may have charges.
+      </p>
+    </div>
+
+    <div class="faq">
+      <h3>5. Is this the official Telenor website?</h3>
+      <p>
+        No. This is an independent quiz information
+        website and is not affiliated with or endorsed
+        by Telenor Pakistan.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- FOOTER -->
 
 <footer>
-© <span id="year"></span> Telenor Daily Quiz Answers
+
+  <div class="footer-brand">
+    TELENOR<span> QUIZ</span>
+  </div>
+
+  <p>
+    Your daily destination for quiz questions,
+    answer options and useful quiz guidance.
+  </p>
+
+  <div class="footer-links">
+    <a href="#answers">Daily Answers</a>
+    <a href="#how-to-play">How to Play</a>
+    <a href="#top">Home</a>
+  </div>
+
+  <p>
+    My Telenor App is owned and operated by
+    Telenor Pakistan. This website is independent.
+  </p>
+
+  <div class="copyright">
+    © 2026 Telenor Quiz Guide.
+    Designed by Wasif Shah Jadoon.
+  </div>
+
 </footer>
 
 <script>
-const pakistanDate = new Intl.DateTimeFormat("en-CA",{
-timeZone:"Asia/Karachi",
-year:"numeric",month:"2-digit",day:"2-digit"
-}).format(new Date());
+
+function getPakistanDate() {
+
+  const parts = new Intl.DateTimeFormat("en-GB", {
+    timeZone: "Asia/Karachi",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit"
+  }).formatToParts(new Date());
+
+  const values = {};
+
+  parts.forEach(part => {
+    values[part.type] = part.value;
+  });
+
+  return values.year + "-" +
+    values.month + "-" +
+    values.day;
+}
+
+const pakistanDate = getPakistanDate();
 
 document.getElementById("todayDate").textContent =
-new Date().toLocaleDateString("en-GB",{
-timeZone:"Asia/Karachi",
-day:"numeric",month:"long",year:"numeric"
-});
+  "Pakistan Date: " + pakistanDate;
 
-document.getElementById("year").textContent =
-new Date().getFullYear();
+async function loadAnswers() {
 
-async function loadAnswers(){
-const status=document.getElementById("status");
-const area=document.getElementById("questions");
+  const status = document.getElementById("status");
+  const area = document.getElementById("questions");
 
-try{
-const response=await fetch("./answers.json?date="+Date.now());
-if(!response.ok) throw new Error("File not found");
+  area.innerHTML = "";
 
-const data=await response.json();
+  try {
 
-if(data.date!==pakistanDate ||
-!Array.isArray(data.questions) ||
-data.questions.length===0){
-status.textContent="Today's answers are not updated yet.";
-return;
+    const response = await fetch(
+      "./answers.json?update=" + Date.now()
+    );
+
+    if (!response.ok) {
+      throw new Error("Answers file not found");
+    }
+
+    const data = await response.json();
+
+    if (
+      data.date !== pakistanDate ||
+      !Array.isArray(data.questions) ||
+      data.questions.length === 0
+    ) {
+
+      status.textContent =
+        "Today's answers are not updated yet.";
+
+      area.innerHTML =
+        '<div class="empty-message">' +
+        'Please check again later. Today’s quiz answers ' +
+        'have not been added yet.' +
+        '</div>';
+
+      return;
+    }
+
+    data.questions.forEach((item, index) => {
+
+      const card = document.createElement("article");
+      card.className = "question";
+
+      const label = document.createElement("div");
+      label.className = "qtitle";
+      label.textContent = "QUESTION " + (index + 1);
+
+      const question = document.createElement("h3");
+      question.textContent =
+        item.question || "Question unavailable";
+
+      const options = document.createElement("div");
+      options.className = "options";
+
+      if (Array.isArray(item.options)) {
+
+        item.options.forEach(option => {
+
+          const optionItem = document.createElement("div");
+          optionItem.className = "option";
+          optionItem.textContent = option;
+
+          options.appendChild(optionItem);
+
+        });
+
+      }
+
+      const answer = document.createElement("div");
+      answer.className = "answer";
+      answer.textContent =
+        "✓ Correct Answer: " +
+        (item.answer || "Not available");
+
+      card.append(label, question, options, answer);
+
+      area.appendChild(card);
+
+    });
+
+    status.textContent =
+      "Today's answers are available!";
+
+  } catch (error) {
+
+    status.textContent =
+      "Unable to load answers right now.";
+
+    area.innerHTML =
+      '<div class="empty-message">' +
+      'Please check your internet connection or try again later.' +
+      '</div>';
+
+  }
+
 }
 
-status.textContent="Today's answers are available!";
-area.innerHTML="";
-
-data.questions.forEach((item,index)=>{
-const card=document.createElement("article");
-card.className="question";
-
-const label=document.createElement("div");
-label.className="qtitle";
-label.textContent="QUESTION "+(index+1);
-
-const question=document.createElement("h3");
-question.textContent=item.question;
-
-const answer=document.createElement("div");
-answer.className="answer";
-answer.textContent="Correct Answer: "+item.answer;
-
-const button=document.createElement("button");
-button.className="copy";
-button.textContent="COPY ANSWER";
-
-button.onclick=async()=>{
-try{
-await navigator.clipboard.writeText(item.answer);
-button.textContent="COPIED!";
-setTimeout(()=>button.textContent="COPY ANSWER",1500);
-}catch{
-button.textContent="Copy unavailable";
-}
-};
-
-card.append(label,question,answer,button);
-area.appendChild(card);
-});
-}catch(error){
-status.textContent="Answers are not available right now. Please try again.";
-}
-}
 loadAnswers();
+
 </script>
 
 </body>

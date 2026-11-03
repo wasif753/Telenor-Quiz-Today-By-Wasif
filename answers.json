@@ -1,56 +1,56 @@
 
 {
-  "date": "2026-11-02",
+  "date": "2026-11-03",
   "questions": [
     {
-      "question": "Who is the founder of Pakistan?",
+      "question": "Victoria Falls lies on the border of which two countries?",
       "options": [
-        "1. Quaid-e-Azam",
-        "2. Allama Iqbal",
-        "3. Hafeez Jalandhari",
-        "4. Zia-ul-Haq"
+        "A) Kenya and Tanzania",
+        "B) Zambia and Zimbabwe",
+        "C) South Africa and Namibia",
+        "D) Botswana and Angola"
       ],
-      "answer": "Quaid-e-Azam"
+      "answer": "Zambia and Zimbabwe"
     },
     {
-      "question": "Write your second question here?",
+      "question": "Mount Everest is part of which mountain range?",
       "options": [
-        "1. Option One",
-        "2. Option Two",
-        "3. Option Three",
-        "4. Option Four"
+        "A) Andes",
+        "B) Alps",
+        "C) Himalayas",
+        "D) Rocky Mountains"
       ],
-      "answer": "Correct Answer"
+      "answer": "Himalayas"
     },
     {
-      "question": "Write your third question here?",
+      "question": "Which is Pakistan's largest province by area?",
       "options": [
-        "1. Option One",
-        "2. Option Two",
-        "3. Option Three",
-        "4. Option Four"
+        "A) Punjab",
+        "B) Balochistan",
+        "C) Sindh",
+        "D) KPK"
       ],
-      "answer": "Correct Answer"
+      "answer": "Balochistan"
     },
     {
-      "question": "Write your fourth question here?",
+      "question": "The Great Barrier Reef is off the coast of which country?",
       "options": [
-        "1. Option One",
-        "2. Option Two",
-        "3. Option Three",
-        "4. Option Four"
+        "A) Indonesia",
+        "B) New Zealand",
+        "C) Philippines",
+        "D) Australia"
       ],
-      "answer": "Correct Answer"
+      "answer": "Australia"
     },
     {
-      "question": "Write your fifth question here?",
+      "question": "Lake Baikal, the world's deepest freshwater lake, is in which country?",
       "options": [
-        "1. Option One",
-        "2. Option Two",
-        "3. Option Three",
-        "4. Option Four"
+        "A) Mongolia",
+        "B) Russia",
+        "C) Kazakhstan",
+        "D) Finland"
       ],
-      "answer": "Correct Answer"
+      "answer": "Russia"
     }
   ]
 }

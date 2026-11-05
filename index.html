@@ -7,86 +7,190 @@
 
 <meta name="google-site-verification" content="L78btOyhUxKDEd8NeEgvkfHkNK1_WmHz39LeXgQj18k">
 
-<title>Wasif General Store</title>
-<meta name="description" content="Wasif General Store grocery management, products, barcodes, billing and shopping list.">
+<title>Wasif General Store | Grocery Store</title>
+<meta name="description" content="Wasif General Store - Browse grocery products, prepare shopping lists, send orders on WhatsApp and manage store billing.">
+<meta name="theme-color" content="#101010">
 
 <style>
 :root{
   --gold:#d6ad55;
+  --gold-light:#f4d58a;
   --black:#101010;
   --panel:#1d1d1d;
   --green:#16a36b;
   --red:#d94848;
+  --blue:#2468a8;
 }
 *{box-sizing:border-box}
-body{margin:0;background:#101010;color:white;font-family:Arial,sans-serif}
+body{
+  margin:0;
+  background:var(--black);
+  color:#fff;
+  font-family:Arial,sans-serif;
+}
 button,input,select{font:inherit}
-button{cursor:pointer;border:0;border-radius:8px;padding:11px 15px;font-weight:bold}
+button{
+  cursor:pointer;
+  border:0;
+  border-radius:8px;
+  padding:11px 15px;
+  font-weight:bold;
+}
 input,select{
-  width:100%;padding:12px;margin:6px 0 13px;
-  background:#101010;color:white;border:1px solid #555;border-radius:8px
+  width:100%;
+  padding:12px;
+  margin:6px 0 13px;
+  background:#101010;
+  color:white;
+  border:1px solid #555;
+  border-radius:8px;
 }
 label{font-size:13px;color:#ddd}
 .hidden{display:none!important}
 .gold{color:var(--gold)}
+.muted{color:#aaa}
+.small{font-size:12px}
 .container{max-width:1200px;margin:auto;padding:16px}
-.card{background:var(--panel);border:1px solid #393939;border-radius:14px;padding:17px;margin-bottom:15px}
+.card{
+  background:var(--panel);
+  border:1px solid #393939;
+  border-radius:14px;
+  padding:17px;
+  margin-bottom:15px;
+}
 .row{display:flex;gap:10px;flex-wrap:wrap}
 .row>*{flex:1;min-width:130px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:13px}
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+  gap:13px;
+}
 .header{
-  background:#080808;border-bottom:2px solid var(--gold);
-  padding:15px;display:flex;justify-content:space-between;
-  align-items:center;gap:10px;flex-wrap:wrap
+  background:#080808;
+  border-bottom:2px solid var(--gold);
+  padding:15px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+  flex-wrap:wrap;
 }
 .logo{font-size:22px;font-weight:900;color:var(--gold)}
 .btn-gold{background:var(--gold);color:#111}
 .btn-dark{background:#333;color:white}
 .btn-green{background:var(--green);color:white}
 .btn-red{background:var(--red);color:white}
-.btn-blue{background:#2468a8;color:white}
+.btn-blue{background:var(--blue);color:white}
 .nav{display:flex;gap:7px;flex-wrap:wrap;margin:15px 0}
 .nav button{background:#292929;color:white}
 .nav button.active{background:var(--gold);color:black}
-.stat{background:#242424;padding:17px;border:1px solid #444;border-radius:12px}
+.stat{
+  background:#242424;
+  padding:17px;
+  border:1px solid #444;
+  border-radius:12px;
+}
 .stat h2{color:var(--gold);margin:8px 0}
 .mode-screen{
-  min-height:100vh;display:flex;align-items:center;
-  justify-content:center;padding:20px;
-  background:radial-gradient(circle,#29251b,#090909 70%)
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+  background:radial-gradient(circle,#29251b,#090909 70%);
 }
 .mode-box{
-  width:100%;max-width:650px;text-align:center;
-  background:#171717;border:1px solid var(--gold);
-  border-radius:20px;padding:28px
+  width:100%;
+  max-width:650px;
+  text-align:center;
+  background:#171717;
+  border:1px solid var(--gold);
+  border-radius:20px;
+  padding:28px;
+  box-shadow:0 10px 40px #000;
 }
-.mode-options{display:grid;grid-template-columns:1fr 1fr;gap:15px;margin-top:25px}
+.mode-options{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:15px;
+  margin-top:25px;
+}
 .mode-option{
-  background:#252525;border:1px solid #555;border-radius:15px;
-  padding:25px 10px;cursor:pointer
+  background:#252525;
+  border:1px solid #555;
+  border-radius:15px;
+  padding:25px 10px;
+  cursor:pointer;
 }
 .mode-option:hover{border-color:var(--gold)}
 .mode-option .symbol{font-size:42px}
 .mode-option h2{color:var(--gold)}
 .table-wrap{overflow-x:auto}
-table{width:100%;border-collapse:collapse;min-width:600px}
-th,td{padding:11px;border-bottom:1px solid #444;text-align:left}
-th{color:var(--gold)}
-.product-card{background:#252525;border:1px solid #444;border-radius:12px;padding:14px}
+table{
+  width:100%;
+  border-collapse:collapse;
+  min-width:600px;
+}
+th,td{
+  padding:11px;
+  border-bottom:1px solid #444;
+  text-align:left;
+}
+th{color:var(--gold);background:#222}
+.product-card{
+  background:#252525;
+  border:1px solid #444;
+  border-radius:12px;
+  padding:14px;
+}
 .product-card h3{color:var(--gold)}
-.badge{display:inline-block;padding:5px 8px;border-radius:5px;background:#333;font-size:12px}
-.muted{color:#aaa}
-.small{font-size:12px}
+.badge{
+  display:inline-block;
+  padding:5px 8px;
+  border-radius:5px;
+  background:#333;
+  font-size:12px;
+}
 hr{border-color:#383838}
+#cameraOverlay{
+  position:fixed;
+  inset:0;
+  background:#000e;
+  z-index:99999;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  padding:15px;
+}
+#cameraVideo{
+  width:min(95vw,500px);
+  border:3px solid var(--gold);
+  border-radius:12px;
+}
 @media(max-width:550px){
- .mode-options{grid-template-columns:1fr}
- .logo{font-size:18px}
- .container{padding:10px}
+  .mode-options{grid-template-columns:1fr}
+  .logo{font-size:18px}
+  .container{padding:10px}
 }
 @media print{
- body{background:white;color:black}
- .no-print{display:none!important}
- #printArea{display:block!important;color:black}
+  body{background:white!important;color:black!important}
+  body *{visibility:hidden!important}
+  #printArea,#printArea *{visibility:visible!important}
+  #printArea{
+    display:block!important;
+    position:absolute;
+    left:0;
+    top:0;
+    width:100%;
+    background:white!important;
+    color:black!important;
+  }
+  #printArea table{min-width:0}
+  #printArea th,#printArea td{
+    color:black;
+    border:1px solid #999;
+  }
 }
 </style>
 </head>
@@ -96,7 +200,7 @@ hr{border-color:#383838}
 <!-- FIRST SCREEN -->
 <div id="modeScreen" class="mode-screen">
   <div class="mode-box">
-    <div style="font-size:45px">🏪</div>
+    <div style="font-size:48px">🏪</div>
     <h1 class="gold">WASIF GENERAL STORE</h1>
     <p class="muted">Premium Grocery Management System</p>
 
@@ -104,14 +208,14 @@ hr{border-color:#383838}
       <div class="mode-option" onclick="openClient()">
         <div class="symbol">🛒</div>
         <h2>CLIENT MODE</h2>
-        <p>Browse products and shopping list</p>
+        <p>Browse products and send your order</p>
         <button class="btn-gold">Continue as Client</button>
       </div>
 
       <div class="mode-option" onclick="openAdminLogin()">
         <div class="symbol">🔐</div>
         <h2>ADMIN MODE</h2>
-        <p>Manage store, products and bills</p>
+        <p>Manage products, stock and bills</p>
         <button class="btn-gold">Admin Login</button>
       </div>
     </div>
@@ -121,7 +225,7 @@ hr{border-color:#383838}
 <!-- ADMIN LOGIN -->
 <div id="loginScreen" class="mode-screen hidden">
   <div class="mode-box">
-    <div style="font-size:40px">🔐</div>
+    <div style="font-size:42px">🔐</div>
     <h1 class="gold">ADMIN LOGIN</h1>
     <p class="muted">Enter your Admin Access Code</p>
     <input id="adminPassword" type="password" placeholder="Enter Admin Code">
@@ -133,6 +237,7 @@ hr{border-color:#383838}
 
 <!-- ADMIN PANEL -->
 <div id="adminPanel" class="hidden">
+
   <div class="header">
     <div class="logo">🏪 WASIF GENERAL STORE</div>
     <button class="btn-red" onclick="logout()">Logout</button>
@@ -159,7 +264,7 @@ hr{border-color:#383838}
       </div>
       <div class="card">
         <h3 class="gold">Store Overview</h3>
-        <p>Manage products, barcodes, stock, billing and store settings from this dashboard.</p>
+        <p>Manage products, barcodes, stock, billing and settings.</p>
       </div>
     </section>
 
@@ -178,7 +283,7 @@ hr{border-color:#383838}
             <input id="pCategory" placeholder="e.g. Grocery">
           </div>
           <div>
-            <label>Barcode</label>
+            <label>Product Barcode</label>
             <input id="pBarcode" placeholder="Enter or scan barcode">
           </div>
         </div>
@@ -194,7 +299,7 @@ hr{border-color:#383838}
           </div>
           <div>
             <label>Stock Quantity</label>
-            <input id="pStock" type="number" min="0" placeholder="Available stock">
+            <input id="pStock" type="number" min="0" placeholder="Stock">
           </div>
         </div>
 
@@ -208,13 +313,17 @@ hr{border-color:#383838}
 
       <div class="card">
         <h3 class="gold">Product List</h3>
-        <input id="productSearch" placeholder="Search name or barcode..." oninput="renderProducts()">
+        <input id="productSearch" placeholder="Search product, category or barcode..." oninput="renderProducts()">
         <div class="table-wrap">
           <table>
             <thead>
               <tr>
-                <th>Name</th><th>Category</th><th>Barcode</th>
-                <th>Price</th><th>Stock</th><th>Actions</th>
+                <th>Name</th>
+                <th>Category</th>
+                <th>Barcode</th>
+                <th>Price</th>
+                <th>Stock</th>
+                <th>Actions</th>
               </tr>
             </thead>
             <tbody id="productTable"></tbody>
@@ -236,6 +345,7 @@ hr{border-color:#383838}
     <section id="billing" class="admin-tab hidden">
       <div class="card">
         <h2 class="gold">Create New Bill</h2>
+
         <div class="row">
           <div>
             <label>Customer Name</label>
@@ -247,7 +357,7 @@ hr{border-color:#383838}
           </div>
         </div>
 
-        <label>Search Product / Scan Barcode</label>
+        <label>Search Product / Barcode</label>
         <input id="billSearch" placeholder="Enter product name or barcode">
         <button class="btn-blue" onclick="scanForBill()">📷 Scan Product Barcode</button>
         <div id="billSearchResults"></div>
@@ -255,7 +365,9 @@ hr{border-color:#383838}
         <h3 class="gold">Bill Items</h3>
         <div class="table-wrap">
           <table>
-            <thead><tr><th>Product</th><th>Price</th><th>Qty</th><th>Total</th><th>Remove</th></tr></thead>
+            <thead>
+              <tr><th>Product</th><th>Price</th><th>Qty</th><th>Total</th><th>Remove</th></tr>
+            </thead>
             <tbody id="billItems"></tbody>
           </table>
         </div>
@@ -270,7 +382,8 @@ hr{border-color:#383838}
             <h2 class="gold" id="grandTotal">Rs 0</h2>
           </div>
         </div>
-        <button class="btn-gold" onclick="saveBill()">SAVE BILL</button>
+
+        <button class="btn-gold" onclick="saveBill()">SAVE & PRINT BILL</button>
         <button class="btn-dark" onclick="clearBill()">CLEAR BILL</button>
       </div>
     </section>
@@ -285,9 +398,10 @@ hr{border-color:#383838}
 
     <!-- SETTINGS -->
     <section id="settings" class="admin-tab hidden">
+
       <div class="card">
         <h2 class="gold">Change Admin Access Code</h2>
-        <p class="muted small">اپنا نیا Admin Code یہاں تبدیل کریں۔ نیا Code اگلی Login کے لیے استعمال ہوگا۔</p>
+        <p class="muted small">Change your login code whenever you want.</p>
 
         <label>Current Admin Code</label>
         <input id="currentAdminCode" type="password" placeholder="Current code">
@@ -305,9 +419,9 @@ hr{border-color:#383838}
       <div class="card">
         <h2 class="gold">Store Information</h2>
         <label>Store Name</label>
-        <input id="storeName" value="Wasif General Store">
-        <label>Contact Number</label>
-        <input id="storePhone" value="03462916891">
+        <input id="storeName">
+        <label>WhatsApp / Contact Number</label>
+        <input id="storePhone">
         <button class="btn-gold" onclick="saveStoreSettings()">SAVE STORE SETTINGS</button>
       </div>
 
@@ -327,52 +441,104 @@ hr{border-color:#383838}
     <div class="logo">🏪 WASIF GENERAL STORE</div>
     <button class="btn-dark" onclick="goHome()">Back to Home</button>
   </div>
+
   <div class="container">
-    <h2 class="gold">Welcome to Our Store</h2>
-    <p class="muted">Browse products and prepare your shopping list.</p>
+    <h2 class="gold">Welcome to Wasif General Store</h2>
+    <p class="muted">Select your products and send your shopping order directly to our WhatsApp.</p>
+
     <input id="clientSearch" placeholder="Search products..." oninput="renderClientProducts()">
+
     <div id="clientProducts" class="grid"></div>
 
     <div class="card">
-      <h2 class="gold">My Shopping List</h2>
-      <div id="shoppingList"></div>
-      <h3 id="shoppingTotal" class="gold">Total: Rs 0</h3>
-      <button class="btn-green" onclick="shareShoppingList()">Share Shopping List on WhatsApp</button>
-      <button class="btn-dark" onclick="clearShoppingList()">Clear List</button>
+      <h2 class="gold">🛒 My Shopping List</h2>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Product</th>
+              <th>Price</th>
+              <th>Quantity</th>
+              <th>Total</th>
+              <th>Remove</th>
+            </tr>
+          </thead>
+          <tbody id="shoppingList"></tbody>
+        </table>
+      </div>
+
+      <h2 class="gold" id="shoppingTotal">Grand Total: Rs 0</h2>
+
+      <hr>
+
+      <h3 class="gold">Customer Details</h3>
+
+      <label>Your Name</label>
+      <input id="clientName" placeholder="Enter your name">
+
+      <label>Your Address</label>
+      <input id="clientAddress" placeholder="Enter delivery address">
+
+      <label>Your Phone Number</label>
+      <input id="clientPhone" type="tel" placeholder="Enter your phone number">
+
+      <button class="btn-green" style="width:100%" onclick="shareShoppingList()">
+        📲 SEND ORDER ON WHATSAPP
+      </button>
+
+      <button class="btn-dark" style="width:100%;margin-top:8px" onclick="clearShoppingList()">
+        CLEAR SHOPPING LIST
+      </button>
     </div>
   </div>
 </div>
 
-<!-- PRINT BILL -->
+<!-- PRINT BILL AREA -->
 <div id="printArea" class="hidden"></div>
 
 <script>
-const DEFAULT_ADMIN_CODE = "Wasif2244";
+/* =========================
+   DATABASE AND INITIAL DATA
+========================= */
 
-function getData(key, fallback){
+const DEFAULT_ADMIN_CODE="Wasif2244";
+const STORE_WHATSAPP="923462916891";
+
+function getData(key,fallback){
   try{
     const value=localStorage.getItem(key);
-    return value===null ? fallback : JSON.parse(value);
-  }catch(e){return fallback}
+    return value===null?fallback:JSON.parse(value);
+  }catch(e){
+    return fallback;
+  }
 }
 function saveData(key,value){
   localStorage.setItem(key,JSON.stringify(value));
 }
+
 let products=getData("wgs_products",[]);
 let bills=getData("wgs_bills",[]);
 let shopping=[];
 let currentBill=[];
-let adminCode=localStorage.getItem("wgs_admin_code") || DEFAULT_ADMIN_CODE;
-let store=getData("wgs_store",{name:"Wasif General Store",phone:"03462916891"});
+let adminCode=localStorage.getItem("wgs_admin_code")||DEFAULT_ADMIN_CODE;
+let store=getData("wgs_store",{
+  name:"Wasif General Store",
+  phone:"03462916891"
+});
 
-function goHome(){
-  hideAll();
-  document.getElementById("modeScreen").classList.remove("hidden");
-}
+/* =========================
+   SCREEN NAVIGATION
+========================= */
+
 function hideAll(){
   ["modeScreen","loginScreen","adminPanel","clientPanel"].forEach(id=>{
     document.getElementById(id).classList.add("hidden");
   });
+}
+function goHome(){
+  hideAll();
+  document.getElementById("modeScreen").classList.remove("hidden");
 }
 function openAdminLogin(){
   hideAll();
@@ -384,6 +550,7 @@ function openClient(){
   hideAll();
   document.getElementById("clientPanel").classList.remove("hidden");
   renderClientProducts();
+  renderShopping();
 }
 function loginAdmin(){
   const code=document.getElementById("adminPassword").value;
@@ -403,16 +570,21 @@ function showAdminTab(id,button){
   document.getElementById(id).classList.remove("hidden");
   document.querySelectorAll(".nav button").forEach(x=>x.classList.remove("active"));
   button.classList.add("active");
+
   if(id==="dashboard")updateDashboard();
   if(id==="products")renderProducts();
   if(id==="history")renderHistory();
+
   if(id==="settings"){
     document.getElementById("storeName").value=store.name;
     document.getElementById("storePhone").value=store.phone;
   }
 }
 
-/* PRODUCTS */
+/* =========================
+   PRODUCTS MANAGEMENT
+========================= */
+
 function saveProduct(){
   const id=document.getElementById("editProductId").value;
   const name=document.getElementById("pName").value.trim();
@@ -426,6 +598,7 @@ function saveProduct(){
     alert("Please enter a product name, valid price and stock.");
     return;
   }
+
   if(barcode && products.some(p=>p.barcode===barcode && p.id!==id)){
     alert("This barcode is already assigned to another product.");
     return;
@@ -436,24 +609,28 @@ function saveProduct(){
     if(p)Object.assign(p,{name,category,barcode,cost,price,stock});
   }else{
     products.push({
-      id:String(Date.now()),
+      id:String(Date.now())+Math.random().toString(16).slice(2),
       name,category,barcode,cost,price,stock
     });
   }
+
   saveData("wgs_products",products);
   clearProductForm();
   renderProducts();
   updateDashboard();
   document.getElementById("productMessage").textContent="Product saved successfully.";
 }
+
 function clearProductForm(){
   ["editProductId","pName","pCategory","pBarcode","pCost","pPrice","pStock"].forEach(id=>{
     document.getElementById(id).value="";
   });
 }
+
 function editProduct(id){
   const p=products.find(x=>x.id===id);
   if(!p)return;
+
   document.getElementById("editProductId").value=p.id;
   document.getElementById("pName").value=p.name;
   document.getElementById("pCategory").value=p.category||"";
@@ -461,8 +638,10 @@ function editProduct(id){
   document.getElementById("pCost").value=p.cost||0;
   document.getElementById("pPrice").value=p.price;
   document.getElementById("pStock").value=p.stock;
+
   window.scrollTo({top:0,behavior:"smooth"});
 }
+
 function deleteProduct(id){
   if(!confirm("Delete this product?"))return;
   products=products.filter(p=>p.id!==id);
@@ -470,13 +649,16 @@ function deleteProduct(id){
   renderProducts();
   updateDashboard();
 }
+
 function renderProducts(){
   const q=(document.getElementById("productSearch")?.value||"").toLowerCase();
+
   const list=products.filter(p=>
     p.name.toLowerCase().includes(q)||
-    (p.barcode||"").toLowerCase().includes(q)||
-    (p.category||"").toLowerCase().includes(q)
+    String(p.barcode||"").toLowerCase().includes(q)||
+    String(p.category||"").toLowerCase().includes(q)
   );
+
   document.getElementById("productTable").innerHTML=list.map(p=>`
     <tr>
       <td>${escapeHTML(p.name)}</td>
@@ -492,69 +674,102 @@ function renderProducts(){
   `).join("")||"<tr><td colspan='6'>No products found.</td></tr>";
 }
 
-/* BARCODE SCANNER */
+/* =========================
+   BARCODE CAMERA SCANNER
+========================= */
+
 async function scanBarcode(callback){
   if(!("BarcodeDetector" in window)){
-    alert("Barcode scanning is not supported in this browser. Please enter the barcode manually.");
+    alert("Barcode scanning is not supported in this browser. Please enter barcode manually.");
     return;
   }
+
+  if(!navigator.mediaDevices?.getUserMedia){
+    alert("Camera is unavailable. Please use HTTPS and allow camera permission.");
+    return;
+  }
+
+  let stream=null;
+  let stopped=false;
+  let scanning=false;
+  let overlay=null;
+
+  function stop(){
+    if(stopped)return;
+    stopped=true;
+    if(stream)stream.getTracks().forEach(t=>t.stop());
+    if(overlay)overlay.remove();
+  }
+
   try{
     const detector=new BarcodeDetector({
       formats:["ean_13","ean_8","upc_a","upc_e","code_128","code_39","qr_code"]
     });
-    const stream=await navigator.mediaDevices.getUserMedia({video:{facingMode:"environment"}});
+
+    stream=await navigator.mediaDevices.getUserMedia({
+      video:{facingMode:{ideal:"environment"}}
+    });
+
     const video=document.createElement("video");
+    video.id="cameraVideo";
     video.srcObject=stream;
     video.setAttribute("playsinline","");
     await video.play();
 
-    const overlay=document.createElement("div");
-    overlay.style.cssText="position:fixed;inset:0;background:#000e;z-index:99999;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:15px";
-    const close=document.createElement("button");
-    close.textContent="Close Scanner";
-    close.className="btn-red";
+    overlay=document.createElement("div");
+    overlay.id="cameraOverlay";
+
     const status=document.createElement("p");
-    status.textContent="Point camera at barcode";
-    video.style.cssText="width:min(95vw,500px);border:3px solid #d6ad55;border-radius:12px";
+    status.textContent="Point camera at product barcode";
+
+    const close=document.createElement("button");
+    close.textContent="CLOSE SCANNER";
+    close.className="btn-red";
+    close.onclick=stop;
+
     overlay.append(status,video,close);
     document.body.appendChild(overlay);
 
-    let stopped=false;
-    function stop(){
-      if(stopped)return;
-      stopped=true;
-      stream.getTracks().forEach(t=>t.stop());
-      overlay.remove();
-    }
-    close.onclick=stop;
-
     async function detect(){
-      if(stopped)return;
+      if(stopped || scanning)return;
+
       try{
         const codes=await detector.detect(video);
+
         if(codes.length){
+          scanning=true;
+          const code=codes[0].rawValue;
           stop();
-          callback(codes[0].rawValue);
+          callback(code);
           return;
         }
       }catch(e){}
+
       if(!stopped)requestAnimationFrame(detect);
     }
+
     detect();
+
   }catch(e){
+    stop();
     alert("Camera permission is required. Please allow camera access.");
   }
 }
+
 function scanForProduct(){
   scanBarcode(code=>{
-    document.getElementById("pBarcode").value=code;
-    const found=products.find(p=>p.barcode===code);
-    if(found){
-      editProduct(found.id);
-      alert("Existing product found. You can update it.");
+    const existing=products.find(p=>p.barcode===code);
+
+    if(existing){
+      editProduct(existing.id);
+      alert("Existing product found. You can edit it.");
+    }else{
+      document.getElementById("pBarcode").value=code;
+      alert("Barcode filled. Enter product details and save.");
     }
   });
 }
+
 function scanForBill(){
   scanBarcode(code=>{
     document.getElementById("billSearch").value=code;
@@ -562,12 +777,18 @@ function scanForBill(){
   });
 }
 
-/* BILLING */
+/* =========================
+   BILLING SYSTEM
+========================= */
+
 document.getElementById("billSearch").addEventListener("input",function(){
   const q=this.value.trim().toLowerCase();
+
   const results=products.filter(p=>
-    p.name.toLowerCase().includes(q)||(p.barcode||"").toLowerCase()===q
+    p.name.toLowerCase().includes(q)||
+    String(p.barcode||"").toLowerCase()===q
   ).slice(0,10);
+
   document.getElementById("billSearchResults").innerHTML=results.map(p=>`
     <div class="card">
       ${escapeHTML(p.name)} — Rs ${p.price} — Stock: ${p.stock}
@@ -575,51 +796,79 @@ document.getElementById("billSearch").addEventListener("input",function(){
     </div>
   `).join("");
 });
+
 function addProductToBillBySearch(code){
   const p=products.find(x=>x.barcode===code);
   if(p)addToBill(p.id);
   else alert("No product found with this barcode.");
 }
+
 function addToBill(id){
   const p=products.find(x=>x.id===id);
   if(!p)return;
-  if(p.stock<=0){alert("Out of stock!");return}
+
+  if(p.stock<=0){
+    alert("Out of stock!");
+    return;
+  }
+
   const item=currentBill.find(x=>x.id===id);
+
   if(item){
-    if(item.qty>=p.stock){alert("Not enough stock.");return}
+    if(item.qty>=p.stock){
+      alert("Not enough stock.");
+      return;
+    }
     item.qty++;
   }else{
-    currentBill.push({id:p.id,name:p.name,price:p.price,qty:1});
+    currentBill.push({
+      id:p.id,name:p.name,price:p.price,qty:1
+    });
   }
+
   renderBill();
 }
+
 function changeQty(id,value){
   const item=currentBill.find(x=>x.id===id);
   const p=products.find(x=>x.id===id);
   if(!item||!p)return;
+
   let qty=Math.max(1,Math.floor(Number(value)||1));
-  if(qty>p.stock){qty=p.stock;alert("Quantity exceeds available stock.")}
+  if(qty>p.stock){
+    qty=p.stock;
+    alert("Quantity exceeds available stock.");
+  }
   item.qty=qty;
   renderBill();
 }
+
 function removeBillItem(id){
   currentBill=currentBill.filter(x=>x.id!==id);
   renderBill();
 }
+
 function renderBill(){
   document.getElementById("billItems").innerHTML=currentBill.map(x=>`
     <tr>
       <td>${escapeHTML(x.name)}</td>
       <td>${x.price}</td>
-      <td><input style="width:75px" type="number" min="1" value="${x.qty}" onchange="changeQty('${x.id}',this.value)"></td>
+      <td>
+        <input style="width:75px" type="number" min="1"
+          value="${x.qty}" onchange="changeQty('${x.id}',this.value)">
+      </td>
       <td>${x.price*x.qty}</td>
       <td><button class="btn-red" onclick="removeBillItem('${x.id}')">X</button></td>
     </tr>
   `).join("");
+
   const subtotal=currentBill.reduce((s,x)=>s+x.price*x.qty,0);
   const discount=Math.max(0,Number(document.getElementById("billDiscount").value)||0);
-  document.getElementById("grandTotal").textContent="Rs "+Math.max(0,subtotal-discount);
+
+  document.getElementById("grandTotal").textContent=
+    "Rs "+Math.max(0,subtotal-discount);
 }
+
 function clearBill(){
   currentBill=[];
   document.getElementById("customerName").value="";
@@ -629,62 +878,107 @@ function clearBill(){
   document.getElementById("billSearchResults").innerHTML="";
   renderBill();
 }
+
 function saveBill(){
-  if(!currentBill.length){alert("Add products to bill first.");return}
+  if(!currentBill.length){
+    alert("Add products to bill first.");
+    return;
+  }
+
   for(const item of currentBill){
     const p=products.find(x=>x.id===item.id);
-    if(!p||item.qty>p.stock){alert("Stock is insufficient for "+item.name);return}
+    if(!p||item.qty>p.stock){
+      alert("Stock is insufficient for "+item.name);
+      return;
+    }
   }
+
   const subtotal=currentBill.reduce((s,x)=>s+x.price*x.qty,0);
   const discount=Math.max(0,Number(document.getElementById("billDiscount").value)||0);
+
   const bill={
     id:"BILL-"+Date.now(),
     date:new Date().toLocaleString(),
     customer:document.getElementById("customerName").value,
     phone:document.getElementById("customerPhone").value,
     items:JSON.parse(JSON.stringify(currentBill)),
-    subtotal,discount,total:Math.max(0,subtotal-discount)
+    subtotal,
+    discount,
+    total:Math.max(0,subtotal-discount)
   };
+
   currentBill.forEach(item=>{
     const p=products.find(x=>x.id===item.id);
     p.stock-=item.qty;
   });
+
   bills.unshift(bill);
+
   saveData("wgs_products",products);
   saveData("wgs_bills",bills);
+
   printBill(bill);
   clearBill();
   updateDashboard();
 }
+
+/* =========================
+   PRINT BILL
+========================= */
+
 function printBill(b){
   const area=document.getElementById("printArea");
+
   area.classList.remove("hidden");
+
   area.innerHTML=`
     <div style="max-width:700px;margin:auto;padding:20px;font-family:Arial">
       <h1 style="text-align:center">${escapeHTML(store.name)}</h1>
       <p style="text-align:center">Contact: ${escapeHTML(store.phone)}</p>
       <hr>
-      <p>Bill: ${b.id}<br>Date: ${b.date}<br>Customer: ${escapeHTML(b.customer||"Walk-in")}<br>Phone: ${escapeHTML(b.phone||"-")}</p>
+      <p>
+        Bill: ${escapeHTML(b.id)}<br>
+        Date: ${escapeHTML(b.date)}<br>
+        Customer: ${escapeHTML(b.customer||"Walk-in")}<br>
+        Phone: ${escapeHTML(b.phone||"-")}
+      </p>
+
       <table style="width:100%;border-collapse:collapse">
-        <tr><th>Product</th><th>Price</th><th>Qty</th><th>Total</th></tr>
-        ${b.items.map(x=>`<tr><td>${escapeHTML(x.name)}</td><td>${x.price}</td><td>${x.qty}</td><td>${x.price*x.qty}</td></tr>`).join("")}
+        <tr>
+          <th>Product</th><th>Price</th><th>Qty</th><th>Total</th>
+        </tr>
+        ${b.items.map(x=>`
+          <tr>
+            <td>${escapeHTML(x.name)}</td>
+            <td>${x.price}</td>
+            <td>${x.qty}</td>
+            <td>${x.price*x.qty}</td>
+          </tr>
+        `).join("")}
       </table>
+
       <hr>
       <h3>Subtotal: Rs ${b.subtotal}</h3>
       <h3>Discount: Rs ${b.discount}</h3>
       <h2>Grand Total: Rs ${b.total}</h2>
       <p style="text-align:center">Thank you for shopping!</p>
-    </div>`;
+    </div>
+  `;
+
   window.print();
   area.classList.add("hidden");
 }
 
-/* BILL HISTORY */
+/* =========================
+   BILL HISTORY
+========================= */
+
 function renderHistory(){
   const box=document.getElementById("billHistory");
+
   box.innerHTML=bills.map(b=>`
     <div class="card">
-      <h3 class="gold">${b.id}</h3>
+      <h3 class="gold">${escapeHTML(b.id)}</h3>
       <p>Date: ${escapeHTML(b.date)}</p>
       <p>Customer: ${escapeHTML(b.customer||"Walk-in")}</p>
       <h3>Rs ${b.total}</h3>
@@ -693,19 +987,25 @@ function renderHistory(){
     </div>
   `).join("")||"<p>No saved bills.</p>";
 }
+
 function reprintBill(id){
   const b=bills.find(x=>x.id===id);
   if(b)printBill(b);
 }
+
 function deleteBill(id){
-  if(!confirm("Delete this saved bill? Stock will NOT be restored automatically."))return;
+  if(!confirm("Delete this bill? Stock will NOT be restored automatically."))return;
+
   bills=bills.filter(x=>x.id!==id);
   saveData("wgs_bills",bills);
   renderHistory();
   updateDashboard();
 }
 
-/* CHANGE ADMIN CODE */
+/* =========================
+   CHANGE ADMIN PASSWORD
+========================= */
+
 function changeAdminCode(){
   const current=document.getElementById("currentAdminCode").value;
   const next=document.getElementById("newAdminCode").value;
@@ -716,204 +1016,438 @@ function changeAdminCode(){
     message.textContent="Current Admin Code is incorrect.";
     return;
   }
+
   if(next.length<4){
     message.textContent="New code must be at least 4 characters.";
     return;
   }
+
   if(next!==confirmCode){
     message.textContent="New codes do not match.";
     return;
   }
+
   adminCode=next;
   localStorage.setItem("wgs_admin_code",adminCode);
+
   ["currentAdminCode","newAdminCode","confirmAdminCode"].forEach(id=>{
     document.getElementById(id).value="";
   });
+
   message.textContent="Admin Code changed successfully!";
 }
 
-/* STORE SETTINGS */
+/* =========================
+   STORE SETTINGS
+========================= */
+
 function saveStoreSettings(){
   store={
     name:document.getElementById("storeName").value.trim()||"Wasif General Store",
     phone:document.getElementById("storePhone").value.trim()
   };
+
   saveData("wgs_store",store);
   alert("Store settings saved.");
 }
 
-/* CLIENT MODE */
+/* =========================
+   CLIENT PRODUCT DISPLAY
+========================= */
+
 function renderClientProducts(){
   const q=(document.getElementById("clientSearch").value||"").toLowerCase();
+
   const list=products.filter(p=>
-    p.name.toLowerCase().includes(q)||(p.category||"").toLowerCase().includes(q)
+    p.name.toLowerCase().includes(q)||
+    String(p.category||"").toLowerCase().includes(q)
   );
+
   document.getElementById("clientProducts").innerHTML=list.map(p=>`
     <div class="product-card">
       <h3>${escapeHTML(p.name)}</h3>
       <p class="muted">${escapeHTML(p.category||"General")}</p>
       <h2 class="gold">Rs ${p.price}</h2>
       <p class="small">${p.stock>0?"Available":"Out of stock"}</p>
-      <button class="btn-gold" ${p.stock<=0?"disabled":""} onclick="addShopping('${p.id}')">Add to List</button>
+      <button class="btn-gold" ${p.stock<=0?"disabled":""}
+        onclick="addShopping('${p.id}')">
+        Add to Shopping List
+      </button>
     </div>
   `).join("")||"<p>No products available.</p>";
 }
+
+/* =========================
+   CLIENT SHOPPING LIST
+========================= */
+
 function addShopping(id){
   const p=products.find(x=>x.id===id);
-  if(!p||p.stock<=0)return;
+
+  if(!p||p.stock<=0){
+    alert("Product is out of stock!");
+    return;
+  }
+
   const item=shopping.find(x=>x.id===id);
-  if(item)item.qty++;
-  else shopping.push({id:p.id,name:p.name,price:p.price,qty:1});
+
+  if(item){
+    if(item.qty>=p.stock){
+      alert("Available stock is limited!");
+      return;
+    }
+    item.qty++;
+  }else{
+    shopping.push({
+      id:p.id,
+      name:p.name,
+      price:p.price,
+      qty:1
+    });
+  }
+
   renderShopping();
 }
-function renderShopping(){
-  document.getElementById("shoppingList").innerHTML=shopping.map(x=>`
-    <p>${escapeHTML(x.name)} × ${x.qty} — Rs ${x.price*x.qty}
-    <button class="btn-red" onclick="removeShopping('${x.id}')">X</button></p>
-  `).join("")||"<p>Your shopping list is empty.</p>";
-  const total=shopping.reduce((s,x)=>s+x.price*x.qty,0);
-  document.getElementById("shoppingTotal").textContent="Total: Rs "+total;
+
+function changeShoppingQty(id,value){
+  const item=shopping.find(x=>x.id===id);
+  const product=products.find(x=>x.id===id);
+
+  if(!item||!product)return;
+
+  let qty=Math.max(1,Math.floor(Number(value)||1));
+
+  if(qty>product.stock){
+    qty=product.stock;
+    alert("Available stock: "+product.stock);
+  }
+
+  item.qty=qty;
+  renderShopping();
 }
+
+function renderShopping(){
+  document.getElementById("shoppingList").innerHTML=
+    shopping.map(x=>`
+      <tr>
+        <td>${escapeHTML(x.name)}</td>
+        <td>Rs ${x.price}</td>
+        <td>
+          <input type="number" min="1" value="${x.qty}"
+            style="width:75px"
+            onchange="changeShoppingQty('${x.id}',this.value)">
+        </td>
+        <td>Rs ${x.price*x.qty}</td>
+        <td>
+          <button class="btn-red" onclick="removeShopping('${x.id}')">X</button>
+        </td>
+      </tr>
+    `).join("")||
+    "<tr><td colspan='5'>Your shopping list is empty.</td></tr>";
+
+  const total=shopping.reduce((sum,x)=>sum+(x.price*x.qty),0);
+
+  document.getElementById("shoppingTotal").textContent=
+    "Grand Total: Rs "+total;
+}
+
 function removeShopping(id){
   shopping=shopping.filter(x=>x.id!==id);
   renderShopping();
 }
+
 function clearShoppingList(){
   shopping=[];
   renderShopping();
 }
+
+/* =========================
+   SEND ORDER TO WHATSAPP
+========================= */
+
 function shareShoppingList(){
-  if(!shopping.length){alert("Shopping list is empty.");return}
-  const lines=shopping.map(x=>`${x.name} x ${x.qty} = Rs ${x.price*x.qty}`);
-  const total=shopping.reduce((s,x)=>s+x.price*x.qty,0);
-  const message=`Wasif General Store Shopping List\n${lines.join("\n")}\nTotal: Rs ${total}`;
-  window.open("https://wa.me/?text="+encodeURIComponent(message),"_blank");
+
+  if(!shopping.length){
+    alert("Please select products first!");
+    return;
+  }
+
+  const name=document.getElementById("clientName").value.trim();
+  const address=document.getElementById("clientAddress").value.trim();
+  const phone=document.getElementById("clientPhone").value.trim();
+
+  if(!name||!address||!phone){
+    alert("Please enter your name, address and phone number.");
+    return;
+  }
+
+  const total=shopping.reduce(
+    (sum,x)=>sum+(x.price*x.qty),0
+  );
+
+  let message=
+    "🛒 NEW ORDER - WASIF GENERAL STORE\n\n"+
+    "Customer Name: "+name+"\n"+
+    "Address: "+address+"\n"+
+    "Phone: "+phone+"\n\n"+
+    "ORDER DETAILS:\n";
+
+  shopping.forEach((item,index)=>{
+    message+=
+      (index+1)+". "+item.name+
+      "\nQuantity: "+item.qty+
+      "\nPrice: Rs "+item.price+
+      "\nTotal: Rs "+(item.price*item.qty)+
+      "\n\n";
+  });
+
+  message+=
+    "GRAND TOTAL: Rs "+total+
+    "\n\nPlease confirm my order.";
+
+  const whatsappNumber=STORE_WHATSAPP;
+
+  const whatsappURL=
+    "https://wa.me/"+whatsappNumber+
+    "?text="+encodeURIComponent(message);
+
+  window.open(whatsappURL,"_blank");
 }
 
-/* DASHBOARD */
+/* =========================
+   DASHBOARD
+========================= */
+
 function updateDashboard(){
   document.getElementById("totalProducts").textContent=products.length;
-  document.getElementById("totalStock").textContent=products.reduce((s,p)=>s+(Number(p.stock)||0),0);
+
+  document.getElementById("totalStock").textContent=
+    products.reduce((s,p)=>s+(Number(p.stock)||0),0);
+
   document.getElementById("totalBills").textContent=bills.length;
-  document.getElementById("totalSales").textContent="Rs "+bills.reduce((s,b)=>s+b.total,0);
+
+  document.getElementById("totalSales").textContent=
+    "Rs "+bills.reduce((s,b)=>s+(Number(b.total)||0),0);
 }
 
-/* CSV IMPORT AND EXPORT */
+/* =========================
+   CSV IMPORT / EXPORT
+========================= */
+
 function downloadFile(name,content,type){
   const blob=new Blob([content],{type});
   const url=URL.createObjectURL(blob);
   const a=document.createElement("a");
-  a.href=url;a.download=name;a.click();
+
+  a.href=url;
+  a.download=name;
+  a.click();
+
   URL.revokeObjectURL(url);
 }
+
 function downloadTemplate(){
-  downloadFile("products-template.csv",
+  downloadFile(
+    "products-template.csv",
     "name,category,barcode,cost,price,stock\nSugar 1 KG,Grocery,1234567890123,100,120,50\n",
-    "text/csv");
+    "text/csv"
+  );
 }
+
 function exportProducts(){
-  const rows=[["name","category","barcode","cost","price","stock"],
-    ...products.map(p=>[p.name,p.category,p.barcode,p.cost,p.price,p.stock])];
-  const csv=rows.map(r=>r.map(v=>'"'+String(v??"").replace(/"/g,'""')+'"').join(",")).join("\n");
+  const rows=[
+    ["name","category","barcode","cost","price","stock"],
+    ...products.map(p=>[
+      p.name,p.category,p.barcode,p.cost,p.price,p.stock
+    ])
+  ];
+
+  const csv=rows.map(r=>
+    r.map(v=>'"'+String(v??"").replace(/"/g,'""')+'"').join(",")
+  ).join("\n");
+
   downloadFile("wasif-products.csv",csv,"text/csv");
 }
+
 function parseCSV(text){
-  const rows=[];let row=[],value="",quoted=false;
+  const rows=[];
+  let row=[],value="",quoted=false;
+
   for(let i=0;i<text.length;i++){
     const c=text[i];
+
     if(c==='"'){
-      if(quoted&&text[i+1]==='"'){value+='"';i++}
-      else quoted=!quoted;
-    }else if(c===","&&!quoted){row.push(value);value=""}
-    else if((c==="\n"||c==="\r")&&!quoted){
+      if(quoted&&text[i+1]==='"'){
+        value+='"';
+        i++;
+      }else{
+        quoted=!quoted;
+      }
+    }else if(c===","&&!quoted){
+      row.push(value);
+      value="";
+    }else if((c==="\n"||c==="\r")&&!quoted){
       if(c==="\r"&&text[i+1]==="\n")i++;
-      row.push(value);rows.push(row);row=[];value="";
-    }else value+=c;
+      row.push(value);
+      rows.push(row);
+      row=[];
+      value="";
+    }else{
+      value+=c;
+    }
   }
-  if(value||row.length){row.push(value);rows.push(row)}
+
+  if(value||row.length){
+    row.push(value);
+    rows.push(row);
+  }
+
   return rows;
 }
+
 function importProducts(event){
   const file=event.target.files[0];
   if(!file)return;
+
   const reader=new FileReader();
+
   reader.onload=()=>{
-    const rows=parseCSV(reader.result);
-    const headers=rows.shift().map(x=>x.trim().toLowerCase());
-    let count=0;
-    rows.forEach(row=>{
-      const obj={};
-      headers.forEach((h,i)=>obj[h]=row[i]||"");
-      if(!obj.name)return;
-      const barcode=String(obj.barcode||"").trim();
-      const existing=barcode?products.find(p=>p.barcode===barcode):null;
-      const product={
-        id:existing?existing.id:String(Date.now()+Math.random()),
-        name:String(obj.name).trim(),
-        category:obj.category||"",
-        barcode,
-        cost:Number(obj.cost)||0,
-        price:Number(obj.price)||0,
-        stock:Number(obj.stock)||0
-      };
-      if(existing)Object.assign(existing,product);
-      else products.push(product);
-      count++;
-    });
-    saveData("wgs_products",products);
-    renderProducts();updateDashboard();
-    alert(count+" products imported.");
+    try{
+      const rows=parseCSV(reader.result);
+      const headers=rows.shift().map(x=>x.trim().toLowerCase());
+      let count=0;
+
+      rows.forEach(row=>{
+        const obj={};
+        headers.forEach((h,i)=>obj[h]=row[i]||"");
+
+        if(!obj.name)return;
+
+        const barcode=String(obj.barcode||"").trim();
+
+        const existing=barcode?
+          products.find(p=>p.barcode===barcode):null;
+
+        const product={
+          id:existing?existing.id:
+            String(Date.now()+Math.random()),
+          name:String(obj.name).trim(),
+          category:obj.category||"",
+          barcode,
+          cost:Number(obj.cost)||0,
+          price:Number(obj.price)||0,
+          stock:Number(obj.stock)||0
+        };
+
+        if(existing)Object.assign(existing,product);
+        else products.push(product);
+
+        count++;
+      });
+
+      saveData("wgs_products",products);
+      renderProducts();
+      updateDashboard();
+
+      alert(count+" products imported.");
+    }catch(e){
+      alert("Could not import this CSV file.");
+    }
+
     event.target.value="";
   };
+
   reader.readAsText(file);
 }
 
-/* BACKUP AND RESTORE */
+/* =========================
+   BACKUP AND RESTORE
+========================= */
+
 function backupData(){
   const data={
-    products,bills,store,
+    products,
+    bills,
+    store,
     adminCode,
     backupDate:new Date().toISOString()
   };
-  downloadFile("wasif-store-backup.json",JSON.stringify(data,null,2),"application/json");
+
+  downloadFile(
+    "wasif-store-backup.json",
+    JSON.stringify(data,null,2),
+    "application/json"
+  );
 }
+
 function restoreData(event){
   const file=event.target.files[0];
   if(!file)return;
+
   const reader=new FileReader();
+
   reader.onload=()=>{
     try{
       const data=JSON.parse(reader.result);
-      if(!Array.isArray(data.products)||!Array.isArray(data.bills))throw new Error("Invalid backup");
-      if(!confirm("Restore backup? Current data will be replaced."))return;
+
+      if(!Array.isArray(data.products)||!Array.isArray(data.bills)){
+        throw new Error("Invalid backup");
+      }
+
+      if(!confirm("Restore backup? Current data will be replaced.")){
+        event.target.value="";
+        return;
+      }
+
       products=data.products;
       bills=data.bills;
       store=data.store||store;
+
       if(data.adminCode){
         adminCode=data.adminCode;
         localStorage.setItem("wgs_admin_code",adminCode);
       }
+
       saveData("wgs_products",products);
       saveData("wgs_bills",bills);
       saveData("wgs_store",store);
-      renderProducts();updateDashboard();
-      alert("Backup restored successfully.");
-    }catch(e){alert("Invalid backup file.")}
+
+      renderProducts();
+      updateDashboard();
+
+      alert("Backup restored successfully. Your Admin Code was also restored.");
+    }catch(e){
+      alert("Invalid backup file.");
+    }
+
     event.target.value="";
   };
+
   reader.readAsText(file);
 }
 
-/* SAFE TEXT DISPLAY */
+/* =========================
+   SAFE TEXT DISPLAY
+========================= */
+
 function escapeHTML(value){
   return String(value??"").replace(/[&<>"']/g,c=>({
-    "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
+    "&":"&amp;",
+    "<":"&lt;",
+    ">":"&gt;",
+    '"':"&quot;",
+    "'":"&#39;"
   }[c]));
 }
 
-/* INITIAL LOAD */
+/* =========================
+   INITIAL LOAD
+========================= */
+
 renderShopping();
 renderBill();
+updateDashboard();
+
 </script>
 </body>
 </html>

@@ -5,775 +5,935 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<!-- GOOGLE SEARCH CONSOLE VERIFICATION -->
 <meta name="google-site-verification" content="L78btOyhUxKDEd8NeEgvkfHkNK1_WmHz39LeXgQj18k">
 
 <title>Wasif General Store | Grocery Bill Book</title>
-<meta name="description" content="Wasif General Store - Premium grocery billing and general store management system.">
-<meta name="theme-color" content="#101010">
+<meta name="description" content="Wasif General Store grocery bill book and store management system.">
 
 <style>
-:root {
-  --gold:#d8b15c;
-  --bg:#101010;
-  --panel:#1c1c1c;
-  --border:#393939;
-  --text:#ffffff;
-  --muted:#aaaaaa;
+:root{
+  --gold:#d6ad55;
+  --gold2:#f4d58a;
+  --black:#101010;
+  --panel:#1b1b1b;
+  --muted:#aaa;
+  --white:#fff;
+  --red:#e05252;
+  --green:#28a66a;
 }
-* {box-sizing:border-box}
-body {
+*{box-sizing:border-box}
+body{
   margin:0;
-  background:var(--bg);
-  color:var(--text);
   font-family:Arial,sans-serif;
+  background:#101010;
+  color:#fff;
 }
-header {
-  padding:22px 5%;
-  background:#080808;
-  border-bottom:1px solid var(--gold);
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  flex-wrap:wrap;
-  gap:12px;
-}
-.logo {
-  color:var(--gold);
-  font-size:24px;
-  font-weight:bold;
-}
-header small {color:var(--muted)}
-nav {
-  padding:14px 5%;
-  background:#151515;
-  display:flex;
-  flex-wrap:wrap;
-  gap:8px;
-}
-button {
-  padding:11px 15px;
-  border:0;
-  border-radius:7px;
-  cursor:pointer;
-  font-weight:bold;
-}
-.gold {background:var(--gold);color:#111}
-.dark {background:#333;color:white}
-.red {background:#a83232;color:white}
-.navbtn {background:#292929;color:white}
-.navbtn.active {background:var(--gold);color:#111}
-main {max-width:1200px;margin:auto;padding:22px 5%}
-.panel {
+button,input,select,textarea{font:inherit}
+button{cursor:pointer}
+.hidden{display:none!important}
+.gold{color:var(--gold)}
+.muted{color:var(--muted)}
+.container{max-width:1200px;margin:auto;padding:18px}
+.card{
   background:var(--panel);
-  border:1px solid var(--border);
-  border-radius:12px;
+  border:1px solid #383027;
+  border-radius:14px;
   padding:18px;
   margin-bottom:18px;
 }
-h2,h3 {color:var(--gold)}
-label {
-  display:block;
-  color:#ccc;
-  font-size:13px;
-  margin-top:8px;
-}
-input,select {
+h1,h2,h3{margin-top:0}
+input,select,textarea{
   width:100%;
   padding:12px;
+  border-radius:8px;
+  border:1px solid #555;
   background:#101010;
   color:white;
-  border:1px solid #444;
-  border-radius:7px;
   margin:6px 0 12px;
 }
-.grid {
+label{font-size:13px;color:#ddd}
+.btn{
+  border:0;
+  border-radius:8px;
+  padding:11px 15px;
+  font-weight:bold;
+  background:var(--gold);
+  color:#111;
+  margin:3px;
+}
+.btn:hover{background:var(--gold2)}
+.btn-dark{background:#333;color:white}
+.btn-red{background:#a83232;color:white}
+.btn-green{background:#187a4b;color:white}
+.btn-small{padding:7px 10px;font-size:12px}
+header{
+  background:#080808;
+  border-bottom:2px solid var(--gold);
+  padding:18px;
+}
+.header-inner{
+  max-width:1200px;
+  margin:auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  flex-wrap:wrap;
+}
+.brand{font-size:24px;font-weight:bold;color:var(--gold)}
+.nav{display:flex;gap:5px;flex-wrap:wrap}
+.nav button{
+  background:#252525;color:white;border:1px solid #444;
+  padding:9px 12px;border-radius:8px;
+}
+.nav button.active{background:var(--gold);color:#111}
+.grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
   gap:14px;
 }
-.product {
-  background:#252525;
+.stat{
+  background:#222;
+  border:1px solid #4b3b20;
+  padding:16px;
+  border-radius:12px;
+}
+.stat strong{display:block;font-size:25px;color:var(--gold);margin-top:8px}
+table{width:100%;border-collapse:collapse;min-width:550px}
+th,td{padding:11px;border-bottom:1px solid #444;text-align:left}
+th{color:var(--gold);background:#252525}
+.table-wrap{overflow-x:auto}
+.product-card{
   border:1px solid #444;
   border-radius:10px;
-  padding:15px;
+  padding:13px;
+  background:#222;
 }
-.product strong {display:block;margin-bottom:8px}
-.product button {margin-top:10px}
-.tablewrap {overflow-x:auto}
-table {
-  width:100%;
-  min-width:500px;
-  border-collapse:collapse;
-}
-th,td {
-  padding:11px;
-  border-bottom:1px solid #444;
-  text-align:left;
-}
-th {color:var(--gold)}
-.total {
-  color:var(--gold);
-  font-size:21px;
-  font-weight:bold;
-}
-.muted {color:var(--muted)}
-.hidden {display:none!important}
-.actions {
+.product-card h3{margin:0 0 8px}
+.product-card .price{color:var(--gold);font-weight:bold}
+.section{display:none}
+.section.active{display:block}
+#loginScreen{
+  min-height:100vh;
   display:flex;
-  flex-wrap:wrap;
-  gap:8px;
-  margin-top:15px;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+  background:radial-gradient(circle at top,#352914,#101010 60%);
 }
-footer {
+.login-box{
+  width:100%;
+  max-width:400px;
+  background:#191919;
+  border:1px solid var(--gold);
+  border-radius:18px;
+  padding:28px;
   text-align:center;
-  padding:25px;
-  color:#888;
+  box-shadow:0 10px 40px #000;
 }
-@media(max-width:600px) {
-  header {padding:18px}
-  main {padding:14px}
-  nav {padding:10px}
-  .logo {font-size:20px}
+.login-logo{font-size:34px;color:var(--gold);margin-bottom:10px}
+.login-box input{text-align:center;font-size:18px;letter-spacing:2px}
+.login-box .btn{width:100%;margin:8px 0}
+.message{font-size:13px;min-height:20px;color:#ff7777}
+.total-line{
+  display:flex;justify-content:space-between;
+  padding:8px 0;border-bottom:1px solid #444;
 }
-@media print {
-  body {background:white;color:black}
-  header,nav,footer,.no-print {display:none!important}
-  main {padding:0}
-  .panel {background:white;border:0;color:black}
-  h2,h3,.total {color:black}
-  th,td {color:black;border-color:#aaa}
+.grand-total{font-size:22px;color:var(--gold);font-weight:bold}
+.empty{text-align:center;padding:25px;color:#aaa}
+#billPrint{display:none}
+footer{text-align:center;color:#888;padding:25px;font-size:12px}
+@media(max-width:600px){
+  .container{padding:10px}
+  .card{padding:13px}
+  .brand{font-size:20px}
+  .nav button{font-size:12px;padding:8px}
+}
+@media print{
+  body{background:white!important;color:black!important}
+  body *{visibility:hidden!important}
+  #billPrint,#billPrint *{visibility:visible!important}
+  #billPrint{
+    display:block!important;
+    position:absolute;
+    top:0;left:0;width:100%;
+    padding:20px;
+    color:black!important;
+    background:white!important;
+    font-family:Arial,sans-serif;
+  }
+  #billPrint table{min-width:0}
+  #billPrint th,#billPrint td{
+    color:black!important;
+    background:white!important;
+    border-bottom:1px solid #aaa;
+  }
+  .no-print{display:none!important}
 }
 </style>
 </head>
 
 <body>
 
-<header>
-  <div>
-    <div class="logo" id="headerName">WASIF GENERAL STORE</div>
-    <small>Grocery Bill Book & Store Management</small>
+<!-- ADMIN LOGIN -->
+<div id="loginScreen">
+  <div class="login-box">
+    <div class="login-logo">✦</div>
+    <h1 class="gold">WASIF GENERAL STORE</h1>
+    <p class="muted">Admin Login</p>
+    <label for="adminCode">Enter Admin Access Code</label>
+    <input id="adminCode" type="password" placeholder="Enter Admin Code">
+    <button class="btn" onclick="login()">LOGIN TO DASHBOARD</button>
+    <div id="loginMessage" class="message"></div>
+    <p class="muted" style="font-size:11px">Authorized Admin Only</p>
   </div>
-  <div id="dateDisplay"></div>
+</div>
+
+<!-- MAIN ADMIN APP -->
+<div id="mainApp" class="hidden">
+
+<header>
+  <div class="header-inner">
+    <div>
+      <div class="brand">✦ WASIF GENERAL STORE</div>
+      <small class="muted">Premium Grocery Bill Book</small>
+    </div>
+    <div>
+      <button class="btn btn-red" onclick="logout()">LOGOUT</button>
+    </div>
+  </div>
 </header>
 
-<nav class="no-print">
-  <button class="navbtn active" onclick="showPage('billing',this)">Bill Book</button>
-  <button class="navbtn" onclick="showPage('products',this)">Products</button>
-  <button class="navbtn" onclick="showPage('history',this)">Saved Bills</button>
-  <button class="navbtn" onclick="showPage('admin',this)">Admin Settings</button>
-</nav>
+<div class="container">
 
-<main>
+  <div class="nav no-print">
+    <button class="active" onclick="showSection('dashboard',this)">Dashboard</button>
+    <button onclick="showSection('billing',this)">Create Bill</button>
+    <button onclick="showSection('products',this)">Products</button>
+    <button onclick="showSection('history',this)">Old Bills</button>
+    <button onclick="showSection('settings',this)">Settings</button>
+  </div>
 
-<!-- BILL BOOK -->
-<section id="billing">
-
-  <div class="panel">
-    <h2>Create New Bill</h2>
-
+  <!-- DASHBOARD -->
+  <section id="dashboard" class="section active">
+    <h2 class="gold">Admin Dashboard</h2>
     <div class="grid">
-      <div>
-        <label>Customer Name (Optional)</label>
-        <input id="customer" placeholder="Customer name">
-      </div>
-      <div>
-        <label>Customer Phone (Optional)</label>
-        <input id="phone" placeholder="Phone number">
-      </div>
+      <div class="stat">Total Products<strong id="statProducts">0</strong></div>
+      <div class="stat">Total Bills<strong id="statBills">0</strong></div>
+      <div class="stat">Total Sales<strong id="statSales">Rs. 0</strong></div>
     </div>
-
-    <label>Search Grocery Product</label>
-    <input id="search" placeholder="Search product..." oninput="renderProducts()">
-
-    <div id="productList" class="grid"></div>
-  </div>
-
-  <div class="panel">
-    <h2>Current Bill</h2>
-
-    <div class="tablewrap">
-      <table>
-        <thead>
-          <tr>
-            <th>Product</th>
-            <th>Price</th>
-            <th>Quantity</th>
-            <th>Total</th>
-            <th class="no-print">Remove</th>
-          </tr>
-        </thead>
-        <tbody id="cartRows"></tbody>
-      </table>
+    <div class="card" style="margin-top:18px">
+      <h3>Welcome, Admin</h3>
+      <p class="muted">Manage your store, create customer bills, manage products and review saved bills.</p>
+      <button class="btn" onclick="goTo('billing')">CREATE NEW BILL</button>
+      <button class="btn btn-dark" onclick="goTo('products')">MANAGE PRODUCTS</button>
     </div>
+  </section>
 
-    <div class="grid" style="margin-top:15px">
-      <div>
-        <label>Discount (Rs.)</label>
-        <input id="discount" type="number" min="0" value="0" oninput="calculate()">
-      </div>
-      <div>
-        <label>Subtotal</label>
-        <div id="subtotal" class="total">Rs. 0</div>
-      </div>
-      <div>
-        <label>Grand Total</label>
-        <div id="grand" class="total">Rs. 0</div>
+  <!-- BILLING -->
+  <section id="billing" class="section">
+    <h2 class="gold">Create New Bill</h2>
+
+    <div class="card">
+      <h3>Customer Details</h3>
+      <div class="grid">
+        <div>
+          <label>Customer Name</label>
+          <input id="customerName" placeholder="Customer name">
+        </div>
+        <div>
+          <label>Customer Phone</label>
+          <input id="customerPhone" placeholder="Phone number">
+        </div>
       </div>
     </div>
 
-    <div class="actions no-print">
-      <button class="gold" onclick="saveBill()">Save Bill</button>
-      <button class="dark" onclick="printBill()">Print Bill</button>
-      <button class="red" onclick="clearCart()">Clear Bill</button>
+    <div class="card">
+      <h3>Add Products to Bill</h3>
+      <label>Search Product</label>
+      <input id="productSearch" placeholder="Search product..." oninput="renderProductPicker()">
+      <div id="productPicker" class="grid"></div>
     </div>
-  </div>
 
-</section>
-
-<!-- PRODUCTS -->
-<section id="products" class="hidden">
-
-  <div class="panel">
-    <h2>Product Management</h2>
-
-    <label>Product Name</label>
-    <input id="pname" placeholder="Enter product name">
-
-    <label>Product Price (Rs.)</label>
-    <input id="pprice" type="number" min="0" placeholder="Enter price">
-
-    <label>Stock Quantity</label>
-    <input id="pstock" type="number" min="0" placeholder="Enter stock quantity">
-
-    <button class="gold" onclick="addProduct()">Add Product</button>
-  </div>
-
-  <div class="panel">
-    <h2>All Products</h2>
-    <div class="tablewrap">
-      <table>
-        <thead>
-          <tr>
-            <th>Product</th>
-            <th>Price</th>
-            <th>Stock</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody id="manageRows"></tbody>
-      </table>
+    <div class="card">
+      <h3>Bill Items</h3>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Product</th><th>Price</th><th>Qty</th><th>Total</th><th>Remove</th>
+            </tr>
+          </thead>
+          <tbody id="cartRows"></tbody>
+        </table>
+      </div>
+      <div id="emptyCart" class="empty">No products added yet.</div>
     </div>
-  </div>
 
-</section>
-
-<!-- SAVED BILLS -->
-<section id="history" class="hidden">
-
-  <div class="panel">
-    <h2>Saved Bills</h2>
-
-    <div class="tablewrap">
-      <table>
-        <thead>
-          <tr>
-            <th>Bill Number</th>
-            <th>Customer</th>
-            <th>Date</th>
-            <th>Total</th>
-            <th>Action</th>
-          </tr>
-        </thead>
-        <tbody id="historyRows"></tbody>
-      </table>
+    <div class="card">
+      <h3>Bill Summary</h3>
+      <div class="total-line"><span>Subtotal</span><strong id="subtotal">Rs. 0</strong></div>
+      <label>Discount (Rs.)</label>
+      <input type="number" id="discount" min="0" value="0" oninput="renderCart()">
+      <div class="total-line grand-total"><span>Grand Total</span><span id="grandTotal">Rs. 0</span></div>
+      <button class="btn btn-green" onclick="saveBill()">SAVE BILL</button>
+      <button class="btn" onclick="printCurrentBill()">PRINT BILL</button>
+      <button class="btn btn-dark" onclick="clearCart()">CLEAR BILL</button>
     </div>
-  </div>
+  </section>
 
-</section>
+  <!-- PRODUCTS -->
+  <section id="products" class="section">
+    <h2 class="gold">Product Management</h2>
+    <div class="card">
+      <h3 id="productFormTitle">Add New Product</h3>
+      <input type="hidden" id="editProductId">
+      <div class="grid">
+        <div>
+          <label>Product Name</label>
+          <input id="newProductName" placeholder="e.g. Sugar 1 KG">
+        </div>
+        <div>
+          <label>Price (Rs.)</label>
+          <input id="newProductPrice" type="number" min="0" placeholder="Product price">
+        </div>
+      </div>
+      <button class="btn" onclick="saveProduct()">SAVE PRODUCT</button>
+      <button class="btn btn-dark" onclick="resetProductForm()">CANCEL</button>
+    </div>
 
-<!-- ADMIN SETTINGS -->
-<section id="admin" class="hidden">
+    <div class="card">
+      <h3>All Products</h3>
+      <input id="manageSearch" placeholder="Search products..." oninput="renderProducts()">
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Product</th><th>Price</th><th>Actions</th></tr></thead>
+          <tbody id="productsRows"></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
 
-  <div class="panel">
-    <h2>Admin Settings</h2>
+  <!-- BILL HISTORY -->
+  <section id="history" class="section">
+    <h2 class="gold">Saved Bills</h2>
+    <div class="card">
+      <input id="billSearch" placeholder="Search by bill number or customer..." oninput="renderHistory()">
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Bill No.</th><th>Customer</th><th>Date</th><th>Total</th><th>Actions</th></tr>
+          </thead>
+          <tbody id="historyRows"></tbody>
+        </table>
+      </div>
+      <div id="emptyHistory" class="empty hidden">No saved bills yet.</div>
+    </div>
+  </section>
 
-    <label>Store Name</label>
-    <input id="storeName">
+  <!-- SETTINGS -->
+  <section id="settings" class="section">
+    <h2 class="gold">Admin Settings</h2>
+    <div class="card">
+      <h3>Store Information</h3>
+      <label>Store Name</label>
+      <input id="settingStoreName">
+      <label>Phone Number</label>
+      <input id="settingPhone">
+      <label>Store Address</label>
+      <textarea id="settingAddress" rows="3"></textarea>
+      <button class="btn" onclick="saveSettings()">SAVE SETTINGS</button>
+    </div>
 
-    <label>Contact Number</label>
-    <input id="storePhone">
+    <div class="card">
+      <h3>Data Backup</h3>
+      <p class="muted">Download your products, bills and store settings as a backup file.</p>
+      <button class="btn" onclick="exportBackup()">DOWNLOAD BACKUP</button>
+      <label style="display:block;margin-top:15px">Restore Backup File</label>
+      <input type="file" id="backupFile" accept=".json">
+      <button class="btn btn-dark" onclick="importBackup()">RESTORE BACKUP</button>
+    </div>
 
-    <label>Store Address</label>
-    <input id="storeAddress" placeholder="Enter store address">
+    <div class="card">
+      <h3 class="gold">Admin Access</h3>
+      <p class="muted">Use Logout to lock the dashboard again.</p>
+      <button class="btn btn-red" onclick="logout()">LOGOUT</button>
+    </div>
+  </section>
 
-    <button class="gold" onclick="saveSettings()">Save Settings</button>
-  </div>
+</div>
 
-  <div class="panel">
-    <h2>Store Summary</h2>
-    <div id="summary"></div>
-  </div>
+<footer>© <span id="year"></span> Wasif General Store | Admin Management System</footer>
+</div>
 
-  <div class="panel">
-    <h2>Backup & Data</h2>
-    <p class="muted">Download a backup of your products, bills and settings.</p>
-    <button class="gold" onclick="backup()">Download Backup</button>
-    <button class="red" onclick="resetData()">Delete All Store Data</button>
-  </div>
-
-</section>
-
-</main>
-
-<footer>
-  © <span id="year"></span> Wasif General Store
-</footer>
+<!-- PRINTABLE BILL -->
+<div id="billPrint"></div>
 
 <script>
-const $ = id => document.getElementById(id);
+/* ==============================
+   ADMIN ACCESS
+   ============================== */
 
-function getData(key, fallback) {
-  try {
-    const value = localStorage.getItem(key);
-    return value === null ? fallback : JSON.parse(value);
-  } catch {
+const ADMIN_CODE = "Wasif2244";
+let isAdmin = false;
+
+function login(){
+  const entered = document.getElementById("adminCode").value;
+  if(entered === ADMIN_CODE){
+    isAdmin = true;
+    sessionStorage.setItem("wasifAdminSession","active");
+    document.getElementById("loginScreen").classList.add("hidden");
+    document.getElementById("mainApp").classList.remove("hidden");
+    document.getElementById("loginMessage").textContent = "";
+    initializeApp();
+  }else{
+    document.getElementById("loginMessage").textContent = "Incorrect Admin Code. Try again.";
+  }
+}
+
+function logout(){
+  isAdmin = false;
+  sessionStorage.removeItem("wasifAdminSession");
+  document.getElementById("mainApp").classList.add("hidden");
+  document.getElementById("loginScreen").classList.remove("hidden");
+  document.getElementById("adminCode").value = "";
+}
+
+document.getElementById("adminCode").addEventListener("keydown",function(e){
+  if(e.key === "Enter") login();
+});
+
+function requireAdmin(){
+  if(!isAdmin){
+    alert("Admin login required.");
+    return false;
+  }
+  return true;
+}
+
+/* ==============================
+   DATA STORAGE
+   ============================== */
+
+const defaultProducts = [
+  {id:1,name:"Sugar 1 KG",price:170},
+  {id:2,name:"Flour 1 KG",price:150},
+  {id:3,name:"Rice 1 KG",price:300},
+  {id:4,name:"Cooking Oil 1 Litre",price:550},
+  {id:5,name:"Tea 250 GM",price:450},
+  {id:6,name:"Milk 1 Litre",price:280},
+  {id:7,name:"Salt 1 KG",price:60},
+  {id:8,name:"Soap",price:120}
+];
+
+function loadData(key,fallback){
+  try{
+    const data = localStorage.getItem(key);
+    return data ? JSON.parse(data) : fallback;
+  }catch(e){
     return fallback;
   }
 }
 
-function store(key, value) {
-  localStorage.setItem(key, JSON.stringify(value));
-}
-
-function escapeHTML(value) {
-  return String(value).replace(/[&<>"']/g, c => ({
-    '&':'&amp;','<':'&lt;','>':'&gt;',
-    '"':'&quot;',"'":'&#39;'
-  }[c]));
-}
-
-function money(value) {
-  return "Rs. " + Number(value || 0).toLocaleString("en-PK");
-}
-
-let products = getData("wgs_products", [
-  {id:1,name:"Sugar",price:170,stock:0},
-  {id:2,name:"Flour (Atta)",price:150,stock:0},
-  {id:3,name:"Rice",price:300,stock:0},
-  {id:4,name:"Cooking Oil",price:550,stock:0},
-  {id:5,name:"Tea",price:250,stock:0},
-  {id:6,name:"Milk",price:220,stock:0}
-]);
-
-let bills = getData("wgs_bills", []);
-let cart = [];
-
-let settings = getData("wgs_settings", {
+let products = loadData("wasifProducts",defaultProducts);
+let bills = loadData("wasifBills",[]);
+let settings = loadData("wasifSettings",{
   name:"Wasif General Store",
-  phone:"03462916891",
+  phone:"0346 2916891",
   address:""
 });
+let cart = [];
 
-function saveProducts() {
-  store("wgs_products", products);
+function saveData(){
+  localStorage.setItem("wasifProducts",JSON.stringify(products));
+  localStorage.setItem("wasifBills",JSON.stringify(bills));
+  localStorage.setItem("wasifSettings",JSON.stringify(settings));
 }
 
-function saveBills() {
-  store("wgs_bills", bills);
+function money(amount){
+  return "Rs. " + Number(amount || 0).toLocaleString("en-PK");
 }
 
-function showPage(id, button) {
-  document.querySelectorAll("main section").forEach(section => {
-    section.classList.add("hidden");
+function safe(value){
+  return String(value ?? "").replace(/[&<>"']/g,function(c){
+    return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c];
   });
+}
 
-  $(id).classList.remove("hidden");
+/* ==============================
+   APP INITIALIZATION
+   ============================== */
 
-  document.querySelectorAll(".navbtn").forEach(btn => {
-    btn.classList.remove("active");
-  });
+function initializeApp(){
+  if(!requireAdmin()) return;
+  document.getElementById("year").textContent = new Date().getFullYear();
+  loadSettingsForm();
+  renderDashboard();
+  renderProducts();
+  renderProductPicker();
+  renderCart();
+  renderHistory();
+}
 
+if(sessionStorage.getItem("wasifAdminSession") === "active"){
+  isAdmin = true;
+  document.getElementById("loginScreen").classList.add("hidden");
+  document.getElementById("mainApp").classList.remove("hidden");
+  initializeApp();
+}
+
+/* ==============================
+   NAVIGATION
+   ============================== */
+
+function showSection(id,button){
+  if(!requireAdmin()) return;
+  document.querySelectorAll(".section").forEach(s=>s.classList.remove("active"));
+  document.getElementById(id).classList.add("active");
+  document.querySelectorAll(".nav button").forEach(b=>b.classList.remove("active"));
   if(button) button.classList.add("active");
 
-  if(id === "products") renderManage();
-  if(id === "history") renderHistory();
-  if(id === "admin") renderAdmin();
+  if(id==="dashboard") renderDashboard();
+  if(id==="products") renderProducts();
+  if(id==="billing") renderProductPicker();
+  if(id==="history") renderHistory();
 }
 
-function renderProducts() {
-  let query = $("search").value.toLowerCase();
-
-  let filtered = products.filter(p =>
-    p.name.toLowerCase().includes(query)
-  );
-
-  $("productList").innerHTML = filtered.map(p => `
-    <div class="product">
-      <strong>${escapeHTML(p.name)}</strong>
-      <div>${money(p.price)}</div>
-      <button class="gold" onclick="addToCart(${p.id})">Add to Bill</button>
-    </div>
-  `).join("") || "<p class='muted'>No products found.</p>";
+function goTo(id){
+  const buttons = [...document.querySelectorAll(".nav button")];
+  const index = ["dashboard","billing","products","history","settings"].indexOf(id);
+  showSection(id,buttons[index]);
 }
 
-function addToCart(id) {
-  let product = products.find(p => p.id === id);
-  if(!product) return;
+/* ==============================
+   DASHBOARD
+   ============================== */
 
-  let item = cart.find(p => p.id === id);
-
-  if(item) item.qty++;
-  else cart.push({...product, qty:1});
-
-  renderCart();
+function renderDashboard(){
+  if(!requireAdmin()) return;
+  document.getElementById("statProducts").textContent = products.length;
+  document.getElementById("statBills").textContent = bills.length;
+  const sales = bills.reduce((sum,b)=>sum+Number(b.total||0),0);
+  document.getElementById("statSales").textContent = money(sales);
 }
 
-function renderCart() {
-  $("cartRows").innerHTML = cart.map((p,i) => `
-    <tr>
-      <td>${escapeHTML(p.name)}</td>
-      <td>${money(p.price)}</td>
-      <td>
-        <button class="dark no-print" onclick="changeQty(${i},-1)">−</button>
-        ${p.qty}
-        <button class="dark no-print" onclick="changeQty(${i},1)">+</button>
-      </td>
-      <td>${money(p.price * p.qty)}</td>
-      <td class="no-print">
-        <button class="red" onclick="removeItem(${i})">X</button>
-      </td>
-    </tr>
-  `).join("");
+/* ==============================
+   PRODUCT MANAGEMENT
+   ============================== */
 
-  calculate();
-}
+function saveProduct(){
+  if(!requireAdmin()) return;
 
-function changeQty(index, amount) {
-  cart[index].qty += amount;
+  const name = document.getElementById("newProductName").value.trim();
+  const price = Number(document.getElementById("newProductPrice").value);
+  const editId = document.getElementById("editProductId").value;
 
-  if(cart[index].qty <= 0) {
-    cart.splice(index,1);
-  }
-
-  renderCart();
-}
-
-function removeItem(index) {
-  cart.splice(index,1);
-  renderCart();
-}
-
-function calculate() {
-  let subtotal = cart.reduce((sum,p) =>
-    sum + p.price * p.qty, 0
-  );
-
-  let discount = Math.max(0, Number($("discount").value) || 0);
-  let total = Math.max(0, subtotal - discount);
-
-  $("subtotal").textContent = money(subtotal);
-  $("grand").textContent = money(total);
-
-  return {subtotal,discount,total};
-}
-
-function clearCart() {
-  if(!cart.length) return;
-
-  if(confirm("Clear current bill?")) {
-    cart = [];
-    $("discount").value = 0;
-    renderCart();
-  }
-}
-
-function saveBill() {
-  if(!cart.length) {
-    alert("Please add products first.");
+  if(!name || !Number.isFinite(price) || price < 0){
+    alert("Please enter a valid product name and price.");
     return;
   }
 
-  let result = calculate();
+  if(editId){
+    const product = products.find(p=>p.id===Number(editId));
+    if(product){
+      product.name = name;
+      product.price = price;
+    }
+  }else{
+    products.push({id:Date.now(),name,price});
+  }
 
-  let bill = {
+  saveData();
+  resetProductForm();
+  renderProducts();
+  renderProductPicker();
+  renderDashboard();
+  alert("Product saved successfully.");
+}
+
+function editProduct(id){
+  if(!requireAdmin()) return;
+  const p = products.find(item=>item.id===id);
+  if(!p) return;
+
+  document.getElementById("editProductId").value = p.id;
+  document.getElementById("newProductName").value = p.name;
+  document.getElementById("newProductPrice").value = p.price;
+  document.getElementById("productFormTitle").textContent = "Edit Product";
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+
+function deleteProduct(id){
+  if(!requireAdmin()) return;
+  if(!confirm("Delete this product?")) return;
+  products = products.filter(p=>p.id!==id);
+  cart = cart.filter(item=>item.id!==id);
+  saveData();
+  renderProducts();
+  renderProductPicker();
+  renderCart();
+  renderDashboard();
+}
+
+function resetProductForm(){
+  document.getElementById("editProductId").value = "";
+  document.getElementById("newProductName").value = "";
+  document.getElementById("newProductPrice").value = "";
+  document.getElementById("productFormTitle").textContent = "Add New Product";
+}
+
+function renderProducts(){
+  if(!requireAdmin()) return;
+  const search = document.getElementById("manageSearch").value.toLowerCase();
+  const list = products.filter(p=>p.name.toLowerCase().includes(search));
+  const rows = document.getElementById("productsRows");
+
+  if(!list.length){
+    rows.innerHTML = '<tr><td colspan="3">No products found.</td></tr>';
+    return;
+  }
+
+  rows.innerHTML = list.map(p=>`
+    <tr>
+      <td>${safe(p.name)}</td>
+      <td>${money(p.price)}</td>
+      <td>
+        <button class="btn btn-small" onclick="editProduct(${p.id})">Edit</button>
+        <button class="btn btn-red btn-small" onclick="deleteProduct(${p.id})">Delete</button>
+      </td>
+    </tr>
+  `).join("");
+}
+
+/* ==============================
+   BILL PRODUCT PICKER
+   ============================== */
+
+function renderProductPicker(){
+  if(!requireAdmin()) return;
+  const search = document.getElementById("productSearch").value.toLowerCase();
+  const list = products.filter(p=>p.name.toLowerCase().includes(search));
+  const area = document.getElementById("productPicker");
+
+  if(!list.length){
+    area.innerHTML = '<div class="empty">No products found.</div>';
+    return;
+  }
+
+  area.innerHTML = list.map(p=>`
+    <div class="product-card">
+      <h3>${safe(p.name)}</h3>
+      <div class="price">${money(p.price)}</div>
+      <button class="btn btn-small" onclick="addToCart(${p.id})">+ ADD TO BILL</button>
+    </div>
+  `).join("");
+}
+
+function addToCart(id){
+  if(!requireAdmin()) return;
+  const p = products.find(item=>item.id===id);
+  if(!p) return;
+
+  const existing = cart.find(item=>item.id===id);
+  if(existing){
+    existing.qty += 1;
+  }else{
+    cart.push({id:p.id,name:p.name,price:Number(p.price),qty:1});
+  }
+  renderCart();
+}
+
+function changeQty(id,value){
+  if(!requireAdmin()) return;
+  const item = cart.find(p=>p.id===id);
+  if(!item) return;
+  item.qty = Math.max(1,Math.floor(Number(value)||1));
+  renderCart();
+}
+
+function removeFromCart(id){
+  if(!requireAdmin()) return;
+  cart = cart.filter(item=>item.id!==id);
+  renderCart();
+}
+
+function clearCart(){
+  if(!requireAdmin()) return;
+  if(cart.length && !confirm("Clear all items from this bill?")) return;
+  cart = [];
+  document.getElementById("discount").value = 0;
+  renderCart();
+}
+
+function getSubtotal(){
+  return cart.reduce((sum,item)=>sum+(item.price*item.qty),0);
+}
+
+function getDiscount(){
+  return Math.max(0,Number(document.getElementById("discount").value)||0);
+}
+
+function getGrandTotal(){
+  return Math.max(0,getSubtotal()-getDiscount());
+}
+
+function renderCart(){
+  if(!requireAdmin()) return;
+  const rows = document.getElementById("cartRows");
+  const empty = document.getElementById("emptyCart");
+
+  empty.classList.toggle("hidden",cart.length>0);
+
+  rows.innerHTML = cart.map(item=>`
+    <tr>
+      <td>${safe(item.name)}</td>
+      <td>${money(item.price)}</td>
+      <td>
+        <input type="number" min="1" value="${item.qty}"
+          style="width:75px;margin:0"
+          onchange="changeQty(${item.id},this.value)">
+      </td>
+      <td>${money(item.price*item.qty)}</td>
+      <td><button class="btn btn-red btn-small" onclick="removeFromCart(${item.id})">X</button></td>
+    </tr>
+  `).join("");
+
+  document.getElementById("subtotal").textContent = money(getSubtotal());
+  document.getElementById("grandTotal").textContent = money(getGrandTotal());
+}
+
+/* ==============================
+   SAVE AND PRINT BILL
+   ============================== */
+
+function makeBillNumber(){
+  return "WS-" + Date.now().toString().slice(-8);
+}
+
+function saveBill(){
+  if(!requireAdmin()) return;
+  if(!cart.length){
+    alert("Please add products to the bill first.");
+    return;
+  }
+
+  const customer = document.getElementById("customerName").value.trim() || "Walk-in Customer";
+  const phone = document.getElementById("customerPhone").value.trim();
+
+  if(getDiscount()>getSubtotal()){
+    alert("Discount cannot be greater than subtotal.");
+    return;
+  }
+
+  const bill = {
     id:Date.now(),
-    customer:$("customer").value.trim() || "Walk-in Customer",
-    phone:$("phone").value.trim(),
+    number:makeBillNumber(),
+    customer,
+    phone,
     date:new Date().toLocaleString(),
-    items:cart.map(p => ({...p})),
-    subtotal:result.subtotal,
-    discount:result.discount,
-    total:result.total
+    items:cart.map(item=>({...item})),
+    subtotal:getSubtotal(),
+    discount:getDiscount(),
+    total:getGrandTotal()
   };
 
   bills.unshift(bill);
-  saveBills();
-
-  alert("Bill saved successfully!");
+  saveData();
+  renderHistory();
+  renderDashboard();
+  preparePrint(bill);
 
   cart = [];
-  $("customer").value = "";
-  $("phone").value = "";
-  $("discount").value = 0;
-
+  document.getElementById("customerName").value = "";
+  document.getElementById("customerPhone").value = "";
+  document.getElementById("discount").value = 0;
   renderCart();
+
+  alert("Bill saved successfully.");
 }
 
-function printBill() {
-  if(!cart.length) {
-    alert("Add products to print a bill.");
-    return;
-  }
+function preparePrint(bill){
+  const storeName = safe(settings.name);
+  const storePhone = safe(settings.phone);
+  const storeAddress = safe(settings.address);
 
-  let result = calculate();
-  let rows = cart.map(p => `
-    <tr>
-      <td>${escapeHTML(p.name)}</td>
-      <td>${p.qty}</td>
-      <td>${money(p.price)}</td>
-      <td>${money(p.price * p.qty)}</td>
-    </tr>
-  `).join("");
-
-  let win = window.open("", "_blank");
-
-  if(!win) {
-    alert("Please allow pop-ups to print.");
-    return;
-  }
-
-  win.document.write(`
-    <!DOCTYPE html>
-    <html>
-    <head>
-      <title>Store Bill</title>
-      <style>
-        body{font-family:Arial;padding:20px;color:#111}
-        h2{text-align:center}
-        p{text-align:center}
-        table{width:100%;border-collapse:collapse;margin-top:20px}
-        th,td{border-bottom:1px solid #aaa;padding:9px;text-align:left}
-        .right{text-align:right}
-      </style>
-    </head>
-    <body>
-      <h2>${escapeHTML(settings.name)}</h2>
-      <p>${escapeHTML(settings.address)}<br>
-      Phone: ${escapeHTML(settings.phone)}</p>
-      <hr>
-      <p>
-        Bill No: ${Date.now()}<br>
-        Date: ${new Date().toLocaleString()}<br>
-        Customer: ${escapeHTML($("customer").value || "Walk-in Customer")}
-      </p>
-      <table>
-        <thead>
-          <tr><th>Product</th><th>Qty</th><th>Price</th><th>Total</th></tr>
-        </thead>
-        <tbody>${rows}</tbody>
-      </table>
-      <h3 class="right">Subtotal: ${money(result.subtotal)}</h3>
-      <h3 class="right">Discount: ${money(result.discount)}</h3>
-      <h2 class="right">Grand Total: ${money(result.total)}</h2>
-      <p>Thank you for shopping!</p>
-      <script>window.onload=()=>window.print();<\/script>
-    </body>
-    </html>
-  `);
-
-  win.document.close();
-}
-
-function addProduct() {
-  let name = $("pname").value.trim();
-  let price = Number($("pprice").value);
-  let stock = Math.max(0, Number($("pstock").value) || 0);
-
-  if(!name || $("pprice").value === "" || !Number.isFinite(price) || price < 0) {
-    alert("Enter a valid product name and price.");
-    return;
-  }
-
-  products.push({
-    id:Date.now(),
-    name,
-    price,
-    stock
-  });
-
-  saveProducts();
-
-  $("pname").value = "";
-  $("pprice").value = "";
-  $("pstock").value = "";
-
-  renderManage();
-  renderProducts();
-
-  alert("Product added successfully!");
-}
-
-function renderManage() {
-  $("manageRows").innerHTML = products.map(p => `
-    <tr>
-      <td>${escapeHTML(p.name)}</td>
-      <td>${money(p.price)}</td>
-      <td>${Number(p.stock) || 0}</td>
-      <td>
-        <button class="gold" onclick="editProduct(${p.id})">Edit</button>
-        <button class="red" onclick="deleteProduct(${p.id})">Delete</button>
-      </td>
-    </tr>
-  `).join("");
-}
-
-function editProduct(id) {
-  let p = products.find(x => x.id === id);
-  if(!p) return;
-
-  let name = prompt("Product name:", p.name);
-  if(name === null) return;
-
-  let price = prompt("Product price:", p.price);
-  if(price === null) return;
-
-  let stock = prompt("Stock quantity:", p.stock);
-
-  if(!name.trim() || price.trim() === "" ||
-     !Number.isFinite(Number(price)) || Number(price) < 0 ||
-     stock === null || !Number.isFinite(Number(stock)) || Number(stock) < 0) {
-    alert("Invalid product details.");
-    return;
-  }
-
-  p.name = name.trim();
-  p.price = Number(price);
-  p.stock = Number(stock);
-
-  saveProducts();
-  renderManage();
-  renderProducts();
-}
-
-function deleteProduct(id) {
-  if(!confirm("Delete this product?")) return;
-
-  products = products.filter(p => p.id !== id);
-
-  saveProducts();
-  renderManage();
-  renderProducts();
-}
-
-function renderHistory() {
-  $("historyRows").innerHTML = bills.map(b => `
-    <tr>
-      <td>${b.id}</td>
-      <td>${escapeHTML(b.customer)}</td>
-      <td>${escapeHTML(b.date)}</td>
-      <td>${money(b.total)}</td>
-      <td>
-        <button class="gold" onclick="viewBill(${b.id})">View</button>
-        <button class="red" onclick="deleteBill(${b.id})">Delete</button>
-      </td>
-    </tr>
-  `).join("") || "<tr><td colspan='5'>No saved bills yet.</td></tr>";
-}
-
-function viewBill(id) {
-  let b = bills.find(x => x.id === id);
-  if(!b) return;
-
-  let details = b.items.map(p =>
-    `${p.name} x ${p.qty} = ${money(p.price*p.qty)}`
-  ).join("\n");
-
-  alert(
-    "Bill: " + b.id +
-    "\nCustomer: " + b.customer +
-    "\nDate: " + b.date +
-    "\n\n" + details +
-    "\n\nSubtotal: " + money(b.subtotal) +
-    "\nDiscount: " + money(b.discount) +
-    "\nTotal: " + money(b.total)
-  );
-}
-
-function deleteBill(id) {
-  if(!confirm("Delete this saved bill?")) return;
-
-  bills = bills.filter(b => b.id !== id);
-  saveBills();
-  renderHistory();
-  renderAdmin();
-}
-
-function saveSettings() {
-  settings = {
-    name:$("storeName").value.trim() || "Wasif General Store",
-    phone:$("storePhone").value.trim(),
-    address:$("storeAddress").value.trim()
-  };
-
-  store("wgs_settings",settings);
-  $("headerName").textContent = settings.name.toUpperCase();
-
-  alert("Settings saved!");
-}
-
-function renderAdmin() {
-  $("storeName").value = settings.name;
-  $("storePhone").value = settings.phone;
-  $("storeAddress").value = settings.address;
-
-  let revenue = bills.reduce((s,b) => s + b.total,0);
-
-  $("summary").innerHTML = `
-    <p>Total Products: <strong>${products.length}</strong></p>
-    <p>Total Saved Bills: <strong>${bills.length}</strong></p>
-    <p>Total Sales: <strong>${money(revenue)}</strong></p>
+  document.getElementById("billPrint").innerHTML = `
+    <div style="text-align:center">
+      <h1>${storeName}</h1>
+      <p>${storeAddress}</p>
+      <p>Phone: ${storePhone}</p>
+      <h2>GROCERY BILL</h2>
+    </div>
+    <hr>
+    <p><b>Bill No:</b> ${safe(bill.number)}</p>
+    <p><b>Date:</b> ${safe(bill.date)}</p>
+    <p><b>Customer:</b> ${safe(bill.customer)}</p>
+    <p><b>Phone:</b> ${safe(bill.phone || "-")}</p>
+    <table>
+      <thead><tr><th>Product</th><th>Price</th><th>Qty</th><th>Total</th></tr></thead>
+      <tbody>
+        ${bill.items.map(item=>`
+          <tr>
+            <td>${safe(item.name)}</td>
+            <td>${money(item.price)}</td>
+            <td>${item.qty}</td>
+            <td>${money(item.price*item.qty)}</td>
+          </tr>
+        `).join("")}
+      </tbody>
+    </table>
+    <div style="text-align:right;margin-top:20px">
+      <p>Subtotal: ${money(bill.subtotal)}</p>
+      <p>Discount: ${money(bill.discount)}</p>
+      <h2>Grand Total: ${money(bill.total)}</h2>
+    </div>
+    <hr>
+    <p style="text-align:center">Thank you for shopping with us!</p>
   `;
 }
 
-function backup() {
-  let data = {
+function printCurrentBill(){
+  if(!requireAdmin()) return;
+  if(!cart.length){
+    alert("Add products before printing.");
+    return;
+  }
+
+  const previewBill = {
+    number:"PREVIEW",
+    date:new Date().toLocaleString(),
+    customer:document.getElementById("customerName").value.trim() || "Walk-in Customer",
+    phone:document.getElementById("customerPhone").value.trim(),
+    items:cart,
+    subtotal:getSubtotal(),
+    discount:getDiscount(),
+    total:getGrandTotal()
+  };
+
+  preparePrint(previewBill);
+  window.print();
+}
+
+/* ==============================
+   SAVED BILL HISTORY
+   ============================== */
+
+function renderHistory(){
+  if(!requireAdmin()) return;
+  const search = document.getElementById("billSearch").value.toLowerCase();
+  const list = bills.filter(b=>
+    String(b.number).toLowerCase().includes(search) ||
+    String(b.customer).toLowerCase().includes(search)
+  );
+
+  const rows = document.getElementById("historyRows");
+  document.getElementById("emptyHistory").classList.toggle("hidden",list.length>0);
+
+  rows.innerHTML = list.map(b=>`
+    <tr>
+      <td>${safe(b.number)}</td>
+      <td>${safe(b.customer)}</td>
+      <td>${safe(b.date)}</td>
+      <td>${money(b.total)}</td>
+      <td>
+        <button class="btn btn-small" onclick="reprintBill(${b.id})">Print</button>
+        <button class="btn btn-red btn-small" onclick="deleteBill(${b.id})">Delete</button>
+      </td>
+    </tr>
+  `).join("");
+}
+
+function reprintBill(id){
+  if(!requireAdmin()) return;
+  const bill = bills.find(b=>b.id===id);
+  if(!bill) return;
+  preparePrint(bill);
+  window.print();
+}
+
+function deleteBill(id){
+  if(!requireAdmin()) return;
+  if(!confirm("Permanently delete this saved bill?")) return;
+  bills = bills.filter(b=>b.id!==id);
+  saveData();
+  renderHistory();
+  renderDashboard();
+}
+
+/* ==============================
+   STORE SETTINGS
+   ============================== */
+
+function loadSettingsForm(){
+  document.getElementById("settingStoreName").value = settings.name || "";
+  document.getElementById("settingPhone").value = settings.phone || "";
+  document.getElementById("settingAddress").value = settings.address || "";
+}
+
+function saveSettings(){
+  if(!requireAdmin()) return;
+  settings = {
+    name:document.getElementById("settingStoreName").value.trim() || "Wasif General Store",
+    phone:document.getElementById("settingPhone").value.trim(),
+    address:document.getElementById("settingAddress").value.trim()
+  };
+  saveData();
+  alert("Store settings saved successfully.");
+}
+
+/* ==============================
+   BACKUP AND RESTORE
+   ============================== */
+
+function exportBackup(){
+  if(!requireAdmin()) return;
+  const backup = {
     products,
     bills,
     settings,
     backupDate:new Date().toISOString()
   };
 
-  let blob = new Blob(
-    [JSON.stringify(data,null,2)],
-    {type:"application/json"}
-  );
-
-  let url = URL.createObjectURL(blob);
-  let a = document.createElement("a");
-
+  const blob = new Blob([JSON.stringify(backup,null,2)],{type:"application/json"});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
   a.href = url;
-  a.download = "wasif-general-store-backup.json";
+  a.download = "Wasif-General-Store-Backup.json";
   a.click();
-
   URL.revokeObjectURL(url);
 }
 
-function resetData() {
-  if(!confirm("This will delete all products, bills and settings from this browser. Continue?")) return;
+function importBackup(){
+  if(!requireAdmin()) return;
+  const file = document.getElementById("backupFile").files[0];
+  if(!file){
+    alert("Please select a backup JSON file.");
+    return;
+  }
 
-  ["wgs_products","wgs_bills","wgs_settings"].forEach(key =>
-    localStorage.removeItem(key)
-  );
+  if(!confirm("Restore this backup? Current products and bills will be replaced.")) return;
 
-  location.reload();
+  const reader = new FileReader();
+  reader.onload = function(){
+    try{
+      const data = JSON.parse(reader.result);
+      if(!Array.isArray(data.products) || !Array.isArray(data.bills) || !data.settings){
+        throw new Error("Invalid backup file");
+      }
+      products = data.products;
+      bills = data.bills;
+      settings = data.settings;
+      cart = [];
+      saveData();
+      initializeApp();
+      alert("Backup restored successfully.");
+    }catch(e){
+      alert("This backup file is invalid.");
+    }
+  };
+  reader.readAsText(file);
 }
-
-$("dateDisplay").textContent = new Date().toLocaleDateString();
-$("year").textContent = new Date().getFullYear();
-$("headerName").textContent = settings.name.toUpperCase();
-
-renderProducts();
-renderCart();
 </script>
 
 </body>

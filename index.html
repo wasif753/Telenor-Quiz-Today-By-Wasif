@@ -7,1373 +7,913 @@
 
 <meta name="google-site-verification" content="L78btOyhUxKDEd8NeEgvkfHkNK1_WmHz39LeXgQj18k">
 
-<title>Wasif General Store | Premium Store Management</title>
-<meta name="description" content="Wasif General Store - Products, barcode inventory, grocery billing and store management.">
+<title>Wasif General Store</title>
+<meta name="description" content="Wasif General Store grocery management, products, barcodes, billing and shopping list.">
 
 <style>
 :root{
-  --bg:#0b0c0e;
-  --panel:#15171b;
-  --panel2:#1d2025;
-  --gold:#d8ae55;
-  --gold2:#f5d98e;
-  --white:#f8f8f8;
-  --muted:#a4a7ad;
-  --line:#35312a;
-  --green:#24a36a;
-  --red:#df5050;
-  --blue:#4c8bd9;
+  --gold:#d6ad55;
+  --black:#101010;
+  --panel:#1d1d1d;
+  --green:#16a36b;
+  --red:#d94848;
 }
 *{box-sizing:border-box}
-body{
-  margin:0;
-  background:var(--bg);
-  color:var(--white);
-  font-family:Arial,Helvetica,sans-serif;
+body{margin:0;background:#101010;color:white;font-family:Arial,sans-serif}
+button,input,select{font:inherit}
+button{cursor:pointer;border:0;border-radius:8px;padding:11px 15px;font-weight:bold}
+input,select{
+  width:100%;padding:12px;margin:6px 0 13px;
+  background:#101010;color:white;border:1px solid #555;border-radius:8px
 }
-button,input,select,textarea{font:inherit}
-button{cursor:pointer}
+label{font-size:13px;color:#ddd}
 .hidden{display:none!important}
 .gold{color:var(--gold)}
-.muted{color:var(--muted)}
-.wrap{max-width:1350px;margin:auto;padding:20px}
-.card{
-  background:linear-gradient(145deg,#1a1c20,#121417);
-  border:1px solid var(--line);
-  border-radius:16px;
-  padding:20px;
-  margin-bottom:18px;
-  box-shadow:0 8px 25px #0003;
+.container{max-width:1200px;margin:auto;padding:16px}
+.card{background:var(--panel);border:1px solid #393939;border-radius:14px;padding:17px;margin-bottom:15px}
+.row{display:flex;gap:10px;flex-wrap:wrap}
+.row>*{flex:1;min-width:130px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:13px}
+.header{
+  background:#080808;border-bottom:2px solid var(--gold);
+  padding:15px;display:flex;justify-content:space-between;
+  align-items:center;gap:10px;flex-wrap:wrap
 }
-h1,h2,h3{margin-top:0}
-input,select,textarea{
-  width:100%;
-  background:#0e1013;
-  border:1px solid #454545;
-  color:white;
-  border-radius:9px;
-  padding:12px;
-  margin:6px 0 13px;
-  outline:none;
-}
-input:focus,select:focus,textarea:focus{
-  border-color:var(--gold);
-  box-shadow:0 0 0 2px #d8ae5520;
-}
-label{font-size:13px;color:#ccc}
-.btn{
-  background:linear-gradient(135deg,var(--gold2),var(--gold));
-  border:0;
-  color:#16120a;
-  font-weight:bold;
-  padding:11px 16px;
-  border-radius:9px;
-  margin:3px;
-}
-.btn:hover{filter:brightness(1.1)}
-.btn-dark{background:#292d33;color:white;border:1px solid #4a4a4a}
+.logo{font-size:22px;font-weight:900;color:var(--gold)}
+.btn-gold{background:var(--gold);color:#111}
+.btn-dark{background:#333;color:white}
 .btn-green{background:var(--green);color:white}
 .btn-red{background:var(--red);color:white}
-.btn-blue{background:var(--blue);color:white}
-.btn-small{padding:7px 10px;font-size:12px}
-header{
-  background:#090a0c;
-  border-bottom:2px solid var(--gold);
-  padding:17px 20px;
-}
-.header-inner{
-  max-width:1350px;
-  margin:auto;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  flex-wrap:wrap;
-  gap:12px;
-}
-.brand{
-  font-size:24px;
-  font-weight:900;
-  letter-spacing:1px;
-  color:var(--gold);
-}
-.brand small{
-  display:block;
-  font-size:10px;
-  color:#aaa;
-  letter-spacing:3px;
-  margin-top:5px;
-}
-.nav{
-  display:flex;
-  gap:7px;
-  flex-wrap:wrap;
-  margin-bottom:20px;
-}
-.nav button{
-  background:#202226;
-  border:1px solid #454545;
-  color:white;
-  padding:10px 13px;
-  border-radius:9px;
-}
-.nav button.active{
-  background:var(--gold);
-  color:#111;
-  border-color:var(--gold);
-  font-weight:bold;
-}
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:15px;
-}
-.stat{
-  background:linear-gradient(145deg,#28231a,#17191d);
-  border:1px solid #514126;
-  padding:20px;
-  border-radius:15px;
-}
-.stat span{font-size:13px;color:#aaa}
-.stat strong{
-  display:block;
-  font-size:27px;
-  color:var(--gold);
-  margin-top:10px;
-}
-.section{display:none}
-.section.active{display:block}
-.table-wrap{overflow-x:auto}
-table{width:100%;border-collapse:collapse;min-width:600px}
-th,td{
-  padding:12px;
-  border-bottom:1px solid #373737;
-  text-align:left;
-}
-th{background:#25272b;color:var(--gold)}
-.product-card{
-  background:#202329;
-  border:1px solid #414141;
-  padding:15px;
-  border-radius:12px;
-  display:flex;
-  flex-direction:column;
-  gap:8px;
-}
-.product-card .price{color:var(--gold);font-weight:bold}
-.product-card .stock{font-size:12px;color:#aaa}
-.badge{
-  display:inline-block;
-  background:#303030;
-  border-radius:30px;
-  padding:5px 9px;
-  font-size:11px;
-}
-.empty{text-align:center;color:#999;padding:25px}
-.two-col{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:15px;
-}
+.btn-blue{background:#2468a8;color:white}
+.nav{display:flex;gap:7px;flex-wrap:wrap;margin:15px 0}
+.nav button{background:#292929;color:white}
+.nav button.active{background:var(--gold);color:black}
+.stat{background:#242424;padding:17px;border:1px solid #444;border-radius:12px}
+.stat h2{color:var(--gold);margin:8px 0}
 .mode-screen{
-  min-height:100vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:20px;
-  background:
-    radial-gradient(ellipse at top,#42321b 0%,#15130f 35%,#090a0c 75%);
+  min-height:100vh;display:flex;align-items:center;
+  justify-content:center;padding:20px;
+  background:radial-gradient(circle,#29251b,#090909 70%)
 }
 .mode-box{
-  max-width:800px;
-  width:100%;
-  text-align:center;
+  width:100%;max-width:650px;text-align:center;
+  background:#171717;border:1px solid var(--gold);
+  border-radius:20px;padding:28px
 }
-.mode-logo{
-  font-size:44px;
-  color:var(--gold);
-  margin-bottom:12px;
-}
-.mode-options{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:18px;
-  margin-top:30px;
-}
+.mode-options{display:grid;grid-template-columns:1fr 1fr;gap:15px;margin-top:25px}
 .mode-option{
-  padding:35px 18px;
-  border:1px solid var(--gold);
-  border-radius:18px;
-  background:linear-gradient(145deg,#24211a,#141518);
-  transition:.2s;
+  background:#252525;border:1px solid #555;border-radius:15px;
+  padding:25px 10px;cursor:pointer
 }
-.mode-option:hover{transform:translateY(-5px);box-shadow:0 12px 30px #d8ae5520}
-.mode-icon{font-size:38px;margin-bottom:15px}
+.mode-option:hover{border-color:var(--gold)}
+.mode-option .symbol{font-size:42px}
 .mode-option h2{color:var(--gold)}
-.login-box{
-  width:100%;
-  max-width:410px;
-  background:#181a1e;
-  border:1px solid var(--gold);
-  padding:28px;
-  border-radius:18px;
-  text-align:center;
-  box-shadow:0 15px 45px #0008;
-}
-.login-box input{text-align:center;letter-spacing:3px;font-size:18px}
-.message{color:#ff7777;font-size:13px;min-height:20px}
-.qty-input{width:75px;margin:0}
-.summary-line{
-  display:flex;
-  justify-content:space-between;
-  padding:10px 0;
-  border-bottom:1px solid #393939;
-}
-.grand{font-size:23px;color:var(--gold);font-weight:bold}
-.scanner-box{
-  border:1px dashed var(--gold);
-  padding:15px;
-  border-radius:12px;
-  text-align:center;
-  margin-top:10px;
-}
-#scannerVideo{
-  width:100%;
-  max-height:300px;
-  background:#000;
-  border-radius:12px;
-  margin-top:10px;
-}
-footer{text-align:center;padding:25px;color:#777;font-size:12px}
-@media(max-width:650px){
-  .wrap{padding:10px}
-  .card{padding:14px}
-  .brand{font-size:19px}
-  .mode-options{grid-template-columns:1fr}
-  .two-col{grid-template-columns:1fr}
-  .nav button{font-size:11px;padding:9px}
+.table-wrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;min-width:600px}
+th,td{padding:11px;border-bottom:1px solid #444;text-align:left}
+th{color:var(--gold)}
+.product-card{background:#252525;border:1px solid #444;border-radius:12px;padding:14px}
+.product-card h3{color:var(--gold)}
+.badge{display:inline-block;padding:5px 8px;border-radius:5px;background:#333;font-size:12px}
+.muted{color:#aaa}
+.small{font-size:12px}
+hr{border-color:#383838}
+@media(max-width:550px){
+ .mode-options{grid-template-columns:1fr}
+ .logo{font-size:18px}
+ .container{padding:10px}
 }
 @media print{
-  body *{visibility:hidden!important}
-  #printArea,#printArea *{visibility:visible!important}
-  #printArea{
-    display:block!important;
-    position:absolute;
-    top:0;left:0;width:100%;
-    padding:20px;
-    color:#000!important;
-    background:#fff!important;
-  }
-  #printArea table{min-width:0}
-  #printArea th,#printArea td{
-    color:#000!important;background:#fff!important;
-    border-bottom:1px solid #aaa;
-  }
+ body{background:white;color:black}
+ .no-print{display:none!important}
+ #printArea{display:block!important;color:black}
 }
 </style>
 </head>
 
 <body>
 
-<!-- FIRST SCREEN: CHOOSE MODE -->
+<!-- FIRST SCREEN -->
 <div id="modeScreen" class="mode-screen">
   <div class="mode-box">
-    <div class="mode-logo">✦</div>
+    <div style="font-size:45px">🏪</div>
     <h1 class="gold">WASIF GENERAL STORE</h1>
-    <p class="muted">PREMIUM GROCERY & STORE MANAGEMENT SYSTEM</p>
-    <h2>Select Your Mode</h2>
+    <p class="muted">Premium Grocery Management System</p>
 
     <div class="mode-options">
       <div class="mode-option" onclick="openClient()">
-        <div class="mode-icon">🛒</div>
+        <div class="symbol">🛒</div>
         <h2>CLIENT MODE</h2>
-        <p class="muted">Explore products and make your shopping list.</p>
-        <button class="btn">ENTER AS CLIENT</button>
+        <p>Browse products and shopping list</p>
+        <button class="btn-gold">Continue as Client</button>
       </div>
 
       <div class="mode-option" onclick="openAdminLogin()">
-        <div class="mode-icon">👑</div>
+        <div class="symbol">🔐</div>
         <h2>ADMIN MODE</h2>
-        <p class="muted">Manage products, inventory, bills and settings.</p>
-        <button class="btn">ENTER AS ADMIN</button>
+        <p>Manage store, products and bills</p>
+        <button class="btn-gold">Admin Login</button>
       </div>
     </div>
-    <p class="muted" style="margin-top:30px;font-size:12px">© Wasif General Store</p>
   </div>
 </div>
 
 <!-- ADMIN LOGIN -->
 <div id="loginScreen" class="mode-screen hidden">
-  <div class="login-box">
-    <div class="mode-icon">🔐</div>
-    <h2 class="gold">ADMIN LOGIN</h2>
+  <div class="mode-box">
+    <div style="font-size:40px">🔐</div>
+    <h1 class="gold">ADMIN LOGIN</h1>
     <p class="muted">Enter your Admin Access Code</p>
-    <input id="adminCode" type="password" placeholder="Admin Access Code">
-    <button class="btn" style="width:100%" onclick="loginAdmin()">UNLOCK ADMIN PANEL</button>
-    <div id="loginMessage" class="message"></div>
-    <button class="btn btn-dark" onclick="backToModes()">BACK</button>
+    <input id="adminPassword" type="password" placeholder="Enter Admin Code">
+    <button class="btn-gold" onclick="loginAdmin()">LOGIN</button>
+    <button class="btn-dark" onclick="goHome()">BACK</button>
+    <p id="loginMessage" class="small"></p>
   </div>
 </div>
 
-<!-- MAIN APP HEADER -->
-<header id="appHeader" class="hidden">
-  <div class="header-inner">
-    <div class="brand">
-      ✦ WASIF GENERAL STORE
-      <small id="modeLabel">STORE MANAGEMENT</small>
-    </div>
-    <div>
-      <button class="btn btn-dark" onclick="backToModes()">CHANGE MODE</button>
-    </div>
-  </div>
-</header>
-
-<main id="mainApp" class="wrap hidden">
-
-  <!-- ADMIN NAVIGATION -->
-  <div id="adminNav" class="nav hidden">
-    <button class="active" onclick="showAdmin('dashboard',this)">Dashboard</button>
-    <button onclick="showAdmin('products',this)">Products</button>
-    <button onclick="showAdmin('billing',this)">Create Bill</button>
-    <button onclick="showAdmin('bills',this)">Bill History</button>
-    <button onclick="showAdmin('settings',this)">Settings</button>
-    <button class="btn-red" onclick="logoutAdmin()">Logout</button>
+<!-- ADMIN PANEL -->
+<div id="adminPanel" class="hidden">
+  <div class="header">
+    <div class="logo">🏪 WASIF GENERAL STORE</div>
+    <button class="btn-red" onclick="logout()">Logout</button>
   </div>
 
-  <!-- CLIENT NAVIGATION -->
-  <div id="clientNav" class="nav hidden">
-    <button class="active" onclick="showClient('shop',this)">Shop Products</button>
-    <button onclick="showClient('mycart',this)">My Shopping List</button>
-    <button class="btn-dark" onclick="backToModes()">Exit Client Mode</button>
-  </div>
-
-  <!-- ADMIN DASHBOARD -->
-  <section id="dashboard" class="section">
+  <div class="container">
     <h2 class="gold">Admin Dashboard</h2>
-    <div class="grid">
-      <div class="stat"><span>Total Products</span><strong id="totalProducts">0</strong></div>
-      <div class="stat"><span>Total Stock Units</span><strong id="totalStock">0</strong></div>
-      <div class="stat"><span>Total Bills</span><strong id="totalBills">0</strong></div>
-      <div class="stat"><span>Total Sales</span><strong id="totalSales">Rs. 0</strong></div>
+
+    <div class="nav no-print">
+      <button class="active" onclick="showAdminTab('dashboard',this)">Dashboard</button>
+      <button onclick="showAdminTab('products',this)">Products</button>
+      <button onclick="showAdminTab('billing',this)">Billing</button>
+      <button onclick="showAdminTab('history',this)">Bill History</button>
+      <button onclick="showAdminTab('settings',this)">Settings</button>
     </div>
 
-    <div class="card" style="margin-top:20px">
-      <h3>Quick Actions</h3>
-      <button class="btn" onclick="goAdmin('products')">ADD PRODUCT</button>
-      <button class="btn" onclick="goAdmin('billing')">CREATE BILL</button>
-      <button class="btn btn-dark" onclick="goAdmin('bills')">VIEW OLD BILLS</button>
-    </div>
-
-    <div class="card">
-      <h3>Low Stock Products</h3>
-      <div id="lowStockList"></div>
-    </div>
-  </section>
-
-  <!-- ADMIN PRODUCTS -->
-  <section id="products" class="section">
-    <h2 class="gold">Product & Inventory Management</h2>
-
-    <div class="card">
-      <h3 id="productFormHeading">Add New Product</h3>
-      <input type="hidden" id="productEditId">
-
+    <!-- DASHBOARD -->
+    <section id="dashboard" class="admin-tab">
       <div class="grid">
-        <div>
-          <label>Product Name</label>
-          <input id="productName" placeholder="Product name">
+        <div class="stat">Total Products<h2 id="totalProducts">0</h2></div>
+        <div class="stat">Total Stock<h2 id="totalStock">0</h2></div>
+        <div class="stat">Total Bills<h2 id="totalBills">0</h2></div>
+        <div class="stat">Total Sales<h2 id="totalSales">Rs 0</h2></div>
+      </div>
+      <div class="card">
+        <h3 class="gold">Store Overview</h3>
+        <p>Manage products, barcodes, stock, billing and store settings from this dashboard.</p>
+      </div>
+    </section>
+
+    <!-- PRODUCTS -->
+    <section id="products" class="admin-tab hidden">
+      <div class="card">
+        <h2 class="gold">Add / Edit Product</h2>
+        <input type="hidden" id="editProductId">
+
+        <label>Product Name</label>
+        <input id="pName" placeholder="e.g. Sugar 1 KG">
+
+        <div class="row">
+          <div>
+            <label>Category</label>
+            <input id="pCategory" placeholder="e.g. Grocery">
+          </div>
+          <div>
+            <label>Barcode</label>
+            <input id="pBarcode" placeholder="Enter or scan barcode">
+          </div>
         </div>
-        <div>
-          <label>Category</label>
-          <input id="productCategory" placeholder="Grocery, Drinks, Snacks...">
+
+        <div class="row">
+          <div>
+            <label>Purchase Price</label>
+            <input id="pCost" type="number" min="0" placeholder="Cost price">
+          </div>
+          <div>
+            <label>Selling Price</label>
+            <input id="pPrice" type="number" min="0" placeholder="Selling price">
+          </div>
+          <div>
+            <label>Stock Quantity</label>
+            <input id="pStock" type="number" min="0" placeholder="Available stock">
+          </div>
         </div>
-        <div>
-          <label>Barcode Number</label>
-          <input id="productBarcode" placeholder="Scan or enter barcode">
+
+        <div class="row">
+          <button class="btn-blue" onclick="scanForProduct()">📷 Scan Barcode</button>
+          <button class="btn-gold" onclick="saveProduct()">SAVE PRODUCT</button>
+          <button class="btn-dark" onclick="clearProductForm()">CLEAR</button>
         </div>
-        <div>
-          <label>Sale Price (Rs.)</label>
-          <input id="productPrice" type="number" min="0" placeholder="Selling price">
-        </div>
-        <div>
-          <label>Purchase Price (Rs.)</label>
-          <input id="productCost" type="number" min="0" placeholder="Purchase price">
-        </div>
-        <div>
-          <label>Stock Quantity</label>
-          <input id="productStock" type="number" min="0" placeholder="Available quantity">
-        </div>
+        <p id="productMessage" class="small muted"></p>
       </div>
 
-      <button class="btn" onclick="saveProduct()">SAVE PRODUCT</button>
-      <button class="btn btn-dark" onclick="resetProductForm()">CLEAR FORM</button>
-
-      <div class="scanner-box">
-        <h3 class="gold">Barcode Scanner</h3>
-        <p class="muted">Scan a product barcode using your mobile camera.</p>
-        <button class="btn" onclick="startScanner('productBarcode')">START CAMERA SCANNER</button>
-        <button class="btn btn-dark" onclick="stopScanner()">STOP SCANNER</button>
-        <div id="scannerStatus" class="muted"></div>
-        <video id="scannerVideo" class="hidden" autoplay muted playsinline></video>
-      </div>
-    </div>
-
-    <div class="card">
-      <h3>Import 500+ Products</h3>
-      <p class="muted">Upload a CSV file with columns: name, category, barcode, price, cost, stock.</p>
-      <input type="file" id="csvFile" accept=".csv">
-      <button class="btn" onclick="importCSV()">IMPORT CSV PRODUCTS</button>
-      <button class="btn btn-dark" onclick="downloadCSVTemplate()">DOWNLOAD CSV TEMPLATE</button>
-      <button class="btn btn-dark" onclick="exportProducts()">EXPORT PRODUCTS</button>
-    </div>
-
-    <div class="card">
-      <h3>All Store Products</h3>
-      <input id="productSearch" placeholder="Search name or barcode..." oninput="renderProducts()">
-      <div class="table-wrap">
-        <table>
-          <thead>
-            <tr>
-              <th>Product</th><th>Barcode</th><th>Price</th>
-              <th>Stock</th><th>Actions</th>
-            </tr>
-          </thead>
-          <tbody id="productRows"></tbody>
-        </table>
-      </div>
-      <div id="productCount" class="muted"></div>
-    </div>
-  </section>
-
-  <!-- ADMIN BILLING -->
-  <section id="billing" class="section">
-    <h2 class="gold">Create Customer Bill</h2>
-
-    <div class="card">
-      <h3>Customer Information</h3>
-      <div class="grid">
-        <div>
-          <label>Customer Name</label>
-          <input id="billCustomer" placeholder="Customer name">
-        </div>
-        <div>
-          <label>Customer Phone</label>
-          <input id="billPhone" placeholder="Phone number">
+      <div class="card">
+        <h3 class="gold">Product List</h3>
+        <input id="productSearch" placeholder="Search name or barcode..." oninput="renderProducts()">
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Name</th><th>Category</th><th>Barcode</th>
+                <th>Price</th><th>Stock</th><th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="productTable"></tbody>
+          </table>
         </div>
       </div>
-    </div>
 
-    <div class="card">
-      <h3>Find Product</h3>
-      <input id="billSearch" placeholder="Search product name or barcode..." oninput="renderBillProducts()">
-      <div class="scanner-box">
-        <button class="btn" onclick="startScanner('billSearch')">SCAN BARCODE FOR BILL</button>
-        <button class="btn btn-dark" onclick="stopScanner()">STOP SCANNER</button>
-        <p id="billScanStatus" class="muted"></p>
+      <div class="card">
+        <h3 class="gold">Bulk Import / Export</h3>
+        <p class="small muted">CSV columns: name,category,barcode,cost,price,stock</p>
+        <button class="btn-blue" onclick="downloadTemplate()">Download CSV Template</button>
+        <button class="btn-green" onclick="exportProducts()">Export Products</button>
+        <label>Import CSV File</label>
+        <input type="file" id="csvFile" accept=".csv" onchange="importProducts(event)">
       </div>
-      <div id="billProductList" class="grid" style="margin-top:15px"></div>
-    </div>
+    </section>
 
-    <div class="card">
-      <h3>Bill Items</h3>
-      <div class="table-wrap">
-        <table>
-          <thead>
-            <tr><th>Product</th><th>Price</th><th>Quantity</th><th>Total</th><th>Remove</th></tr>
-          </thead>
-          <tbody id="billCartRows"></tbody>
-        </table>
+    <!-- BILLING -->
+    <section id="billing" class="admin-tab hidden">
+      <div class="card">
+        <h2 class="gold">Create New Bill</h2>
+        <div class="row">
+          <div>
+            <label>Customer Name</label>
+            <input id="customerName" placeholder="Customer name">
+          </div>
+          <div>
+            <label>Customer Phone</label>
+            <input id="customerPhone" placeholder="Phone number">
+          </div>
+        </div>
+
+        <label>Search Product / Scan Barcode</label>
+        <input id="billSearch" placeholder="Enter product name or barcode">
+        <button class="btn-blue" onclick="scanForBill()">📷 Scan Product Barcode</button>
+        <div id="billSearchResults"></div>
+
+        <h3 class="gold">Bill Items</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Product</th><th>Price</th><th>Qty</th><th>Total</th><th>Remove</th></tr></thead>
+            <tbody id="billItems"></tbody>
+          </table>
+        </div>
+
+        <div class="row">
+          <div>
+            <label>Discount (Rs)</label>
+            <input id="billDiscount" type="number" min="0" value="0" oninput="renderBill()">
+          </div>
+          <div>
+            <label>Grand Total</label>
+            <h2 class="gold" id="grandTotal">Rs 0</h2>
+          </div>
+        </div>
+        <button class="btn-gold" onclick="saveBill()">SAVE BILL</button>
+        <button class="btn-dark" onclick="clearBill()">CLEAR BILL</button>
       </div>
-      <div id="billEmpty" class="empty">No products added.</div>
-    </div>
+    </section>
 
-    <div class="card">
-      <h3>Bill Calculation</h3>
-      <div class="summary-line"><span>Subtotal</span><strong id="billSubtotal">Rs. 0</strong></div>
-      <label>Discount (Rs.)</label>
-      <input id="billDiscount" type="number" min="0" value="0" oninput="renderBillCart()">
-      <div class="summary-line grand"><span>Grand Total</span><span id="billGrand">Rs. 0</span></div>
-      <button class="btn btn-green" onclick="saveNewBill()">SAVE BILL</button>
-      <button class="btn" onclick="printBillCart()">PRINT BILL</button>
-      <button class="btn btn-dark" onclick="clearBillCart()">CLEAR BILL</button>
-    </div>
-  </section>
-
-  <!-- ADMIN BILL HISTORY -->
-  <section id="bills" class="section">
-    <h2 class="gold">Bill History</h2>
-    <div class="card">
-      <input id="historySearch" placeholder="Search bill number or customer..." oninput="renderBills()">
-      <div class="table-wrap">
-        <table>
-          <thead>
-            <tr><th>Bill No.</th><th>Customer</th><th>Date</th><th>Total</th><th>Actions</th></tr>
-          </thead>
-          <tbody id="historyRows"></tbody>
-        </table>
+    <!-- HISTORY -->
+    <section id="history" class="admin-tab hidden">
+      <div class="card">
+        <h2 class="gold">Saved Bills</h2>
+        <div id="billHistory"></div>
       </div>
-      <div id="historyEmpty" class="empty hidden">No bills found.</div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ADMIN SETTINGS -->
-  <section id="settings" class="section">
-    <h2 class="gold">Store Settings</h2>
-    <div class="card">
-      <h3>Store Details</h3>
-      <label>Store Name</label>
-      <input id="storeName">
-      <label>Contact Number</label>
-      <input id="storePhone">
-      <label>Store Address</label>
-      <textarea id="storeAddress" rows="3"></textarea>
-      <button class="btn" onclick="saveSettings()">SAVE SETTINGS</button>
-    </div>
+    <!-- SETTINGS -->
+    <section id="settings" class="admin-tab hidden">
+      <div class="card">
+        <h2 class="gold">Change Admin Access Code</h2>
+        <p class="muted small">اپنا نیا Admin Code یہاں تبدیل کریں۔ نیا Code اگلی Login کے لیے استعمال ہوگا۔</p>
 
-    <div class="card">
-      <h3>Backup & Restore</h3>
-      <p class="muted">Download your products, bills and settings.</p>
-      <button class="btn" onclick="downloadBackup()">DOWNLOAD BACKUP</button>
-      <label style="display:block;margin-top:15px">Restore Backup</label>
-      <input type="file" id="backupFile" accept=".json">
-      <button class="btn btn-dark" onclick="restoreBackup()">RESTORE BACKUP</button>
-    </div>
+        <label>Current Admin Code</label>
+        <input id="currentAdminCode" type="password" placeholder="Current code">
 
-    <div class="card">
-      <h3>Admin Account</h3>
-      <p class="muted">Admin Access Code is currently set in the website code.</p>
-      <button class="btn btn-red" onclick="logoutAdmin()">LOGOUT ADMIN</button>
-    </div>
-  </section>
+        <label>New Admin Code</label>
+        <input id="newAdminCode" type="password" placeholder="New code">
 
-  <!-- CLIENT SHOP -->
-  <section id="shop" class="section">
-    <h2 class="gold">Welcome to Wasif General Store</h2>
-    <p class="muted">Browse available products and make your shopping list.</p>
-    <div class="card">
-      <input id="clientSearch" placeholder="Search grocery products..." oninput="renderClientProducts()">
-      <div id="clientProductList" class="grid"></div>
-    </div>
-  </section>
+        <label>Confirm New Admin Code</label>
+        <input id="confirmAdminCode" type="password" placeholder="Confirm new code">
 
-  <!-- CLIENT CART -->
-  <section id="mycart" class="section">
-    <h2 class="gold">My Shopping List</h2>
-    <div class="card">
-      <div class="table-wrap">
-        <table>
-          <thead><tr><th>Product</th><th>Price</th><th>Quantity</th><th>Total</th><th>Remove</th></tr></thead>
-          <tbody id="clientCartRows"></tbody>
-        </table>
+        <button class="btn-gold" onclick="changeAdminCode()">CHANGE ADMIN CODE</button>
+        <p id="passwordMessage" class="small"></p>
       </div>
-      <div id="clientCartEmpty" class="empty">Your shopping list is empty.</div>
-      <div class="summary-line grand"><span>Estimated Total</span><span id="clientGrand">Rs. 0</span></div>
-      <button class="btn btn-dark" onclick="clearClientCart()">CLEAR LIST</button>
-    </div>
-  </section>
 
-</main>
+      <div class="card">
+        <h2 class="gold">Store Information</h2>
+        <label>Store Name</label>
+        <input id="storeName" value="Wasif General Store">
+        <label>Contact Number</label>
+        <input id="storePhone" value="03462916891">
+        <button class="btn-gold" onclick="saveStoreSettings()">SAVE STORE SETTINGS</button>
+      </div>
+
+      <div class="card">
+        <h2 class="gold">Backup & Restore</h2>
+        <button class="btn-green" onclick="backupData()">Download Backup</button>
+        <label>Restore Backup</label>
+        <input type="file" id="backupFile" accept=".json" onchange="restoreData(event)">
+      </div>
+    </section>
+  </div>
+</div>
+
+<!-- CLIENT PANEL -->
+<div id="clientPanel" class="hidden">
+  <div class="header">
+    <div class="logo">🏪 WASIF GENERAL STORE</div>
+    <button class="btn-dark" onclick="goHome()">Back to Home</button>
+  </div>
+  <div class="container">
+    <h2 class="gold">Welcome to Our Store</h2>
+    <p class="muted">Browse products and prepare your shopping list.</p>
+    <input id="clientSearch" placeholder="Search products..." oninput="renderClientProducts()">
+    <div id="clientProducts" class="grid"></div>
+
+    <div class="card">
+      <h2 class="gold">My Shopping List</h2>
+      <div id="shoppingList"></div>
+      <h3 id="shoppingTotal" class="gold">Total: Rs 0</h3>
+      <button class="btn-green" onclick="shareShoppingList()">Share Shopping List on WhatsApp</button>
+      <button class="btn-dark" onclick="clearShoppingList()">Clear List</button>
+    </div>
+  </div>
+</div>
 
 <!-- PRINT BILL -->
-<div id="printArea" style="display:none"></div>
-
-<footer id="footer" class="hidden">© Wasif General Store | Premium Store Management</footer>
+<div id="printArea" class="hidden"></div>
 
 <script>
-/* =================================
-   ACCESS CONTROL
-================================= */
+const DEFAULT_ADMIN_CODE = "Wasif2244";
 
-const ADMIN_CODE = "Wasif2244";
-let currentMode = null;
-let scannerStream = null;
-let scannerTimer = null;
-let scannerTarget = null;
-
-function openClient(){
-  currentMode = "client";
-  showApplication();
-  document.getElementById("modeLabel").textContent = "CLIENT SHOPPING MODE";
-  document.getElementById("adminNav").classList.add("hidden");
-  document.getElementById("clientNav").classList.remove("hidden");
-  showClient("shop",document.querySelector("#clientNav button"));
-  renderClientProducts();
-}
-
-function openAdminLogin(){
-  document.getElementById("modeScreen").classList.add("hidden");
-  document.getElementById("loginScreen").classList.remove("hidden");
-}
-
-function backToModes(){
-  stopScanner();
-  currentMode = null;
-  document.getElementById("mainApp").classList.add("hidden");
-  document.getElementById("appHeader").classList.add("hidden");
-  document.getElementById("footer").classList.add("hidden");
-  document.getElementById("loginScreen").classList.add("hidden");
-  document.getElementById("modeScreen").classList.remove("hidden");
-}
-
-function loginAdmin(){
-  const code = document.getElementById("adminCode").value;
-  if(code === ADMIN_CODE){
-    currentMode = "admin";
-    document.getElementById("loginScreen").classList.add("hidden");
-    showApplication();
-    document.getElementById("modeLabel").textContent = "ADMIN MANAGEMENT PANEL";
-    document.getElementById("clientNav").classList.add("hidden");
-    document.getElementById("adminNav").classList.remove("hidden");
-    initializeAdmin();
-  }else{
-    document.getElementById("loginMessage").textContent = "Incorrect Admin Code!";
-  }
-}
-
-document.getElementById("adminCode").addEventListener("keydown",e=>{
-  if(e.key==="Enter") loginAdmin();
-});
-
-function logoutAdmin(){
-  document.getElementById("adminCode").value = "";
-  document.getElementById("loginMessage").textContent = "";
-  backToModes();
-}
-
-function showApplication(){
-  document.getElementById("modeScreen").classList.add("hidden");
-  document.getElementById("loginScreen").classList.add("hidden");
-  document.getElementById("mainApp").classList.remove("hidden");
-  document.getElementById("appHeader").classList.remove("hidden");
-  document.getElementById("footer").classList.remove("hidden");
-}
-
-function adminOnly(){
-  if(currentMode!=="admin"){
-    alert("Admin access required.");
-    return false;
-  }
-  return true;
-}
-
-/* =================================
-   LOCAL DATA
-================================= */
-
-const defaultProducts = [
-  {id:1,name:"Sugar 1 KG",category:"Grocery",barcode:"",price:170,cost:150,stock:50},
-  {id:2,name:"Flour 1 KG",category:"Grocery",barcode:"",price:150,cost:130,stock:50},
-  {id:3,name:"Rice 1 KG",category:"Grocery",barcode:"",price:300,cost:260,stock:30},
-  {id:4,name:"Cooking Oil 1 Litre",category:"Grocery",barcode:"",price:550,cost:500,stock:25},
-  {id:5,name:"Tea 250 GM",category:"Grocery",barcode:"",price:450,cost:400,stock:20},
-  {id:6,name:"Milk 1 Litre",category:"Dairy",barcode:"",price:280,cost:250,stock:25},
-  {id:7,name:"Salt 1 KG",category:"Grocery",barcode:"",price:60,cost:45,stock:40},
-  {id:8,name:"Soap",category:"Personal Care",barcode:"",price:120,cost:100,stock:30}
-];
-
-function readData(key,fallback){
+function getData(key, fallback){
   try{
     const value=localStorage.getItem(key);
-    return value===null?fallback:JSON.parse(value);
+    return value===null ? fallback : JSON.parse(value);
   }catch(e){return fallback}
 }
-
-let products=readData("wgs_products",defaultProducts);
-let bills=readData("wgs_bills",[]);
-let settings=readData("wgs_settings",{
-  name:"Wasif General Store",
-  phone:"0346 2916891",
-  address:""
-});
-let billCart=[];
-let clientCart=[];
-
-function persist(){
-  localStorage.setItem("wgs_products",JSON.stringify(products));
-  localStorage.setItem("wgs_bills",JSON.stringify(bills));
-  localStorage.setItem("wgs_settings",JSON.stringify(settings));
+function saveData(key,value){
+  localStorage.setItem(key,JSON.stringify(value));
 }
+let products=getData("wgs_products",[]);
+let bills=getData("wgs_bills",[]);
+let shopping=[];
+let currentBill=[];
+let adminCode=localStorage.getItem("wgs_admin_code") || DEFAULT_ADMIN_CODE;
+let store=getData("wgs_store",{name:"Wasif General Store",phone:"03462916891"});
 
-function cash(n){
-  return "Rs. "+Number(n||0).toLocaleString("en-PK");
+function goHome(){
+  hideAll();
+  document.getElementById("modeScreen").classList.remove("hidden");
 }
-
-function esc(v){
-  return String(v??"").replace(/[&<>"']/g,c=>({
-    "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
-  })[c]);
+function hideAll(){
+  ["modeScreen","loginScreen","adminPanel","clientPanel"].forEach(id=>{
+    document.getElementById(id).classList.add("hidden");
+  });
 }
-
-/* =================================
-   NAVIGATION
-================================= */
-
-function showAdmin(id,btn){
-  if(!adminOnly())return;
-  document.querySelectorAll("#adminNav button").forEach(b=>b.classList.remove("active"));
-  if(btn)btn.classList.add("active");
-  document.querySelectorAll(".section").forEach(s=>s.classList.remove("active"));
-  document.getElementById(id).classList.add("active");
-
-  if(id==="dashboard")renderDashboard();
-  if(id==="products")renderProducts();
-  if(id==="billing")renderBillProducts();
-  if(id==="bills")renderBills();
+function openAdminLogin(){
+  hideAll();
+  document.getElementById("loginScreen").classList.remove("hidden");
+  document.getElementById("adminPassword").value="";
+  document.getElementById("loginMessage").textContent="";
 }
-
-function goAdmin(id){
-  const buttons=[...document.querySelectorAll("#adminNav button")];
-  const ids=["dashboard","products","billing","bills","settings"];
-  const index=ids.indexOf(id);
-  showAdmin(id,buttons[index]);
+function openClient(){
+  hideAll();
+  document.getElementById("clientPanel").classList.remove("hidden");
+  renderClientProducts();
 }
-
-function showClient(id,btn){
-  if(currentMode!=="client")return;
-  document.querySelectorAll("#clientNav button").forEach(b=>b.classList.remove("active"));
-  if(btn)btn.classList.add("active");
-  document.querySelectorAll(".section").forEach(s=>s.classList.remove("active"));
-  document.getElementById(id).classList.add("active");
-  if(id==="shop")renderClientProducts();
-  if(id==="mycart")renderClientCart();
-}
-
-/* =================================
-   ADMIN STARTUP & DASHBOARD
-================================= */
-
-function initializeAdmin(){
-  loadSettings();
-  renderDashboard();
-  renderProducts();
-  renderBillProducts();
-  renderBills();
-  goAdmin("dashboard");
-}
-
-function renderDashboard(){
-  if(!adminOnly())return;
-  document.getElementById("totalProducts").textContent=products.length;
-  document.getElementById("totalStock").textContent=
-    products.reduce((s,p)=>s+Number(p.stock||0),0);
-  document.getElementById("totalBills").textContent=bills.length;
-  document.getElementById("totalSales").textContent=
-    cash(bills.reduce((s,b)=>s+Number(b.total||0),0));
-
-  const low=products.filter(p=>Number(p.stock||0)<=5);
-  document.getElementById("lowStockList").innerHTML=low.length?
-    low.map(p=>`<p>${esc(p.name)} — <span class="gold">${p.stock} left</span></p>`).join("")
-    :'<p class="muted">No low-stock products.</p>';
-}
-
-/* =================================
-   PRODUCT MANAGEMENT
-================================= */
-
-function saveProduct(){
-  if(!adminOnly())return;
-  const name=document.getElementById("productName").value.trim();
-  const category=document.getElementById("productCategory").value.trim();
-  const barcode=document.getElementById("productBarcode").value.trim();
-  const price=Number(document.getElementById("productPrice").value);
-  const cost=Number(document.getElementById("productCost").value)||0;
-  const stock=Number(document.getElementById("productStock").value);
-  const editId=document.getElementById("productEditId").value;
-
-  if(!name||!Number.isFinite(price)||price<0||!Number.isFinite(stock)||stock<0){
-    alert("Enter a valid name, price and stock quantity.");
-    return;
-  }
-
-  if(barcode && products.some(p=>p.barcode===barcode&&String(p.id)!==editId)){
-    alert("This barcode already belongs to another product.");
-    return;
-  }
-
-  if(editId){
-    const p=products.find(x=>String(x.id)===editId);
-    if(p)Object.assign(p,{name,category,barcode,price,cost,stock});
+function loginAdmin(){
+  const code=document.getElementById("adminPassword").value;
+  if(code===adminCode){
+    hideAll();
+    document.getElementById("adminPanel").classList.remove("hidden");
+    updateDashboard();
+    renderProducts();
   }else{
-    products.push({id:Date.now(),name,category,barcode,price,cost,stock});
+    document.getElementById("loginMessage").textContent="Incorrect Admin Code!";
+  }
+}
+function logout(){goHome()}
+
+function showAdminTab(id,button){
+  document.querySelectorAll(".admin-tab").forEach(x=>x.classList.add("hidden"));
+  document.getElementById(id).classList.remove("hidden");
+  document.querySelectorAll(".nav button").forEach(x=>x.classList.remove("active"));
+  button.classList.add("active");
+  if(id==="dashboard")updateDashboard();
+  if(id==="products")renderProducts();
+  if(id==="history")renderHistory();
+  if(id==="settings"){
+    document.getElementById("storeName").value=store.name;
+    document.getElementById("storePhone").value=store.phone;
+  }
+}
+
+/* PRODUCTS */
+function saveProduct(){
+  const id=document.getElementById("editProductId").value;
+  const name=document.getElementById("pName").value.trim();
+  const category=document.getElementById("pCategory").value.trim();
+  const barcode=document.getElementById("pBarcode").value.trim();
+  const cost=Number(document.getElementById("pCost").value)||0;
+  const price=Number(document.getElementById("pPrice").value);
+  const stock=Number(document.getElementById("pStock").value);
+
+  if(!name || !Number.isFinite(price) || price<0 || stock<0 || cost<0){
+    alert("Please enter a product name, valid price and stock.");
+    return;
+  }
+  if(barcode && products.some(p=>p.barcode===barcode && p.id!==id)){
+    alert("This barcode is already assigned to another product.");
+    return;
   }
 
-  persist();
-  resetProductForm();
+  if(id){
+    const p=products.find(x=>x.id===id);
+    if(p)Object.assign(p,{name,category,barcode,cost,price,stock});
+  }else{
+    products.push({
+      id:String(Date.now()),
+      name,category,barcode,cost,price,stock
+    });
+  }
+  saveData("wgs_products",products);
+  clearProductForm();
   renderProducts();
-  renderBillProducts();
-  renderDashboard();
-  renderClientProducts();
-  alert("Product saved successfully.");
+  updateDashboard();
+  document.getElementById("productMessage").textContent="Product saved successfully.";
 }
-
-function editProduct(id){
-  if(!adminOnly())return;
-  const p=products.find(x=>x.id===id);
-  if(!p)return;
-  document.getElementById("productEditId").value=p.id;
-  document.getElementById("productName").value=p.name;
-  document.getElementById("productCategory").value=p.category||"";
-  document.getElementById("productBarcode").value=p.barcode||"";
-  document.getElementById("productPrice").value=p.price;
-  document.getElementById("productCost").value=p.cost||0;
-  document.getElementById("productStock").value=p.stock||0;
-  document.getElementById("productFormHeading").textContent="Edit Product";
-  window.scrollTo({top:0,behavior:"smooth"});
-}
-
-function deleteProduct(id){
-  if(!adminOnly())return;
-  if(!confirm("Delete this product?"))return;
-  products=products.filter(p=>p.id!==id);
-  persist();
-  renderProducts();
-  renderBillProducts();
-  renderDashboard();
-  renderClientProducts();
-}
-
-function resetProductForm(){
-  ["productEditId","productName","productCategory","productBarcode",
-   "productPrice","productCost","productStock"].forEach(id=>{
+function clearProductForm(){
+  ["editProductId","pName","pCategory","pBarcode","pCost","pPrice","pStock"].forEach(id=>{
     document.getElementById(id).value="";
   });
-  document.getElementById("productFormHeading").textContent="Add New Product";
 }
-
+function editProduct(id){
+  const p=products.find(x=>x.id===id);
+  if(!p)return;
+  document.getElementById("editProductId").value=p.id;
+  document.getElementById("pName").value=p.name;
+  document.getElementById("pCategory").value=p.category||"";
+  document.getElementById("pBarcode").value=p.barcode||"";
+  document.getElementById("pCost").value=p.cost||0;
+  document.getElementById("pPrice").value=p.price;
+  document.getElementById("pStock").value=p.stock;
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+function deleteProduct(id){
+  if(!confirm("Delete this product?"))return;
+  products=products.filter(p=>p.id!==id);
+  saveData("wgs_products",products);
+  renderProducts();
+  updateDashboard();
+}
 function renderProducts(){
-  if(!adminOnly())return;
-  const q=document.getElementById("productSearch").value.toLowerCase();
+  const q=(document.getElementById("productSearch")?.value||"").toLowerCase();
   const list=products.filter(p=>
     p.name.toLowerCase().includes(q)||
-    String(p.barcode||"").toLowerCase().includes(q)
+    (p.barcode||"").toLowerCase().includes(q)||
+    (p.category||"").toLowerCase().includes(q)
   );
-  document.getElementById("productRows").innerHTML=list.length?list.map(p=>`
+  document.getElementById("productTable").innerHTML=list.map(p=>`
     <tr>
-      <td>${esc(p.name)}<br><small class="muted">${esc(p.category||"")}</small></td>
-      <td>${esc(p.barcode||"-")}</td>
-      <td>${cash(p.price)}</td>
+      <td>${escapeHTML(p.name)}</td>
+      <td>${escapeHTML(p.category||"-")}</td>
+      <td>${escapeHTML(p.barcode||"-")}</td>
+      <td>Rs ${p.price}</td>
       <td>${p.stock}</td>
       <td>
-        <button class="btn btn-small" onclick="editProduct(${p.id})">Edit</button>
-        <button class="btn btn-red btn-small" onclick="deleteProduct(${p.id})">Delete</button>
+        <button class="btn-blue" onclick="editProduct('${p.id}')">Edit</button>
+        <button class="btn-red" onclick="deleteProduct('${p.id}')">Delete</button>
       </td>
-    </tr>`).join(""):'<tr><td colspan="5">No products found.</td></tr>';
-  document.getElementById("productCount").textContent=
-    "Showing "+list.length+" of "+products.length+" products";
+    </tr>
+  `).join("")||"<tr><td colspan='6'>No products found.</td></tr>";
 }
 
-/* =================================
-   CSV IMPORT / EXPORT
-================================= */
-
-function downloadCSVTemplate(){
-  const content="name,category,barcode,price,cost,stock\nSugar 1 KG,Grocery,123456789,170,150,50";
-  downloadFile(content,"products-template.csv","text/csv");
-}
-
-function exportProducts(){
-  if(!adminOnly())return;
-  const rows=[["name","category","barcode","price","cost","stock"],
-    ...products.map(p=>[p.name,p.category,p.barcode,p.price,p.cost,p.stock])];
-  const csv=rows.map(row=>row.map(v=>'"'+String(v??"").replace(/"/g,'""')+'"').join(",")).join("\n");
-  downloadFile(csv,"wasif-products.csv","text/csv");
-}
-
-function parseCSV(text){
-  const rows=[];
-  let row=[],field="",quoted=false;
-  for(let i=0;i<text.length;i++){
-    const c=text[i],next=text[i+1];
-    if(c==='"'&&quoted&&next==='"'){field+='"';i++}
-    else if(c==='"'){quoted=!quoted}
-    else if(c===","&&!quoted){row.push(field);field=""}
-    else if((c==="\n"||c==="\r")&&!quoted){
-      if(c==="\r"&&next==="\n")i++;
-      row.push(field);rows.push(row);row=[];field="";
-    }else field+=c;
+/* BARCODE SCANNER */
+async function scanBarcode(callback){
+  if(!("BarcodeDetector" in window)){
+    alert("Barcode scanning is not supported in this browser. Please enter the barcode manually.");
+    return;
   }
-  if(field.length||row.length){row.push(field);rows.push(row)}
+  try{
+    const detector=new BarcodeDetector({
+      formats:["ean_13","ean_8","upc_a","upc_e","code_128","code_39","qr_code"]
+    });
+    const stream=await navigator.mediaDevices.getUserMedia({video:{facingMode:"environment"}});
+    const video=document.createElement("video");
+    video.srcObject=stream;
+    video.setAttribute("playsinline","");
+    await video.play();
+
+    const overlay=document.createElement("div");
+    overlay.style.cssText="position:fixed;inset:0;background:#000e;z-index:99999;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:15px";
+    const close=document.createElement("button");
+    close.textContent="Close Scanner";
+    close.className="btn-red";
+    const status=document.createElement("p");
+    status.textContent="Point camera at barcode";
+    video.style.cssText="width:min(95vw,500px);border:3px solid #d6ad55;border-radius:12px";
+    overlay.append(status,video,close);
+    document.body.appendChild(overlay);
+
+    let stopped=false;
+    function stop(){
+      if(stopped)return;
+      stopped=true;
+      stream.getTracks().forEach(t=>t.stop());
+      overlay.remove();
+    }
+    close.onclick=stop;
+
+    async function detect(){
+      if(stopped)return;
+      try{
+        const codes=await detector.detect(video);
+        if(codes.length){
+          stop();
+          callback(codes[0].rawValue);
+          return;
+        }
+      }catch(e){}
+      if(!stopped)requestAnimationFrame(detect);
+    }
+    detect();
+  }catch(e){
+    alert("Camera permission is required. Please allow camera access.");
+  }
+}
+function scanForProduct(){
+  scanBarcode(code=>{
+    document.getElementById("pBarcode").value=code;
+    const found=products.find(p=>p.barcode===code);
+    if(found){
+      editProduct(found.id);
+      alert("Existing product found. You can update it.");
+    }
+  });
+}
+function scanForBill(){
+  scanBarcode(code=>{
+    document.getElementById("billSearch").value=code;
+    addProductToBillBySearch(code);
+  });
+}
+
+/* BILLING */
+document.getElementById("billSearch").addEventListener("input",function(){
+  const q=this.value.trim().toLowerCase();
+  const results=products.filter(p=>
+    p.name.toLowerCase().includes(q)||(p.barcode||"").toLowerCase()===q
+  ).slice(0,10);
+  document.getElementById("billSearchResults").innerHTML=results.map(p=>`
+    <div class="card">
+      ${escapeHTML(p.name)} — Rs ${p.price} — Stock: ${p.stock}
+      <button class="btn-green" onclick="addToBill('${p.id}')">Add</button>
+    </div>
+  `).join("");
+});
+function addProductToBillBySearch(code){
+  const p=products.find(x=>x.barcode===code);
+  if(p)addToBill(p.id);
+  else alert("No product found with this barcode.");
+}
+function addToBill(id){
+  const p=products.find(x=>x.id===id);
+  if(!p)return;
+  if(p.stock<=0){alert("Out of stock!");return}
+  const item=currentBill.find(x=>x.id===id);
+  if(item){
+    if(item.qty>=p.stock){alert("Not enough stock.");return}
+    item.qty++;
+  }else{
+    currentBill.push({id:p.id,name:p.name,price:p.price,qty:1});
+  }
+  renderBill();
+}
+function changeQty(id,value){
+  const item=currentBill.find(x=>x.id===id);
+  const p=products.find(x=>x.id===id);
+  if(!item||!p)return;
+  let qty=Math.max(1,Math.floor(Number(value)||1));
+  if(qty>p.stock){qty=p.stock;alert("Quantity exceeds available stock.")}
+  item.qty=qty;
+  renderBill();
+}
+function removeBillItem(id){
+  currentBill=currentBill.filter(x=>x.id!==id);
+  renderBill();
+}
+function renderBill(){
+  document.getElementById("billItems").innerHTML=currentBill.map(x=>`
+    <tr>
+      <td>${escapeHTML(x.name)}</td>
+      <td>${x.price}</td>
+      <td><input style="width:75px" type="number" min="1" value="${x.qty}" onchange="changeQty('${x.id}',this.value)"></td>
+      <td>${x.price*x.qty}</td>
+      <td><button class="btn-red" onclick="removeBillItem('${x.id}')">X</button></td>
+    </tr>
+  `).join("");
+  const subtotal=currentBill.reduce((s,x)=>s+x.price*x.qty,0);
+  const discount=Math.max(0,Number(document.getElementById("billDiscount").value)||0);
+  document.getElementById("grandTotal").textContent="Rs "+Math.max(0,subtotal-discount);
+}
+function clearBill(){
+  currentBill=[];
+  document.getElementById("customerName").value="";
+  document.getElementById("customerPhone").value="";
+  document.getElementById("billDiscount").value=0;
+  document.getElementById("billSearch").value="";
+  document.getElementById("billSearchResults").innerHTML="";
+  renderBill();
+}
+function saveBill(){
+  if(!currentBill.length){alert("Add products to bill first.");return}
+  for(const item of currentBill){
+    const p=products.find(x=>x.id===item.id);
+    if(!p||item.qty>p.stock){alert("Stock is insufficient for "+item.name);return}
+  }
+  const subtotal=currentBill.reduce((s,x)=>s+x.price*x.qty,0);
+  const discount=Math.max(0,Number(document.getElementById("billDiscount").value)||0);
+  const bill={
+    id:"BILL-"+Date.now(),
+    date:new Date().toLocaleString(),
+    customer:document.getElementById("customerName").value,
+    phone:document.getElementById("customerPhone").value,
+    items:JSON.parse(JSON.stringify(currentBill)),
+    subtotal,discount,total:Math.max(0,subtotal-discount)
+  };
+  currentBill.forEach(item=>{
+    const p=products.find(x=>x.id===item.id);
+    p.stock-=item.qty;
+  });
+  bills.unshift(bill);
+  saveData("wgs_products",products);
+  saveData("wgs_bills",bills);
+  printBill(bill);
+  clearBill();
+  updateDashboard();
+}
+function printBill(b){
+  const area=document.getElementById("printArea");
+  area.classList.remove("hidden");
+  area.innerHTML=`
+    <div style="max-width:700px;margin:auto;padding:20px;font-family:Arial">
+      <h1 style="text-align:center">${escapeHTML(store.name)}</h1>
+      <p style="text-align:center">Contact: ${escapeHTML(store.phone)}</p>
+      <hr>
+      <p>Bill: ${b.id}<br>Date: ${b.date}<br>Customer: ${escapeHTML(b.customer||"Walk-in")}<br>Phone: ${escapeHTML(b.phone||"-")}</p>
+      <table style="width:100%;border-collapse:collapse">
+        <tr><th>Product</th><th>Price</th><th>Qty</th><th>Total</th></tr>
+        ${b.items.map(x=>`<tr><td>${escapeHTML(x.name)}</td><td>${x.price}</td><td>${x.qty}</td><td>${x.price*x.qty}</td></tr>`).join("")}
+      </table>
+      <hr>
+      <h3>Subtotal: Rs ${b.subtotal}</h3>
+      <h3>Discount: Rs ${b.discount}</h3>
+      <h2>Grand Total: Rs ${b.total}</h2>
+      <p style="text-align:center">Thank you for shopping!</p>
+    </div>`;
+  window.print();
+  area.classList.add("hidden");
+}
+
+/* BILL HISTORY */
+function renderHistory(){
+  const box=document.getElementById("billHistory");
+  box.innerHTML=bills.map(b=>`
+    <div class="card">
+      <h3 class="gold">${b.id}</h3>
+      <p>Date: ${escapeHTML(b.date)}</p>
+      <p>Customer: ${escapeHTML(b.customer||"Walk-in")}</p>
+      <h3>Rs ${b.total}</h3>
+      <button class="btn-blue" onclick="reprintBill('${b.id}')">Print</button>
+      <button class="btn-red" onclick="deleteBill('${b.id}')">Delete</button>
+    </div>
+  `).join("")||"<p>No saved bills.</p>";
+}
+function reprintBill(id){
+  const b=bills.find(x=>x.id===id);
+  if(b)printBill(b);
+}
+function deleteBill(id){
+  if(!confirm("Delete this saved bill? Stock will NOT be restored automatically."))return;
+  bills=bills.filter(x=>x.id!==id);
+  saveData("wgs_bills",bills);
+  renderHistory();
+  updateDashboard();
+}
+
+/* CHANGE ADMIN CODE */
+function changeAdminCode(){
+  const current=document.getElementById("currentAdminCode").value;
+  const next=document.getElementById("newAdminCode").value;
+  const confirmCode=document.getElementById("confirmAdminCode").value;
+  const message=document.getElementById("passwordMessage");
+
+  if(current!==adminCode){
+    message.textContent="Current Admin Code is incorrect.";
+    return;
+  }
+  if(next.length<4){
+    message.textContent="New code must be at least 4 characters.";
+    return;
+  }
+  if(next!==confirmCode){
+    message.textContent="New codes do not match.";
+    return;
+  }
+  adminCode=next;
+  localStorage.setItem("wgs_admin_code",adminCode);
+  ["currentAdminCode","newAdminCode","confirmAdminCode"].forEach(id=>{
+    document.getElementById(id).value="";
+  });
+  message.textContent="Admin Code changed successfully!";
+}
+
+/* STORE SETTINGS */
+function saveStoreSettings(){
+  store={
+    name:document.getElementById("storeName").value.trim()||"Wasif General Store",
+    phone:document.getElementById("storePhone").value.trim()
+  };
+  saveData("wgs_store",store);
+  alert("Store settings saved.");
+}
+
+/* CLIENT MODE */
+function renderClientProducts(){
+  const q=(document.getElementById("clientSearch").value||"").toLowerCase();
+  const list=products.filter(p=>
+    p.name.toLowerCase().includes(q)||(p.category||"").toLowerCase().includes(q)
+  );
+  document.getElementById("clientProducts").innerHTML=list.map(p=>`
+    <div class="product-card">
+      <h3>${escapeHTML(p.name)}</h3>
+      <p class="muted">${escapeHTML(p.category||"General")}</p>
+      <h2 class="gold">Rs ${p.price}</h2>
+      <p class="small">${p.stock>0?"Available":"Out of stock"}</p>
+      <button class="btn-gold" ${p.stock<=0?"disabled":""} onclick="addShopping('${p.id}')">Add to List</button>
+    </div>
+  `).join("")||"<p>No products available.</p>";
+}
+function addShopping(id){
+  const p=products.find(x=>x.id===id);
+  if(!p||p.stock<=0)return;
+  const item=shopping.find(x=>x.id===id);
+  if(item)item.qty++;
+  else shopping.push({id:p.id,name:p.name,price:p.price,qty:1});
+  renderShopping();
+}
+function renderShopping(){
+  document.getElementById("shoppingList").innerHTML=shopping.map(x=>`
+    <p>${escapeHTML(x.name)} × ${x.qty} — Rs ${x.price*x.qty}
+    <button class="btn-red" onclick="removeShopping('${x.id}')">X</button></p>
+  `).join("")||"<p>Your shopping list is empty.</p>";
+  const total=shopping.reduce((s,x)=>s+x.price*x.qty,0);
+  document.getElementById("shoppingTotal").textContent="Total: Rs "+total;
+}
+function removeShopping(id){
+  shopping=shopping.filter(x=>x.id!==id);
+  renderShopping();
+}
+function clearShoppingList(){
+  shopping=[];
+  renderShopping();
+}
+function shareShoppingList(){
+  if(!shopping.length){alert("Shopping list is empty.");return}
+  const lines=shopping.map(x=>`${x.name} x ${x.qty} = Rs ${x.price*x.qty}`);
+  const total=shopping.reduce((s,x)=>s+x.price*x.qty,0);
+  const message=`Wasif General Store Shopping List\n${lines.join("\n")}\nTotal: Rs ${total}`;
+  window.open("https://wa.me/?text="+encodeURIComponent(message),"_blank");
+}
+
+/* DASHBOARD */
+function updateDashboard(){
+  document.getElementById("totalProducts").textContent=products.length;
+  document.getElementById("totalStock").textContent=products.reduce((s,p)=>s+(Number(p.stock)||0),0);
+  document.getElementById("totalBills").textContent=bills.length;
+  document.getElementById("totalSales").textContent="Rs "+bills.reduce((s,b)=>s+b.total,0);
+}
+
+/* CSV IMPORT AND EXPORT */
+function downloadFile(name,content,type){
+  const blob=new Blob([content],{type});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement("a");
+  a.href=url;a.download=name;a.click();
+  URL.revokeObjectURL(url);
+}
+function downloadTemplate(){
+  downloadFile("products-template.csv",
+    "name,category,barcode,cost,price,stock\nSugar 1 KG,Grocery,1234567890123,100,120,50\n",
+    "text/csv");
+}
+function exportProducts(){
+  const rows=[["name","category","barcode","cost","price","stock"],
+    ...products.map(p=>[p.name,p.category,p.barcode,p.cost,p.price,p.stock])];
+  const csv=rows.map(r=>r.map(v=>'"'+String(v??"").replace(/"/g,'""')+'"').join(",")).join("\n");
+  downloadFile("wasif-products.csv",csv,"text/csv");
+}
+function parseCSV(text){
+  const rows=[];let row=[],value="",quoted=false;
+  for(let i=0;i<text.length;i++){
+    const c=text[i];
+    if(c==='"'){
+      if(quoted&&text[i+1]==='"'){value+='"';i++}
+      else quoted=!quoted;
+    }else if(c===","&&!quoted){row.push(value);value=""}
+    else if((c==="\n"||c==="\r")&&!quoted){
+      if(c==="\r"&&text[i+1]==="\n")i++;
+      row.push(value);rows.push(row);row=[];value="";
+    }else value+=c;
+  }
+  if(value||row.length){row.push(value);rows.push(row)}
   return rows;
 }
-
-function importCSV(){
-  if(!adminOnly())return;
-  const file=document.getElementById("csvFile").files[0];
-  if(!file){alert("Select a CSV file first.");return}
+function importProducts(event){
+  const file=event.target.files[0];
+  if(!file)return;
   const reader=new FileReader();
   reader.onload=()=>{
-    try{
-      const rows=parseCSV(reader.result);
-      if(rows.length<2)throw new Error("Empty CSV");
-      const headers=rows[0].map(x=>x.trim().toLowerCase());
-      const get=(row,key)=>row[headers.indexOf(key)]??"";
-      let added=0,updated=0;
-
-      rows.slice(1).forEach(row=>{
-        const name=get(row,"name").trim();
-        if(!name)return;
-        const barcode=get(row,"barcode").trim();
-        const data={
-          name,
-          category:get(row,"category").trim(),
-          barcode,
-          price:Number(get(row,"price"))||0,
-          cost:Number(get(row,"cost"))||0,
-          stock:Number(get(row,"stock"))||0
-        };
-        const existing=barcode?products.find(p=>p.barcode===barcode):null;
-        if(existing){Object.assign(existing,data);updated++}
-        else{products.push({id:Date.now()+added,...data});added++}
-      });
-
-      persist();
-      renderProducts();
-      renderBillProducts();
-      renderDashboard();
-      renderClientProducts();
-      alert("Import complete. Added: "+added+" | Updated: "+updated);
-    }catch(e){alert("CSV format is invalid. Please use the template.")}
+    const rows=parseCSV(reader.result);
+    const headers=rows.shift().map(x=>x.trim().toLowerCase());
+    let count=0;
+    rows.forEach(row=>{
+      const obj={};
+      headers.forEach((h,i)=>obj[h]=row[i]||"");
+      if(!obj.name)return;
+      const barcode=String(obj.barcode||"").trim();
+      const existing=barcode?products.find(p=>p.barcode===barcode):null;
+      const product={
+        id:existing?existing.id:String(Date.now()+Math.random()),
+        name:String(obj.name).trim(),
+        category:obj.category||"",
+        barcode,
+        cost:Number(obj.cost)||0,
+        price:Number(obj.price)||0,
+        stock:Number(obj.stock)||0
+      };
+      if(existing)Object.assign(existing,product);
+      else products.push(product);
+      count++;
+    });
+    saveData("wgs_products",products);
+    renderProducts();updateDashboard();
+    alert(count+" products imported.");
+    event.target.value="";
   };
   reader.readAsText(file);
 }
 
-/* =================================
-   BILL PRODUCT SEARCH
-================================= */
-
-function renderBillProducts(){
-  if(!adminOnly())return;
-  const q=document.getElementById("billSearch").value.toLowerCase();
-  const list=products.filter(p=>
-    p.name.toLowerCase().includes(q)||
-    String(p.barcode||"").toLowerCase().includes(q)
-  );
-  document.getElementById("billProductList").innerHTML=list.map(p=>`
-    <div class="product-card">
-      <b>${esc(p.name)}</b>
-      <span class="price">${cash(p.price)}</span>
-      <span class="stock">Stock: ${p.stock}</span>
-      <button class="btn btn-small" onclick="addBillProduct(${p.id})"
-        ${p.stock<=0?"disabled":""}>ADD TO BILL</button>
-    </div>`).join("")||'<div class="empty">No products found.</div>';
-}
-
-/* =================================
-   ADMIN BILL CART
-================================= */
-
-function addBillProduct(id){
-  if(!adminOnly())return;
-  const p=products.find(x=>x.id===id);
-  if(!p||p.stock<=0){alert("Product is out of stock.");return}
-  const existing=billCart.find(x=>x.id===id);
-  if(existing){
-    if(existing.qty>=p.stock){alert("Not enough stock.");return}
-    existing.qty++;
-  }else{
-    billCart.push({id:p.id,name:p.name,price:p.price,qty:1});
-  }
-  renderBillCart();
-}
-
-function changeBillQty(id,value){
-  if(!adminOnly())return;
-  const item=billCart.find(x=>x.id===id);
-  const p=products.find(x=>x.id===id);
-  if(!item||!p)return;
-  item.qty=Math.max(1,Math.min(p.stock,Math.floor(Number(value)||1)));
-  renderBillCart();
-}
-
-function removeBillItem(id){
-  billCart=billCart.filter(x=>x.id!==id);
-  renderBillCart();
-}
-
-function billSubtotal(){
-  return billCart.reduce((s,x)=>s+x.price*x.qty,0);
-}
-function billDiscount(){
-  return Math.max(0,Number(document.getElementById("billDiscount").value)||0);
-}
-function billTotal(){
-  return Math.max(0,billSubtotal()-billDiscount());
-}
-
-function renderBillCart(){
-  const body=document.getElementById("billCartRows");
-  document.getElementById("billEmpty").classList.toggle("hidden",billCart.length>0);
-  body.innerHTML=billCart.map(x=>`
-    <tr>
-      <td>${esc(x.name)}</td>
-      <td>${cash(x.price)}</td>
-      <td><input class="qty-input" type="number" min="1" max="${products.find(p=>p.id===x.id)?.stock||1}" value="${x.qty}" onchange="changeBillQty(${x.id},this.value)"></td>
-      <td>${cash(x.price*x.qty)}</td>
-      <td><button class="btn btn-red btn-small" onclick="removeBillItem(${x.id})">X</button></td>
-    </tr>`).join("");
-  document.getElementById("billSubtotal").textContent=cash(billSubtotal());
-  document.getElementById("billGrand").textContent=cash(billTotal());
-}
-
-function clearBillCart(){
-  if(!adminOnly())return;
-  if(billCart.length&&!confirm("Clear this bill?"))return;
-  billCart=[];
-  document.getElementById("billDiscount").value=0;
-  renderBillCart();
-}
-
-function saveNewBill(){
-  if(!adminOnly())return;
-  if(!billCart.length){alert("Add products first.");return}
-  if(billDiscount()>billSubtotal()){alert("Discount cannot exceed subtotal.");return}
-
-  for(const item of billCart){
-    const p=products.find(x=>x.id===item.id);
-    if(!p||p.stock<item.qty){alert("Insufficient stock for "+item.name);return}
-  }
-
-  const bill={
-    id:Date.now(),
-    number:"WGS-"+Date.now().toString().slice(-8),
-    customer:document.getElementById("billCustomer").value.trim()||"Walk-in Customer",
-    phone:document.getElementById("billPhone").value.trim(),
-    date:new Date().toLocaleString(),
-    items:billCart.map(x=>({...x})),
-    subtotal:billSubtotal(),
-    discount:billDiscount(),
-    total:billTotal()
+/* BACKUP AND RESTORE */
+function backupData(){
+  const data={
+    products,bills,store,
+    adminCode,
+    backupDate:new Date().toISOString()
   };
-
-  billCart.forEach(item=>{
-    const p=products.find(x=>x.id===item.id);
-    p.stock-=item.qty;
-  });
-
-  bills.unshift(bill);
-  persist();
-  preparePrint(bill);
-  billCart=[];
-  document.getElementById("billCustomer").value="";
-  document.getElementById("billPhone").value="";
-  document.getElementById("billDiscount").value=0;
-  renderBillCart();
-  renderBills();
-  renderProducts();
-  renderDashboard();
-  alert("Bill saved and stock updated.");
+  downloadFile("wasif-store-backup.json",JSON.stringify(data,null,2),"application/json");
 }
-
-/* =================================
-   BILL PRINT / EDIT
-================================= */
-
-function preparePrint(b){
-  document.getElementById("printArea").innerHTML=`
-    <div style="text-align:center">
-      <h1>${esc(settings.name)}</h1>
-      <p>${esc(settings.address)}</p>
-      <p>Phone: ${esc(settings.phone)}</p>
-      <h2>GROCERY BILL</h2>
-    </div>
-    <hr>
-    <p><b>Bill:</b> ${esc(b.number)}</p>
-    <p><b>Date:</b> ${esc(b.date)}</p>
-    <p><b>Customer:</b> ${esc(b.customer)}</p>
-    <p><b>Phone:</b> ${esc(b.phone||"-")}</p>
-    <table>
-      <thead><tr><th>Product</th><th>Price</th><th>Qty</th><th>Total</th></tr></thead>
-      <tbody>${b.items.map(x=>`
-        <tr><td>${esc(x.name)}</td><td>${cash(x.price)}</td>
-        <td>${x.qty}</td><td>${cash(x.price*x.qty)}</td></tr>`).join("")}</tbody>
-    </table>
-    <div style="text-align:right">
-      <p>Subtotal: ${cash(b.subtotal)}</p>
-      <p>Discount: ${cash(b.discount)}</p>
-      <h2>Grand Total: ${cash(b.total)}</h2>
-    </div>
-    <hr><p style="text-align:center">Thank you for shopping!</p>`;
-}
-
-function printBillCart(){
-  if(!adminOnly())return;
-  if(!billCart.length){alert("Add products first.");return}
-  const b={
-    number:"PREVIEW",
-    date:new Date().toLocaleString(),
-    customer:document.getElementById("billCustomer").value||"Walk-in Customer",
-    phone:document.getElementById("billPhone").value,
-    items:billCart,
-    subtotal:billSubtotal(),
-    discount:billDiscount(),
-    total:billTotal()
-  };
-  preparePrint(b);
-  window.print();
-}
-
-function renderBills(){
-  if(!adminOnly())return;
-  const q=document.getElementById("historySearch").value.toLowerCase();
-  const list=bills.filter(b=>
-    b.number.toLowerCase().includes(q)||
-    b.customer.toLowerCase().includes(q)
-  );
-  document.getElementById("historyEmpty").classList.toggle("hidden",list.length>0);
-  document.getElementById("historyRows").innerHTML=list.map(b=>`
-    <tr>
-      <td>${esc(b.number)}</td>
-      <td>${esc(b.customer)}</td>
-      <td>${esc(b.date)}</td>
-      <td>${cash(b.total)}</td>
-      <td>
-        <button class="btn btn-small" onclick="editBill(${b.id})">Edit</button>
-        <button class="btn btn-small btn-blue" onclick="reprintBill(${b.id})">Print</button>
-        <button class="btn btn-small btn-red" onclick="deleteBill(${b.id})">Delete</button>
-      </td>
-    </tr>`).join("");
-}
-
-function reprintBill(id){
-  if(!adminOnly())return;
-  const b=bills.find(x=>x.id===id);
-  if(!b)return;
-  preparePrint(b);
-  window.print();
-}
-
-function editBill(id){
-  if(!adminOnly())return;
-  const b=bills.find(x=>x.id===id);
-  if(!b)return;
-
-  const customer=prompt("Customer name:",b.customer);
-  if(customer===null)return;
-  const phone=prompt("Customer phone:",b.phone||"");
-  if(phone===null)return;
-  const discount=prompt("Discount amount:",b.discount);
-  if(discount===null)return;
-  const newDiscount=Number(discount);
-
-  if(!Number.isFinite(newDiscount)||newDiscount<0||newDiscount>b.subtotal){
-    alert("Invalid discount.");
-    return;
-  }
-
-  b.customer=customer.trim()||"Walk-in Customer";
-  b.phone=phone.trim();
-  b.discount=newDiscount;
-  b.total=Math.max(0,b.subtotal-newDiscount);
-  persist();
-  renderBills();
-  renderDashboard();
-  alert("Bill details updated.");
-}
-
-function deleteBill(id){
-  if(!adminOnly())return;
-  if(!confirm("Delete this bill? Stock will NOT be restored automatically."))return;
-  bills=bills.filter(x=>x.id!==id);
-  persist();
-  renderBills();
-  renderDashboard();
-}
-
-/* =================================
-   CLIENT MODE
-================================= */
-
-function renderClientProducts(){
-  const q=document.getElementById("clientSearch").value.toLowerCase();
-  const list=products.filter(p=>
-    p.name.toLowerCase().includes(q)||
-    String(p.category||"").toLowerCase().includes(q)
-  );
-  document.getElementById("clientProductList").innerHTML=list.map(p=>`
-    <div class="product-card">
-      <span class="badge">${esc(p.category||"General")}</span>
-      <b>${esc(p.name)}</b>
-      <span class="price">${cash(p.price)}</span>
-      <span class="stock">${p.stock>0?"Available":"Out of stock"}</span>
-      <button class="btn btn-small" onclick="addClientProduct(${p.id})"
-        ${p.stock<=0?"disabled":""}>ADD TO LIST</button>
-    </div>`).join("")||'<div class="empty">No products available.</div>';
-}
-
-function addClientProduct(id){
-  if(currentMode!=="client")return;
-  const p=products.find(x=>x.id===id);
-  if(!p||p.stock<=0)return;
-  const existing=clientCart.find(x=>x.id===id);
-  if(existing){
-    if(existing.qty>=p.stock){alert("Available stock limit reached.");return}
-    existing.qty++;
-  }else{
-    clientCart.push({id:p.id,name:p.name,price:p.price,qty:1});
-  }
-  renderClientCart();
-  alert("Added to your shopping list.");
-}
-
-function renderClientCart(){
-  const body=document.getElementById("clientCartRows");
-  document.getElementById("clientCartEmpty").classList.toggle("hidden",clientCart.length>0);
-  body.innerHTML=clientCart.map(x=>`
-    <tr>
-      <td>${esc(x.name)}</td>
-      <td>${cash(x.price)}</td>
-      <td>${x.qty}</td>
-      <td>${cash(x.price*x.qty)}</td>
-      <td><button class="btn btn-red btn-small" onclick="removeClientProduct(${x.id})">X</button></td>
-    </tr>`).join("");
-  document.getElementById("clientGrand").textContent=
-    cash(clientCart.reduce((s,x)=>s+x.price*x.qty,0));
-}
-
-function removeClientProduct(id){
-  clientCart=clientCart.filter(x=>x.id!==id);
-  renderClientCart();
-}
-function clearClientCart(){
-  clientCart=[];
-  renderClientCart();
-}
-
-/* =================================
-   BARCODE CAMERA SCANNER
-================================= */
-
-async function startScanner(targetId){
-  if(currentMode!=="admin")return;
-  if(!("BarcodeDetector" in window)){
-    alert("Automatic barcode scanning is not supported in this browser. Please use manual barcode entry or a compatible browser.");
-    return;
-  }
-
-  try{
-    scannerTarget=targetId;
-    const video=document.getElementById("scannerVideo");
-    scannerStream=await navigator.mediaDevices.getUserMedia({
-      video:{facingMode:{ideal:"environment"}}
-    });
-    video.srcObject=scannerStream;
-    video.classList.remove("hidden");
-    await video.play();
-
-    const detector=new BarcodeDetector();
-    const status=document.getElementById(
-      targetId==="billSearch"?"billScanStatus":"scannerStatus"
-    );
-    status.textContent="Camera active. Point it at a barcode.";
-
-    scannerTimer=setInterval(async()=>{
-      if(video.readyState<2)return;
-      try{
-        const codes=await detector.detect(video);
-        if(codes.length){
-          const code=codes[0].rawValue;
-          const input=document.getElementById(scannerTarget);
-          input.value=code;
-          stopScanner();
-
-          if(scannerTarget==="billSearch"){
-            renderBillProducts();
-            const p=products.find(x=>x.barcode===code);
-            if(p)addBillProduct(p.id);
-            else alert("Barcode not found. Add this product in Admin Products.");
-          }else{
-            const p=products.find(x=>x.barcode===code);
-            if(p){
-              editProduct(p.id);
-              alert("Existing product found. You can edit its details.");
-            }else{
-              alert("Barcode captured. Enter the product name, price and stock.");
-            }
-          }
-        }
-      }catch(e){}
-    },500);
-  }catch(e){
-    alert("Camera could not start. Allow camera permission and open the website using HTTPS.");
-  }
-}
-
-function stopScanner(){
-  if(scannerTimer){
-    clearInterval(scannerTimer);
-    scannerTimer=null;
-  }
-  if(scannerStream){
-    scannerStream.getTracks().forEach(track=>track.stop());
-    scannerStream=null;
-  }
-  const video=document.getElementById("scannerVideo");
-  video.srcObject=null;
-  video.classList.add("hidden");
-}
-
-/* =================================
-   STORE SETTINGS
-================================= */
-
-function loadSettings(){
-  document.getElementById("storeName").value=settings.name||"";
-  document.getElementById("storePhone").value=settings.phone||"";
-  document.getElementById("storeAddress").value=settings.address||"";
-}
-
-function saveSettings(){
-  if(!adminOnly())return;
-  settings={
-    name:document.getElementById("storeName").value.trim()||"Wasif General Store",
-    phone:document.getElementById("storePhone").value.trim(),
-    address:document.getElementById("storeAddress").value.trim()
-  };
-  persist();
-  alert("Store settings saved.");
-}
-
-/* =================================
-   BACKUP / RESTORE
-================================= */
-
-function downloadFile(content,name,type){
-  const blob=new Blob([content],{type});
-  const url=URL.createObjectURL(blob);
-  const a=document.createElement("a");
-  a.href=url;
-  a.download=name;
-  a.click();
-  setTimeout(()=>URL.revokeObjectURL(url),1000);
-}
-
-function downloadBackup(){
-  if(!adminOnly())return;
-  downloadFile(JSON.stringify({products,bills,settings},null,2),
-    "wasif-store-backup.json","application/json");
-}
-
-function restoreBackup(){
-  if(!adminOnly())return;
-  const file=document.getElementById("backupFile").files[0];
-  if(!file){alert("Choose a backup file.");return}
-  if(!confirm("Replace current store data with this backup?"))return;
-
+function restoreData(event){
+  const file=event.target.files[0];
+  if(!file)return;
   const reader=new FileReader();
   reader.onload=()=>{
     try{
       const data=JSON.parse(reader.result);
-      if(!Array.isArray(data.products)||!Array.isArray(data.bills)||!data.settings)
-        throw new Error("Invalid");
+      if(!Array.isArray(data.products)||!Array.isArray(data.bills))throw new Error("Invalid backup");
+      if(!confirm("Restore backup? Current data will be replaced."))return;
       products=data.products;
       bills=data.bills;
-      settings=data.settings;
-      persist();
-      initializeAdmin();
+      store=data.store||store;
+      if(data.adminCode){
+        adminCode=data.adminCode;
+        localStorage.setItem("wgs_admin_code",adminCode);
+      }
+      saveData("wgs_products",products);
+      saveData("wgs_bills",bills);
+      saveData("wgs_store",store);
+      renderProducts();updateDashboard();
       alert("Backup restored successfully.");
     }catch(e){alert("Invalid backup file.")}
+    event.target.value="";
   };
   reader.readAsText(file);
 }
+
+/* SAFE TEXT DISPLAY */
+function escapeHTML(value){
+  return String(value??"").replace(/[&<>"']/g,c=>({
+    "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
+  }[c]));
+}
+
+/* INITIAL LOAD */
+renderShopping();
+renderBill();
 </script>
 </body>
 </html>

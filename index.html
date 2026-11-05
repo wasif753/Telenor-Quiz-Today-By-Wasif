@@ -5,1449 +5,892 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<!-- GOOGLE SEARCH CONSOLE VERIFICATION -->
 <meta name="google-site-verification" content="L78btOyhUxKDEd8NeEgvkfHkNK1_WmHz39LeXgQj18k">
 
-<title>Wasif General Store | Grocery Store</title>
-<meta name="description" content="Wasif General Store - Browse grocery products, prepare shopping lists, send orders on WhatsApp and manage store billing.">
-<meta name="theme-color" content="#101010">
+<title>Wasif General Store | Premium Shopping Experience</title>
+<meta name="description" content="Shop groceries, snacks, beverages and household products at Wasif General Store.">
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/lucide@latest"></script>
+<script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.6/dist/JsBarcode.all.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      fontFamily: {
+        sans: ['Inter', 'sans-serif'],
+        jakarta: ['Plus Jakarta Sans', 'sans-serif']
+      }
+    }
+  }
+}
+</script>
 
 <style>
-:root{
-  --gold:#d6ad55;
-  --gold-light:#f4d58a;
-  --black:#101010;
-  --panel:#1d1d1d;
-  --green:#16a36b;
-  --red:#d94848;
-  --blue:#2468a8;
+:root {
+  --bg:#07130f;
+  --panel:#10221b;
+  --panel2:#142a21;
+  --text:#f4f8f5;
+  --muted:#9db2a6;
+  --gold:#d8b56d;
+  --green:#28a879;
+  --border:rgba(255,255,255,.09);
 }
-*{box-sizing:border-box}
-body{
-  margin:0;
-  background:var(--black);
-  color:#fff;
-  font-family:Arial,sans-serif;
+body.light {
+  --bg:#f4f7f4;
+  --panel:#ffffff;
+  --panel2:#edf3ef;
+  --text:#14251c;
+  --muted:#63766b;
+  --border:rgba(0,0,0,.09);
 }
-button,input,select{font:inherit}
-button{
-  cursor:pointer;
-  border:0;
-  border-radius:8px;
-  padding:11px 15px;
-  font-weight:bold;
+* { box-sizing:border-box; }
+body {
+  background:var(--bg);
+  color:var(--text);
+  font-family:Inter,sans-serif;
+  transition:background .3s,color .3s;
 }
-input,select{
-  width:100%;
-  padding:12px;
-  margin:6px 0 13px;
-  background:#101010;
-  color:white;
-  border:1px solid #555;
-  border-radius:8px;
-}
-label{font-size:13px;color:#ddd}
-.hidden{display:none!important}
-.gold{color:var(--gold)}
-.muted{color:#aaa}
-.small{font-size:12px}
-.container{max-width:1200px;margin:auto;padding:16px}
-.card{
+.panel {
   background:var(--panel);
-  border:1px solid #393939;
-  border-radius:14px;
-  padding:17px;
-  margin-bottom:15px;
-}
-.row{display:flex;gap:10px;flex-wrap:wrap}
-.row>*{flex:1;min-width:130px}
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
-  gap:13px;
-}
-.header{
-  background:#080808;
-  border-bottom:2px solid var(--gold);
-  padding:15px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:10px;
-  flex-wrap:wrap;
-}
-.logo{font-size:22px;font-weight:900;color:var(--gold)}
-.btn-gold{background:var(--gold);color:#111}
-.btn-dark{background:#333;color:white}
-.btn-green{background:var(--green);color:white}
-.btn-red{background:var(--red);color:white}
-.btn-blue{background:var(--blue);color:white}
-.nav{display:flex;gap:7px;flex-wrap:wrap;margin:15px 0}
-.nav button{background:#292929;color:white}
-.nav button.active{background:var(--gold);color:black}
-.stat{
-  background:#242424;
-  padding:17px;
-  border:1px solid #444;
-  border-radius:12px;
-}
-.stat h2{color:var(--gold);margin:8px 0}
-.mode-screen{
-  min-height:100vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:20px;
-  background:radial-gradient(circle,#29251b,#090909 70%);
-}
-.mode-box{
-  width:100%;
-  max-width:650px;
-  text-align:center;
-  background:#171717;
-  border:1px solid var(--gold);
+  border:1px solid var(--border);
   border-radius:20px;
-  padding:28px;
-  box-shadow:0 10px 40px #000;
 }
-.mode-options{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:15px;
-  margin-top:25px;
-}
-.mode-option{
-  background:#252525;
-  border:1px solid #555;
-  border-radius:15px;
-  padding:25px 10px;
-  cursor:pointer;
-}
-.mode-option:hover{border-color:var(--gold)}
-.mode-option .symbol{font-size:42px}
-.mode-option h2{color:var(--gold)}
-.table-wrap{overflow-x:auto}
-table{
-  width:100%;
-  border-collapse:collapse;
-  min-width:600px;
-}
-th,td{
-  padding:11px;
-  border-bottom:1px solid #444;
-  text-align:left;
-}
-th{color:var(--gold);background:#222}
-.product-card{
-  background:#252525;
-  border:1px solid #444;
+.panel2 { background:var(--panel2); }
+.muted { color:var(--muted); }
+.gold { color:var(--gold); }
+.gold-bg { background:linear-gradient(135deg,#e6c987,#b58b3c); color:#172016; }
+.green-bg { background:linear-gradient(135deg,#2bc58c,#147653); color:white; }
+.btn {
   border-radius:12px;
-  padding:14px;
-}
-.product-card h3{color:var(--gold)}
-.badge{
-  display:inline-block;
-  padding:5px 8px;
-  border-radius:5px;
-  background:#333;
-  font-size:12px;
-}
-hr{border-color:#383838}
-#cameraOverlay{
-  position:fixed;
-  inset:0;
-  background:#000e;
-  z-index:99999;
-  display:flex;
-  flex-direction:column;
+  padding:10px 15px;
+  font-weight:700;
+  transition:.2s;
+  display:inline-flex;
   align-items:center;
   justify-content:center;
-  padding:15px;
+  gap:8px;
 }
-#cameraVideo{
-  width:min(95vw,500px);
-  border:3px solid var(--gold);
-  border-radius:12px;
+.btn:hover { transform:translateY(-2px); filter:brightness(1.08); }
+.btn-gold { background:linear-gradient(135deg,#e6c987,#b58b3c);color:#172016; }
+.btn-green { background:#16845d;color:white; }
+.btn-soft { background:var(--panel2);border:1px solid var(--border); }
+.input {
+  width:100%;
+  background:var(--panel2);
+  color:var(--text);
+  border:1px solid var(--border);
+  border-radius:11px;
+  padding:12px 13px;
+  outline:none;
 }
-@media(max-width:550px){
-  .mode-options{grid-template-columns:1fr}
-  .logo{font-size:18px}
-  .container{padding:10px}
+.input:focus { border-color:#d8b56d; box-shadow:0 0 0 3px #d8b56d20; }
+select option { background:#10221b;color:white; }
+.card-product {
+  transition:transform .25s,border-color .25s;
+  overflow:hidden;
 }
-@media print{
-  body{background:white!important;color:black!important}
-  body *{visibility:hidden!important}
-  #printArea,#printArea *{visibility:visible!important}
-  #printArea{
-    display:block!important;
-    position:absolute;
-    left:0;
-    top:0;
-    width:100%;
-    background:white!important;
-    color:black!important;
-  }
-  #printArea table{min-width:0}
-  #printArea th,#printArea td{
-    color:black;
-    border:1px solid #999;
-  }
+.card-product:hover { transform:translateY(-5px);border-color:#d8b56d66; }
+.product-image { height:155px;width:100%;object-fit:cover;background:var(--panel2); }
+.badge { border-radius:30px;padding:5px 9px;font-size:11px;font-weight:800; }
+.fade { animation:fade .25s ease; }
+@keyframes fade { from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)} }
+.drawer {
+  position:fixed;inset:0;z-index:80;background:#0009;
+  display:none;justify-content:flex-end;
+}
+.drawer.open { display:flex; }
+.drawer-content {
+  width:min(440px,100%);height:100%;overflow-y:auto;
+  background:var(--panel);padding:22px;
+  animation:slide .25s ease;
+}
+@keyframes slide { from{transform:translateX(100%)}to{transform:translateX(0)} }
+.modal {
+  position:fixed;inset:0;z-index:100;background:#000b;
+  display:none;align-items:center;justify-content:center;padding:15px;
+}
+.modal.open { display:flex; }
+.modal-box {
+  background:var(--panel);border:1px solid var(--border);
+  border-radius:22px;width:min(550px,100%);max-height:90vh;
+  overflow-y:auto;padding:22px;animation:fade .25s ease;
+}
+.nav-btn {
+  padding:10px 13px;border-radius:11px;font-weight:700;
+  color:var(--muted);white-space:nowrap;
+}
+.nav-btn.active { background:var(--panel2);color:var(--gold); }
+table { width:100%;border-collapse:collapse; }
+th,td { padding:13px 10px;text-align:left;border-bottom:1px solid var(--border);font-size:13px; }
+th { color:var(--muted);font-size:11px;text-transform:uppercase; }
+.toast {
+  position:fixed;z-index:200;bottom:22px;left:50%;
+  transform:translateX(-50%);background:#173c2d;color:white;
+  padding:13px 20px;border-radius:12px;box-shadow:0 10px 40px #0005;
+  display:none;font-weight:700;
+}
+.toast.show { display:block;animation:fade .2s; }
+#barcodeVideo { width:100%;border-radius:14px;background:#000; }
+@media print {
+  body * { visibility:hidden!important; }
+  #receiptPrint,#receiptPrint * { visibility:visible!important; }
+  #receiptPrint { position:absolute;left:0;top:0;width:100%;background:white;color:black;padding:25px; }
+  .no-print { display:none!important; }
 }
 </style>
 </head>
 
 <body>
+<div id="toast" class="toast"></div>
 
-<!-- FIRST SCREEN -->
-<div id="modeScreen" class="mode-screen">
-  <div class="mode-box">
-    <div style="font-size:48px">🏪</div>
-    <h1 class="gold">WASIF GENERAL STORE</h1>
-    <p class="muted">Premium Grocery Management System</p>
-
-    <div class="mode-options">
-      <div class="mode-option" onclick="openClient()">
-        <div class="symbol">🛒</div>
-        <h2>CLIENT MODE</h2>
-        <p>Browse products and send your order</p>
-        <button class="btn-gold">Continue as Client</button>
-      </div>
-
-      <div class="mode-option" onclick="openAdminLogin()">
-        <div class="symbol">🔐</div>
-        <h2>ADMIN MODE</h2>
-        <p>Manage products, stock and bills</p>
-        <button class="btn-gold">Admin Login</button>
+<!-- HEADER -->
+<header class="sticky top-0 z-50 backdrop-blur-xl border-b" style="background:color-mix(in srgb,var(--bg) 88%,transparent);border-color:var(--border)">
+  <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between gap-3">
+    <div class="flex items-center gap-3 min-w-0">
+      <div class="w-11 h-11 rounded-2xl gold-bg flex items-center justify-center font-black text-xl">W</div>
+      <div class="min-w-0">
+        <div class="font-extrabold font-jakarta tracking-tight text-sm sm:text-base">WASIF <span class="gold">GENERAL STORE</span></div>
+        <div class="text-[10px] muted tracking-[2px]">PREMIUM SHOPPING EXPERIENCE</div>
       </div>
     </div>
-  </div>
-</div>
 
-<!-- ADMIN LOGIN -->
-<div id="loginScreen" class="mode-screen hidden">
-  <div class="mode-box">
-    <div style="font-size:42px">🔐</div>
-    <h1 class="gold">ADMIN LOGIN</h1>
-    <p class="muted">Enter your Admin Access Code</p>
-    <input id="adminPassword" type="password" placeholder="Enter Admin Code">
-    <button class="btn-gold" onclick="loginAdmin()">LOGIN</button>
-    <button class="btn-dark" onclick="goHome()">BACK</button>
-    <p id="loginMessage" class="small"></p>
-  </div>
-</div>
-
-<!-- ADMIN PANEL -->
-<div id="adminPanel" class="hidden">
-
-  <div class="header">
-    <div class="logo">🏪 WASIF GENERAL STORE</div>
-    <button class="btn-red" onclick="logout()">Logout</button>
-  </div>
-
-  <div class="container">
-    <h2 class="gold">Admin Dashboard</h2>
-
-    <div class="nav no-print">
-      <button class="active" onclick="showAdminTab('dashboard',this)">Dashboard</button>
-      <button onclick="showAdminTab('products',this)">Products</button>
-      <button onclick="showAdminTab('billing',this)">Billing</button>
-      <button onclick="showAdminTab('history',this)">Bill History</button>
-      <button onclick="showAdminTab('settings',this)">Settings</button>
+    <div class="hidden lg:flex items-center gap-2">
+      <button onclick="setMode('client')" id="clientModeBtn" class="nav-btn active">Client Mode</button>
+      <button onclick="requestAdmin()" id="adminModeBtn" class="nav-btn">Admin Mode</button>
     </div>
 
-    <!-- DASHBOARD -->
-    <section id="dashboard" class="admin-tab">
-      <div class="grid">
-        <div class="stat">Total Products<h2 id="totalProducts">0</h2></div>
-        <div class="stat">Total Stock<h2 id="totalStock">0</h2></div>
-        <div class="stat">Total Bills<h2 id="totalBills">0</h2></div>
-        <div class="stat">Total Sales<h2 id="totalSales">Rs 0</h2></div>
-      </div>
-      <div class="card">
-        <h3 class="gold">Store Overview</h3>
-        <p>Manage products, barcodes, stock, billing and settings.</p>
-      </div>
-    </section>
-
-    <!-- PRODUCTS -->
-    <section id="products" class="admin-tab hidden">
-      <div class="card">
-        <h2 class="gold">Add / Edit Product</h2>
-        <input type="hidden" id="editProductId">
-
-        <label>Product Name</label>
-        <input id="pName" placeholder="e.g. Sugar 1 KG">
-
-        <div class="row">
-          <div>
-            <label>Category</label>
-            <input id="pCategory" placeholder="e.g. Grocery">
-          </div>
-          <div>
-            <label>Product Barcode</label>
-            <input id="pBarcode" placeholder="Enter or scan barcode">
-          </div>
-        </div>
-
-        <div class="row">
-          <div>
-            <label>Purchase Price</label>
-            <input id="pCost" type="number" min="0" placeholder="Cost price">
-          </div>
-          <div>
-            <label>Selling Price</label>
-            <input id="pPrice" type="number" min="0" placeholder="Selling price">
-          </div>
-          <div>
-            <label>Stock Quantity</label>
-            <input id="pStock" type="number" min="0" placeholder="Stock">
-          </div>
-        </div>
-
-        <div class="row">
-          <button class="btn-blue" onclick="scanForProduct()">📷 Scan Barcode</button>
-          <button class="btn-gold" onclick="saveProduct()">SAVE PRODUCT</button>
-          <button class="btn-dark" onclick="clearProductForm()">CLEAR</button>
-        </div>
-        <p id="productMessage" class="small muted"></p>
-      </div>
-
-      <div class="card">
-        <h3 class="gold">Product List</h3>
-        <input id="productSearch" placeholder="Search product, category or barcode..." oninput="renderProducts()">
-        <div class="table-wrap">
-          <table>
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Category</th>
-                <th>Barcode</th>
-                <th>Price</th>
-                <th>Stock</th>
-                <th>Actions</th>
-              </tr>
-            </thead>
-            <tbody id="productTable"></tbody>
-          </table>
-        </div>
-      </div>
-
-      <div class="card">
-        <h3 class="gold">Bulk Import / Export</h3>
-        <p class="small muted">CSV columns: name,category,barcode,cost,price,stock</p>
-        <button class="btn-blue" onclick="downloadTemplate()">Download CSV Template</button>
-        <button class="btn-green" onclick="exportProducts()">Export Products</button>
-        <label>Import CSV File</label>
-        <input type="file" id="csvFile" accept=".csv" onchange="importProducts(event)">
-      </div>
-    </section>
-
-    <!-- BILLING -->
-    <section id="billing" class="admin-tab hidden">
-      <div class="card">
-        <h2 class="gold">Create New Bill</h2>
-
-        <div class="row">
-          <div>
-            <label>Customer Name</label>
-            <input id="customerName" placeholder="Customer name">
-          </div>
-          <div>
-            <label>Customer Phone</label>
-            <input id="customerPhone" placeholder="Phone number">
-          </div>
-        </div>
-
-        <label>Search Product / Barcode</label>
-        <input id="billSearch" placeholder="Enter product name or barcode">
-        <button class="btn-blue" onclick="scanForBill()">📷 Scan Product Barcode</button>
-        <div id="billSearchResults"></div>
-
-        <h3 class="gold">Bill Items</h3>
-        <div class="table-wrap">
-          <table>
-            <thead>
-              <tr><th>Product</th><th>Price</th><th>Qty</th><th>Total</th><th>Remove</th></tr>
-            </thead>
-            <tbody id="billItems"></tbody>
-          </table>
-        </div>
-
-        <div class="row">
-          <div>
-            <label>Discount (Rs)</label>
-            <input id="billDiscount" type="number" min="0" value="0" oninput="renderBill()">
-          </div>
-          <div>
-            <label>Grand Total</label>
-            <h2 class="gold" id="grandTotal">Rs 0</h2>
-          </div>
-        </div>
-
-        <button class="btn-gold" onclick="saveBill()">SAVE & PRINT BILL</button>
-        <button class="btn-dark" onclick="clearBill()">CLEAR BILL</button>
-      </div>
-    </section>
-
-    <!-- HISTORY -->
-    <section id="history" class="admin-tab hidden">
-      <div class="card">
-        <h2 class="gold">Saved Bills</h2>
-        <div id="billHistory"></div>
-      </div>
-    </section>
-
-    <!-- SETTINGS -->
-    <section id="settings" class="admin-tab hidden">
-
-      <div class="card">
-        <h2 class="gold">Change Admin Access Code</h2>
-        <p class="muted small">Change your login code whenever you want.</p>
-
-        <label>Current Admin Code</label>
-        <input id="currentAdminCode" type="password" placeholder="Current code">
-
-        <label>New Admin Code</label>
-        <input id="newAdminCode" type="password" placeholder="New code">
-
-        <label>Confirm New Admin Code</label>
-        <input id="confirmAdminCode" type="password" placeholder="Confirm new code">
-
-        <button class="btn-gold" onclick="changeAdminCode()">CHANGE ADMIN CODE</button>
-        <p id="passwordMessage" class="small"></p>
-      </div>
-
-      <div class="card">
-        <h2 class="gold">Store Information</h2>
-        <label>Store Name</label>
-        <input id="storeName">
-        <label>WhatsApp / Contact Number</label>
-        <input id="storePhone">
-        <button class="btn-gold" onclick="saveStoreSettings()">SAVE STORE SETTINGS</button>
-      </div>
-
-      <div class="card">
-        <h2 class="gold">Backup & Restore</h2>
-        <button class="btn-green" onclick="backupData()">Download Backup</button>
-        <label>Restore Backup</label>
-        <input type="file" id="backupFile" accept=".json" onchange="restoreData(event)">
-      </div>
-    </section>
-  </div>
-</div>
-
-<!-- CLIENT PANEL -->
-<div id="clientPanel" class="hidden">
-  <div class="header">
-    <div class="logo">🏪 WASIF GENERAL STORE</div>
-    <button class="btn-dark" onclick="goHome()">Back to Home</button>
-  </div>
-
-  <div class="container">
-    <h2 class="gold">Welcome to Wasif General Store</h2>
-    <p class="muted">Select your products and send your shopping order directly to our WhatsApp.</p>
-
-    <input id="clientSearch" placeholder="Search products..." oninput="renderClientProducts()">
-
-    <div id="clientProducts" class="grid"></div>
-
-    <div class="card">
-      <h2 class="gold">🛒 My Shopping List</h2>
-
-      <div class="table-wrap">
-        <table>
-          <thead>
-            <tr>
-              <th>Product</th>
-              <th>Price</th>
-              <th>Quantity</th>
-              <th>Total</th>
-              <th>Remove</th>
-            </tr>
-          </thead>
-          <tbody id="shoppingList"></tbody>
-        </table>
-      </div>
-
-      <h2 class="gold" id="shoppingTotal">Grand Total: Rs 0</h2>
-
-      <hr>
-
-      <h3 class="gold">Customer Details</h3>
-
-      <label>Your Name</label>
-      <input id="clientName" placeholder="Enter your name">
-
-      <label>Your Address</label>
-      <input id="clientAddress" placeholder="Enter delivery address">
-
-      <label>Your Phone Number</label>
-      <input id="clientPhone" type="tel" placeholder="Enter your phone number">
-
-      <button class="btn-green" style="width:100%" onclick="shareShoppingList()">
-        📲 SEND ORDER ON WHATSAPP
-      </button>
-
-      <button class="btn-dark" style="width:100%;margin-top:8px" onclick="clearShoppingList()">
-        CLEAR SHOPPING LIST
+    <div class="flex items-center gap-2">
+      <select id="currency" onchange="renderAll()" class="input !w-auto !py-2 text-xs">
+        <option value="PKR">PKR</option>
+        <option value="USD">USD</option>
+        <option value="EUR">EUR</option>
+      </select>
+      <button onclick="toggleTheme()" class="btn btn-soft !p-2" title="Toggle theme"><i data-lucide="sun-moon"></i></button>
+      <button onclick="openCart()" class="btn btn-gold !p-2 relative" title="Shopping cart">
+        <i data-lucide="shopping-bag"></i>
+        <span id="cartCount" class="absolute -top-2 -right-2 bg-red-500 text-white rounded-full w-5 h-5 text-xs flex items-center justify-center">0</span>
       </button>
     </div>
   </div>
+  <div class="lg:hidden flex justify-center gap-2 pb-3">
+    <button onclick="setMode('client')" id="clientModeBtnMobile" class="nav-btn active text-xs">Client Mode</button>
+    <button onclick="requestAdmin()" id="adminModeBtnMobile" class="nav-btn text-xs">Admin Mode</button>
+  </div>
+</header>
+
+<!-- CLIENT VIEW -->
+<main id="clientView" class="max-w-7xl mx-auto px-4 py-6 fade">
+  <section class="relative overflow-hidden rounded-[28px] p-7 md:p-12 mb-7"
+    style="background:radial-gradient(circle at 80% 20%,#277c594d,transparent 35%),linear-gradient(120deg,#10251b,#07130f 75%);border:1px solid #d8b56d33">
+    <div class="relative z-10 max-w-xl">
+      <div class="badge gold-bg inline-block mb-4">✦ YOUR NEIGHBOURHOOD STORE</div>
+      <h1 class="font-jakarta text-3xl md:text-5xl font-extrabold leading-tight">Everyday Essentials.<br><span class="gold">Exceptional Value.</span></h1>
+      <p class="muted mt-4 leading-relaxed">Discover groceries, snacks, beverages and daily essentials at Wasif General Store.</p>
+      <div class="flex flex-wrap gap-3 mt-6">
+        <button onclick="document.getElementById('productSection').scrollIntoView({behavior:'smooth'})" class="btn btn-gold">Explore Products <i data-lucide="arrow-right" size="17"></i></button>
+        <button onclick="openBarcode()" class="btn btn-soft"><i data-lucide="scan-barcode" size="17"></i> Price Checker</button>
+      </div>
+    </div>
+    <div class="absolute right-5 bottom-0 text-[150px] md:text-[230px] opacity-[.08] select-none">✦</div>
+  </section>
+
+  <section class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-7">
+    <div class="panel p-4"><div class="muted text-xs">Shopping Made Easy</div><div class="font-bold mt-2">Easy Ordering</div></div>
+    <div class="panel p-4"><div class="muted text-xs">Product Selection</div><div class="font-bold mt-2">Daily Essentials</div></div>
+    <div class="panel p-4"><div class="muted text-xs">Order Support</div><div class="font-bold mt-2">WhatsApp Orders</div></div>
+    <div class="panel p-4"><div class="muted text-xs">Store Experience</div><div class="font-bold mt-2 gold">Wasif Quality</div></div>
+  </section>
+
+  <section id="productSection">
+    <div class="flex flex-wrap justify-between items-end gap-3 mb-5">
+      <div><div class="gold text-xs font-bold tracking-widest">OUR COLLECTION</div><h2 class="text-2xl font-extrabold font-jakarta mt-1">Explore Products</h2></div>
+      <div class="flex gap-2">
+        <button onclick="openBarcode()" class="btn btn-soft text-xs"><i data-lucide="scan-line" size="16"></i> Scan Barcode</button>
+      </div>
+    </div>
+
+    <div class="flex flex-col md:flex-row gap-3 mb-4">
+      <div class="relative flex-1">
+        <i data-lucide="search" class="absolute left-3 top-3.5 muted" size="18"></i>
+        <input id="productSearch" class="input pl-10" placeholder="Search product name or barcode..." oninput="renderProducts()">
+      </div>
+      <select id="categoryFilter" class="input md:w-52" onchange="renderProducts()">
+        <option value="All">All Categories</option>
+        <option>Grocery</option><option>Snacks</option><option>Beverages</option>
+        <option>Household</option><option>Personal Care</option><option>Electronics</option>
+      </select>
+    </div>
+    <div id="categoryPills" class="flex gap-2 overflow-x-auto pb-3 mb-3"></div>
+    <div id="productGrid" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4"></div>
+    <div id="emptyProducts" class="hidden text-center panel p-10 muted">No products found.</div>
+  </section>
+
+  <footer class="mt-12 panel p-6 text-center">
+    <div class="font-extrabold gold text-lg">WASIF GENERAL STORE</div>
+    <p class="muted text-sm mt-2">Thank you for shopping with us.</p>
+    <p class="muted text-xs mt-2">WhatsApp: 0346 2916891</p>
+    <p class="muted text-xs mt-3">© <span id="year"></span> Wasif General Store</p>
+  </footer>
+</main>
+
+<!-- ADMIN VIEW -->
+<main id="adminView" class="hidden max-w-7xl mx-auto px-4 py-6 fade">
+  <div class="flex flex-wrap items-center justify-between gap-3 mb-6">
+    <div><div class="gold text-xs tracking-widest font-bold">STORE MANAGEMENT</div><h1 class="text-3xl font-extrabold font-jakarta">Admin Dashboard</h1><p class="muted text-sm mt-1">Manage your store operations.</p></div>
+    <button onclick="logoutAdmin()" class="btn btn-soft"><i data-lucide="log-out" size="17"></i> Logout</button>
+  </div>
+
+  <div class="flex gap-2 overflow-x-auto mb-6 pb-2">
+    <button class="nav-btn active" data-tab="dashboard" onclick="showTab('dashboard',this)">Overview</button>
+    <button class="nav-btn" data-tab="inventory" onclick="showTab('inventory',this)">Inventory</button>
+    <button class="nav-btn" data-tab="scanner" onclick="showTab('scanner',this)">Barcode Tools</button>
+    <button class="nav-btn" data-tab="sales" onclick="showTab('sales',this)">Sales History</button>
+    <button class="nav-btn" data-tab="settings" onclick="showTab('settings',this)">Settings</button>
+  </div>
+
+  <!-- DASHBOARD -->
+  <section id="tab-dashboard" class="admin-tab">
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 mb-6">
+      <div class="panel p-5"><div class="muted text-xs">Total Products</div><div id="metricProducts" class="text-3xl font-extrabold mt-2">0</div><div class="gold text-xs mt-2">Inventory items</div></div>
+      <div class="panel p-5"><div class="muted text-xs">Total Stock Value</div><div id="metricStock" class="text-2xl font-extrabold mt-2">0</div><div class="gold text-xs mt-2">Based on cost price</div></div>
+      <div class="panel p-5"><div class="muted text-xs">Out of Stock</div><div id="metricOut" class="text-3xl font-extrabold mt-2">0</div><div class="text-red-400 text-xs mt-2">Needs restocking</div></div>
+      <div class="panel p-5"><div class="muted text-xs">Today's Sales</div><div id="metricSales" class="text-2xl font-extrabold mt-2">0</div><div class="text-green-400 text-xs mt-2">Completed orders</div></div>
+    </div>
+    <div class="grid lg:grid-cols-2 gap-4">
+      <div class="panel p-5">
+        <h3 class="font-bold text-lg">Sales Performance</h3><p class="muted text-xs mb-4">Revenue from recent days</p>
+        <div id="salesChart" class="flex items-end gap-3 h-44 border-b border-l p-3"></div>
+      </div>
+      <div class="panel p-5">
+        <h3 class="font-bold text-lg mb-4">Inventory Alerts</h3>
+        <div id="inventoryAlerts" class="space-y-3"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INVENTORY -->
+  <section id="tab-inventory" class="admin-tab hidden">
+    <div class="flex flex-wrap justify-between gap-3 mb-4">
+      <div><h2 class="text-xl font-bold">Product Inventory</h2><p class="muted text-xs mt-1">Add, update and manage store products.</p></div>
+      <button onclick="openProductForm()" class="btn btn-gold"><i data-lucide="plus" size="17"></i> Add Product</button>
+    </div>
+    <div class="flex flex-wrap gap-2 mb-4">
+      <input id="adminSearch" class="input flex-1 min-w-[180px]" placeholder="Search products..." oninput="renderInventory()">
+      <button onclick="exportJSON()" class="btn btn-soft text-xs">Export JSON</button>
+      <button onclick="exportCSV()" class="btn btn-soft text-xs">Export CSV</button>
+      <label class="btn btn-soft text-xs cursor-pointer">Import JSON <input type="file" accept=".json" hidden onchange="importJSON(event)"></label>
+    </div>
+    <div class="panel overflow-x-auto">
+      <table><thead><tr><th>Product</th><th>Barcode</th><th>Price</th><th>Cost</th><th>Stock</th><th>Actions</th></tr></thead><tbody id="inventoryTable"></tbody></table>
+    </div>
+  </section>
+
+  <!-- SCANNER -->
+  <section id="tab-scanner" class="admin-tab hidden">
+    <div class="grid md:grid-cols-2 gap-4">
+      <div class="panel p-5">
+        <h2 class="font-bold text-xl">Barcode Lookup</h2>
+        <p class="muted text-sm mt-1 mb-4">Enter or scan a product barcode.</p>
+        <input id="adminBarcodeInput" class="input mb-3" placeholder="Enter barcode number">
+        <button onclick="lookupAdminBarcode()" class="btn btn-gold w-full">Find Product</button>
+        <div id="barcodeResult" class="mt-4"></div>
+        <div class="divider"></div>
+        <button onclick="startCamera()" class="btn btn-green w-full mt-4"><i data-lucide="camera"></i> Start Camera Scanner</button>
+        <video id="barcodeVideo" class="hidden mt-3" autoplay playsinline></video>
+        <button onclick="stopCamera()" id="stopCameraBtn" class="hidden btn btn-soft w-full mt-2">Stop Camera</button>
+        <p class="muted text-xs mt-3">Camera scanning requires browser support and permission. Manual barcode entry is always available.</p>
+      </div>
+      <div class="panel p-5">
+        <h2 class="font-bold text-xl">Barcode Label Generator</h2>
+        <p class="muted text-sm mt-1 mb-4">Generate and print a barcode label.</p>
+        <input id="labelName" class="input mb-3" placeholder="Product name">
+        <input id="labelBarcode" class="input mb-3" placeholder="Barcode number">
+        <button onclick="generateLabel()" class="btn btn-gold w-full">Generate Barcode</button>
+        <div id="barcodeLabel" class="mt-4 bg-white rounded-xl p-4 text-center text-black hidden">
+          <div id="labelProductName" class="font-bold"></div>
+          <svg id="barcodeSvg" class="max-w-full mx-auto"></svg>
+          <button onclick="window.print()" class="btn btn-soft no-print mt-3">Print Label</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SALES -->
+  <section id="tab-sales" class="admin-tab hidden">
+    <div class="flex justify-between items-center mb-4">
+      <div><h2 class="text-xl font-bold">Sales History</h2><p class="muted text-xs">Completed customer orders.</p></div>
+      <button onclick="exportSales()" class="btn btn-soft text-xs">Export Sales</button>
+    </div>
+    <div class="panel overflow-x-auto">
+      <table><thead><tr><th>Order</th><th>Customer</th><th>Date</th><th>Total</th><th>Action</th></tr></thead><tbody id="salesTable"></tbody></table>
+    </div>
+  </section>
+
+  <!-- SETTINGS -->
+  <section id="tab-settings" class="admin-tab hidden">
+    <div class="grid md:grid-cols-2 gap-4">
+      <div class="panel p-5">
+        <h2 class="font-bold text-lg mb-4">Store Settings</h2>
+        <label class="text-xs muted">Store Name</label><input id="storeName" class="input mt-1 mb-3">
+        <label class="text-xs muted">WhatsApp Number (international digits)</label><input id="storePhone" class="input mt-1 mb-3">
+        <button onclick="saveStoreSettings()" class="btn btn-gold w-full">Save Store Settings</button>
+      </div>
+      <div class="panel p-5">
+        <h2 class="font-bold text-lg mb-4">Change Admin Password</h2>
+        <input id="oldPassword" type="password" class="input mb-3" placeholder="Current password">
+        <input id="newPassword" type="password" class="input mb-3" placeholder="New password">
+        <input id="confirmPassword" type="password" class="input mb-3" placeholder="Confirm new password">
+        <button onclick="changePassword()" class="btn btn-gold w-full">Update Password</button>
+        <p class="muted text-xs mt-3">Note: This static website does not provide server-level authentication.</p>
+      </div>
+      <div class="panel p-5">
+        <h2 class="font-bold text-lg mb-3">Backup & Restore</h2>
+        <p class="muted text-xs mb-4">Save your local store data or restore a previous backup.</p>
+        <button onclick="backupData()" class="btn btn-green w-full mb-2">Download Full Backup</button>
+        <label class="btn btn-soft w-full cursor-pointer">Restore Backup <input type="file" accept=".json" hidden onchange="restoreData(event)"></label>
+      </div>
+      <div class="panel p-5">
+        <h2 class="font-bold text-lg mb-3">Inventory Reset</h2>
+        <p class="muted text-xs mb-4">Reset products to the original sample inventory. This action cannot be undone.</p>
+        <button onclick="resetInventory()" class="btn w-full bg-red-600 text-white">Reset Inventory to Default</button>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- CART DRAWER -->
+<div id="cartDrawer" class="drawer" onclick="if(event.target===this)closeCart()">
+  <div class="drawer-content">
+    <div class="flex justify-between items-center mb-5">
+      <div><h2 class="font-extrabold text-2xl">Your Cart</h2><p class="muted text-xs">Your shopping selection</p></div>
+      <button onclick="closeCart()" class="btn btn-soft !p-2"><i data-lucide="x"></i></button>
+    </div>
+    <div id="cartItems" class="space-y-3"></div>
+    <div class="border-t mt-5 pt-4" style="border-color:var(--border)">
+      <div class="flex justify-between muted text-sm mb-2"><span>Subtotal</span><span id="cartSubtotal">0</span></div>
+      <div class="flex justify-between muted text-sm mb-2"><span>Tax (0%)</span><span>0</span></div>
+      <div class="flex justify-between font-extrabold text-xl mt-4"><span>Total</span><span id="cartTotal" class="gold">0</span></div>
+      <button onclick="openCheckout()" class="btn btn-gold w-full mt-5">Proceed to Checkout <i data-lucide="arrow-right"></i></button>
+    </div>
+  </div>
 </div>
 
-<!-- PRINT BILL AREA -->
-<div id="printArea" class="hidden"></div>
+<!-- LOGIN MODAL -->
+<div id="loginModal" class="modal">
+  <div class="modal-box max-w-sm">
+    <div class="text-center mb-5">
+      <div class="w-14 h-14 rounded-2xl gold-bg mx-auto flex items-center justify-center"><i data-lucide="shield-check" size="27"></i></div>
+      <h2 class="text-2xl font-extrabold mt-4">Admin Access</h2>
+      <p class="muted text-sm mt-1">Enter your store access password.</p>
+    </div>
+    <input id="loginPassword" type="password" class="input mb-3" placeholder="Admin password" onkeydown="if(event.key==='Enter')loginAdmin()">
+    <div id="loginError" class="hidden text-red-400 text-sm mb-3">Incorrect password. Please try again.</div>
+    <button onclick="loginAdmin()" class="btn btn-gold w-full">Unlock Dashboard</button>
+    <button onclick="closeLogin()" class="btn btn-soft w-full mt-2">Cancel</button>
+  </div>
+</div>
+
+<!-- PRODUCT MODAL -->
+<div id="productModal" class="modal">
+  <div class="modal-box">
+    <div class="flex justify-between items-center mb-4"><h2 id="productFormTitle" class="text-xl font-extrabold">Add Product</h2><button onclick="closeProductForm()" class="btn btn-soft !p-2"><i data-lucide="x"></i></button></div>
+    <input type="hidden" id="editProductId">
+    <div class="grid grid-cols-2 gap-3">
+      <div class="col-span-2"><label class="muted text-xs">Product Name *</label><input id="pName" class="input mt-1" placeholder="Product name"></div>
+      <div><label class="muted text-xs">Selling Price *</label><input id="pPrice" type="number" min="0" class="input mt-1"></div>
+      <div><label class="muted text-xs">Cost Price</label><input id="pCost" type="number" min="0" class="input mt-1"></div>
+      <div><label class="muted text-xs">Barcode</label><input id="pBarcode" class="input mt-1"></div>
+      <div><label class="muted text-xs">Stock Quantity</label><input id="pStock" type="number" min="0" class="input mt-1"></div>
+      <div><label class="muted text-xs">Category</label><select id="pCategory" class="input mt-1"><option>Grocery</option><option>Snacks</option><option>Beverages</option><option>Household</option><option>Personal Care</option><option>Electronics</option></select></div>
+      <div><label class="muted text-xs">Image URL</label><input id="pImage" class="input mt-1" placeholder="https://..."></div>
+    </div>
+    <button onclick="saveProduct()" class="btn btn-gold w-full mt-5">Save Product</button>
+  </div>
+</div>
+
+<!-- BARCODE MODAL -->
+<div id="barcodeModal" class="modal">
+  <div class="modal-box max-w-sm">
+    <div class="flex justify-between items-center mb-4"><h2 class="text-xl font-bold">Barcode Price Checker</h2><button onclick="closeBarcode()" class="btn btn-soft !p-2"><i data-lucide="x"></i></button></div>
+    <input id="clientBarcodeInput" class="input mb-3" placeholder="Type barcode number">
+    <button onclick="lookupClientBarcode()" class="btn btn-gold w-full">Check Product</button>
+    <div id="clientBarcodeResult" class="mt-4"></div>
+  </div>
+</div>
+
+<!-- CHECKOUT MODAL -->
+<div id="checkoutModal" class="modal">
+  <div class="modal-box">
+    <div class="flex justify-between items-center mb-4"><h2 class="text-xl font-extrabold">Checkout</h2><button onclick="closeCheckout()" class="btn btn-soft !p-2"><i data-lucide="x"></i></button></div>
+    <p class="muted text-sm mb-4">Enter your details to complete your order.</p>
+    <input id="customerName" class="input mb-3" placeholder="Your full name">
+    <input id="customerPhone" class="input mb-3" placeholder="Your phone number">
+    <textarea id="customerAddress" class="input mb-3" rows="3" placeholder="Delivery address"></textarea>
+    <div class="panel2 rounded-xl p-4 mb-4"><div class="flex justify-between font-bold"><span>Order Total</span><span id="checkoutTotal" class="gold">0</span></div></div>
+    <button onclick="completeOrder()" class="btn btn-green w-full"><i data-lucide="message-circle"></i> Complete Order & WhatsApp</button>
+  </div>
+</div>
+
+<!-- RECEIPT MODAL -->
+<div id="receiptModal" class="modal">
+  <div class="modal-box">
+    <div id="receiptPrint">
+      <div class="text-center border-b pb-4 mb-4">
+        <h2 class="text-2xl font-extrabold">WASIF GENERAL STORE</h2>
+        <p class="text-sm">Shopping Receipt</p>
+        <p id="receiptOrderId" class="text-xs mt-2"></p>
+        <p id="receiptDate" class="text-xs"></p>
+      </div>
+      <div id="receiptCustomer" class="text-sm mb-4"></div>
+      <div id="receiptLines"></div>
+      <div class="border-t mt-4 pt-3 text-right">
+        <div class="font-bold text-xl">TOTAL: <span id="receiptTotal"></span></div>
+      </div>
+      <div class="text-center text-xs mt-5">Thank you for shopping with us!</div>
+      <div class="text-center text-xs mt-1">WhatsApp: 0346 2916891</div>
+    </div>
+    <div class="flex gap-2 mt-5 no-print">
+      <button onclick="window.print()" class="btn btn-gold flex-1"><i data-lucide="printer"></i> Print Receipt</button>
+      <button onclick="closeReceipt()" class="btn btn-soft">Close</button>
+    </div>
+  </div>
+</div>
 
 <script>
 /* =========================
-   DATABASE AND INITIAL DATA
+   WASIF GENERAL STORE APP
 ========================= */
 
-const DEFAULT_ADMIN_CODE="Wasif2244";
-const STORE_WHATSAPP="923462916891";
+const $ = id => document.getElementById(id);
+const KEY = "wasif_general_store_v1";
+const RATES = {PKR:1,USD:0.00357,EUR:0.00328};
+const SYMBOLS = {PKR:"Rs",USD:"$",EUR:"€"};
+let adminPassword = localStorage.getItem("wgs_password") || "Wasif2244";
+let isAdmin = false;
+let cart = JSON.parse(localStorage.getItem("wgs_cart") || "[]");
+let cameraStream = null;
+let cameraLoop = null;
 
-function getData(key,fallback){
-  try{
-    const value=localStorage.getItem(key);
-    return value===null?fallback:JSON.parse(value);
-  }catch(e){
-    return fallback;
-  }
-}
-function saveData(key,value){
-  localStorage.setItem(key,JSON.stringify(value));
-}
+const sampleProducts = [
+ ["Sugar 1kg",170,155,120,"Grocery","100000000001","https://images.unsplash.com/photo-1581441363689-1f3c3c414635?w=500"],
+ ["Rice 1kg",320,290,80,"Grocery","100000000002","https://images.unsplash.com/photo-1586201375761-83865001e31c?w=500"],
+ ["Cooking Oil 1L",560,520,60,"Grocery","100000000003","https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?w=500"],
+ ["Tea 190g",490,450,45,"Grocery","100000000004","https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=500"],
+ ["Flour 5kg",750,700,35,"Grocery","100000000005","https://images.unsplash.com/photo-1627485937980-221c88ac04f9?w=500"],
+ ["Salt 800g",70,60,90,"Grocery","100000000006","https://images.unsplash.com/photo-1518110925495-5fe2fda0442d?w=500"],
+ ["Potato Chips",100,75,40,"Snacks","100000000007","https://images.unsplash.com/photo-1566478989037-eec170784d0b?w=500"],
+ ["Chocolate Bar",150,120,50,"Snacks","100000000008","https://images.unsplash.com/photo-1511381939415-e44015466834?w=500"],
+ ["Biscuits Pack",80,60,75,"Snacks","100000000009","https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=500"],
+ ["Noodles",90,70,65,"Snacks","100000000010","https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=500"],
+ ["Cola 1.5L",180,155,30,"Beverages","100000000011","https://images.unsplash.com/photo-1554866585-cd94860890b7?w=500"],
+ ["Mineral Water",80,55,100,"Beverages","100000000012","https://images.unsplash.com/photo-1564419320461-6870880221ad?w=500"],
+ ["Juice 1L",250,210,25,"Beverages","100000000013","https://images.unsplash.com/photo-1600271886742-f049cd451bba?w=500"],
+ ["Energy Drink",220,180,20,"Beverages","100000000014","https://images.unsplash.com/photo-1622543925917-763c34d1a86e?w=500"],
+ ["Dish Wash",190,160,30,"Household","100000000015","https://images.unsplash.com/photo-1585421514738-01798e348b17?w=500"],
+ ["Laundry Powder",350,310,25,"Household","100000000016","https://images.unsplash.com/photo-1585421514738-01798e348b17?w=500"],
+ ["Hand Wash",260,220,35,"Personal Care","100000000017","https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=500"],
+ ["Shampoo",480,420,20,"Personal Care","100000000018","https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=500"],
+ ["Toothpaste",210,175,40,"Personal Care","100000000019","https://images.unsplash.com/photo-1609840114035-3c981b782dfe?w=500"],
+ ["LED Bulb",350,270,15,"Electronics","100000000020","https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=500"],
+ ["AA Batteries",180,140,18,"Electronics","100000000021","https://images.unsplash.com/photo-1619641805634-9b7e1b6d8e4f?w=500"],
+ ["Tissue Box",160,125,28,"Household","100000000022","https://images.unsplash.com/photo-1583947215259-38e31be8751f?w=500"],
+ ["Soap Bar",120,90,55,"Personal Care","100000000023","https://images.unsplash.com/photo-1600857544200-b2f666a9a2ec?w=500"],
+ ["Coffee Jar",650,580,14,"Grocery","100000000024","https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=500"]
+].map((p,i)=>({id:"p"+(i+1),name:p[0],price:p[1],cost:p[2],stock:p[3],category:p[4],barcode:p[5],image:p[6]}));
 
-let products=getData("wgs_products",[]);
-let bills=getData("wgs_bills",[]);
-let shopping=[];
-let currentBill=[];
-let adminCode=localStorage.getItem("wgs_admin_code")||DEFAULT_ADMIN_CODE;
-let store=getData("wgs_store",{
-  name:"Wasif General Store",
-  phone:"03462916891"
-});
+let data = loadData();
 
-/* =========================
-   SCREEN NAVIGATION
-========================= */
+function loadData(){
+ try {
+  const saved=JSON.parse(localStorage.getItem(KEY));
+  if(saved && Array.isArray(saved.products)) return saved;
+ } catch(e){}
+ return {
+  products:sampleProducts,
+  sales:[],
+  storeName:"Wasif General Store",
+  phone:"923462916891",
+  tax:0
+ };
+}
+function saveData(){localStorage.setItem(KEY,JSON.stringify(data));}
+function toast(message){
+ $("toast").textContent=message;
+ $("toast").classList.add("show");
+ setTimeout(()=>$("toast").classList.remove("show"),2600);
+}
+function money(value){
+ const cur=$("currency").value;
+ return SYMBOLS[cur]+" "+(Number(value)*RATES[cur]).toLocaleString("en-US",{maximumFractionDigits:2});
+}
+function safe(value){
+ return String(value??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+}
+function persistCart(){
+ localStorage.setItem("wgs_cart",JSON.stringify(cart));
+}
+function renderIcons(){
+ if(window.lucide) lucide.createIcons();
+}
+function toggleTheme(){
+ document.body.classList.toggle("light");
+ localStorage.setItem("wgs_theme",document.body.classList.contains("light")?"light":"dark");
+}
+if(localStorage.getItem("wgs_theme")==="light") document.body.classList.add("light");
 
-function hideAll(){
-  ["modeScreen","loginScreen","adminPanel","clientPanel"].forEach(id=>{
-    document.getElementById(id).classList.add("hidden");
-  });
+function setMode(mode){
+ if(mode==="admin" && !isAdmin){requestAdmin();return;}
+ $("clientView").classList.toggle("hidden",mode!=="client");
+ $("adminView").classList.toggle("hidden",mode!=="admin");
+ ["clientModeBtn","clientModeBtnMobile"].forEach(id=>$(id).classList.toggle("active",mode==="client"));
+ ["adminModeBtn","adminModeBtnMobile"].forEach(id=>$(id).classList.toggle("active",mode==="admin"));
+ if(mode==="admin") renderDashboard();
+ window.scrollTo({top:0,behavior:"smooth"});
 }
-function goHome(){
-  hideAll();
-  document.getElementById("modeScreen").classList.remove("hidden");
+function requestAdmin(){
+ $("loginModal").classList.add("open");
+ $("loginPassword").value="";
+ $("loginError").classList.add("hidden");
+ setTimeout(()=>$("loginPassword").focus(),100);
 }
-function openAdminLogin(){
-  hideAll();
-  document.getElementById("loginScreen").classList.remove("hidden");
-  document.getElementById("adminPassword").value="";
-  document.getElementById("loginMessage").textContent="";
-}
-function openClient(){
-  hideAll();
-  document.getElementById("clientPanel").classList.remove("hidden");
-  renderClientProducts();
-  renderShopping();
-}
+function closeLogin(){$("loginModal").classList.remove("open");}
 function loginAdmin(){
-  const code=document.getElementById("adminPassword").value;
-  if(code===adminCode){
-    hideAll();
-    document.getElementById("adminPanel").classList.remove("hidden");
-    updateDashboard();
-    renderProducts();
-  }else{
-    document.getElementById("loginMessage").textContent="Incorrect Admin Code!";
-  }
+ if($("loginPassword").value===adminPassword){
+  isAdmin=true;closeLogin();setMode("admin");toast("Admin login successful");
+ }else{
+  $("loginError").classList.remove("hidden");
+  $("loginPassword").classList.add("animate-pulse");
+  setTimeout(()=>$("loginPassword").classList.remove("animate-pulse"),500);
+ }
 }
-function logout(){goHome()}
-
-function showAdminTab(id,button){
-  document.querySelectorAll(".admin-tab").forEach(x=>x.classList.add("hidden"));
-  document.getElementById(id).classList.remove("hidden");
-  document.querySelectorAll(".nav button").forEach(x=>x.classList.remove("active"));
-  button.classList.add("active");
-
-  if(id==="dashboard")updateDashboard();
-  if(id==="products")renderProducts();
-  if(id==="history")renderHistory();
-
-  if(id==="settings"){
-    document.getElementById("storeName").value=store.name;
-    document.getElementById("storePhone").value=store.phone;
-  }
+function logoutAdmin(){isAdmin=false;setMode("client");toast("Logged out");}
+function showTab(tab,button){
+ document.querySelectorAll(".admin-tab").forEach(x=>x.classList.add("hidden"));
+ $("tab-"+tab).classList.remove("hidden");
+ document.querySelectorAll("#adminView .nav-btn").forEach(x=>x.classList.remove("active"));
+ button.classList.add("active");
+ if(tab==="dashboard")renderDashboard();
+ if(tab==="inventory")renderInventory();
+ if(tab==="sales")renderSales();
+}
+function renderAll(){
+ renderProducts();renderCart();if(isAdmin){renderDashboard();renderInventory();renderSales();}
+ renderIcons();
 }
 
-/* =========================
-   PRODUCTS MANAGEMENT
-========================= */
-
-function saveProduct(){
-  const id=document.getElementById("editProductId").value;
-  const name=document.getElementById("pName").value.trim();
-  const category=document.getElementById("pCategory").value.trim();
-  const barcode=document.getElementById("pBarcode").value.trim();
-  const cost=Number(document.getElementById("pCost").value)||0;
-  const price=Number(document.getElementById("pPrice").value);
-  const stock=Number(document.getElementById("pStock").value);
-
-  if(!name || !Number.isFinite(price) || price<0 || stock<0 || cost<0){
-    alert("Please enter a product name, valid price and stock.");
-    return;
-  }
-
-  if(barcode && products.some(p=>p.barcode===barcode && p.id!==id)){
-    alert("This barcode is already assigned to another product.");
-    return;
-  }
-
-  if(id){
-    const p=products.find(x=>x.id===id);
-    if(p)Object.assign(p,{name,category,barcode,cost,price,stock});
-  }else{
-    products.push({
-      id:String(Date.now())+Math.random().toString(16).slice(2),
-      name,category,barcode,cost,price,stock
-    });
-  }
-
-  saveData("wgs_products",products);
-  clearProductForm();
-  renderProducts();
-  updateDashboard();
-  document.getElementById("productMessage").textContent="Product saved successfully.";
-}
-
-function clearProductForm(){
-  ["editProductId","pName","pCategory","pBarcode","pCost","pPrice","pStock"].forEach(id=>{
-    document.getElementById(id).value="";
-  });
-}
-
-function editProduct(id){
-  const p=products.find(x=>x.id===id);
-  if(!p)return;
-
-  document.getElementById("editProductId").value=p.id;
-  document.getElementById("pName").value=p.name;
-  document.getElementById("pCategory").value=p.category||"";
-  document.getElementById("pBarcode").value=p.barcode||"";
-  document.getElementById("pCost").value=p.cost||0;
-  document.getElementById("pPrice").value=p.price;
-  document.getElementById("pStock").value=p.stock;
-
-  window.scrollTo({top:0,behavior:"smooth"});
-}
-
-function deleteProduct(id){
-  if(!confirm("Delete this product?"))return;
-  products=products.filter(p=>p.id!==id);
-  saveData("wgs_products",products);
-  renderProducts();
-  updateDashboard();
-}
-
+/* CLIENT PRODUCTS */
 function renderProducts(){
-  const q=(document.getElementById("productSearch")?.value||"").toLowerCase();
-
-  const list=products.filter(p=>
-    p.name.toLowerCase().includes(q)||
-    String(p.barcode||"").toLowerCase().includes(q)||
-    String(p.category||"").toLowerCase().includes(q)
-  );
-
-  document.getElementById("productTable").innerHTML=list.map(p=>`
-    <tr>
-      <td>${escapeHTML(p.name)}</td>
-      <td>${escapeHTML(p.category||"-")}</td>
-      <td>${escapeHTML(p.barcode||"-")}</td>
-      <td>Rs ${p.price}</td>
-      <td>${p.stock}</td>
-      <td>
-        <button class="btn-blue" onclick="editProduct('${p.id}')">Edit</button>
-        <button class="btn-red" onclick="deleteProduct('${p.id}')">Delete</button>
-      </td>
-    </tr>
-  `).join("")||"<tr><td colspan='6'>No products found.</td></tr>";
+ const search=($("productSearch").value||"").toLowerCase();
+ const category=$("categoryFilter").value;
+ const list=data.products.filter(p=>
+  (category==="All"||p.category===category) &&
+  (p.name.toLowerCase().includes(search)||String(p.barcode).includes(search))
+ );
+ $("productGrid").innerHTML=list.map(p=>`
+ <article class="panel card-product">
+  <img class="product-image" src="${safe(p.image)}" alt="${safe(p.name)}" onerror="this.src='https://placehold.co/500x350/142a21/d8b56d?text=Wasif+Store'">
+  <div class="p-3">
+   <div class="flex justify-between items-center gap-1">
+    <span class="badge" style="background:var(--panel2);color:var(--gold)">${safe(p.category)}</span>
+    <span class="badge ${p.stock>10?'bg-green-900 text-green-300':'bg-red-900 text-red-300'}">${p.stock>10?'In Stock':p.stock>0?'Low Stock':'Out of Stock'}</span>
+   </div>
+   <h3 class="font-bold mt-3 text-sm min-h-10">${safe(p.name)}</h3>
+   <div class="text-[10px] muted mt-1">Barcode: ${safe(p.barcode||"N/A")}</div>
+   <div class="flex justify-between items-center mt-3 gap-2">
+    <span class="gold font-extrabold">${money(p.price)}</span>
+    <button onclick="addToCart('${p.id}')" ${p.stock<=0?'disabled':''} class="btn btn-gold !px-3 !py-2 text-xs disabled:opacity-40">Add <i data-lucide="plus" size="14"></i></button>
+   </div>
+  </div>
+ </article>`).join("");
+ $("emptyProducts").classList.toggle("hidden",list.length!==0);
+ const cats=["All","Grocery","Snacks","Beverages","Household","Personal Care","Electronics"];
+ $("categoryPills").innerHTML=cats.map(c=>`<button onclick="selectCategory('${c}')" class="badge ${$("categoryFilter").value===c?'gold-bg':'panel'} whitespace-nowrap">${c}</button>`).join("");
+ renderIcons();
+}
+function selectCategory(c){$("categoryFilter").value=c;renderProducts();}
+function addToCart(id){
+ const p=data.products.find(x=>x.id===id);
+ if(!p||p.stock<=0)return toast("Product is out of stock");
+ const item=cart.find(x=>x.id===id);
+ if(item){if(item.qty>=p.stock)return toast("Not enough stock");item.qty++;}
+ else cart.push({id,qty:1});
+ persistCart();renderCart();toast("Added to cart");
 }
 
-/* =========================
-   BARCODE CAMERA SCANNER
-========================= */
+/* CART */
+function openCart(){$("cartDrawer").classList.add("open");renderCart();}
+function closeCart(){$("cartDrawer").classList.remove("open");}
+function cartSubtotal(){return cart.reduce((s,i)=>{const p=data.products.find(x=>x.id===i.id);return s+(p?p.price*i.qty:0)},0);}
+function changeQty(id,delta){
+ const item=cart.find(x=>x.id===id),p=data.products.find(x=>x.id===id);
+ if(!item)return;
+ item.qty+=delta;
+ if(item.qty<=0)cart=cart.filter(x=>x.id!==id);
+ if(p&&item.qty>p.stock){item.qty=p.stock;toast("Available stock limit");}
+ persistCart();renderCart();
+}
+function renderCart(){
+ $("cartCount").textContent=cart.reduce((s,i)=>s+i.qty,0);
+ $("cartItems").innerHTML=cart.length?cart.map(i=>{
+  const p=data.products.find(x=>x.id===i.id);if(!p)return "";
+  return `<div class="panel2 rounded-xl p-3 flex gap-3 items-center">
+   <img src="${safe(p.image)}" class="w-14 h-14 rounded-lg object-cover" onerror="this.src='https://placehold.co/100'">
+   <div class="flex-1 min-w-0"><div class="font-bold text-sm">${safe(p.name)}</div><div class="gold text-sm">${money(p.price)}</div>
+   <div class="flex items-center gap-3 mt-2"><button onclick="changeQty('${p.id}',-1)" class="btn btn-soft !p-1">−</button><span>${i.qty}</span><button onclick="changeQty('${p.id}',1)" class="btn btn-soft !p-1">+</button></div></div>
+   <div class="font-bold text-sm">${money(p.price*i.qty)}</div>
+  </div>`;
+ }).join(""):'<div class="text-center muted py-12">Your cart is empty.</div>';
+ $("cartSubtotal").textContent=money(cartSubtotal());
+ $("cartTotal").textContent=money(cartSubtotal());
+ renderIcons();
+}
+function openCheckout(){
+ if(!cart.length)return toast("Your cart is empty");
+ closeCart();$("checkoutTotal").textContent=money(cartSubtotal());
+ $("checkoutModal").classList.add("open");
+}
+function closeCheckout(){$("checkoutModal").classList.remove("open");}
 
-async function scanBarcode(callback){
-  if(!("BarcodeDetector" in window)){
-    alert("Barcode scanning is not supported in this browser. Please enter barcode manually.");
-    return;
-  }
+/* CHECKOUT AND RECEIPT */
+function completeOrder(){
+ const name=$("customerName").value.trim();
+ const phone=$("customerPhone").value.trim();
+ const address=$("customerAddress").value.trim();
+ if(!name||!phone||!address)return toast("Please complete all customer details");
+ for(const i of cart){
+  const p=data.products.find(x=>x.id===i.id);
+  if(!p||p.stock<i.qty)return toast("Insufficient stock for "+(p?p.name:"a product"));
+ }
+ const order={
+  id:"WGS-"+Date.now().toString().slice(-8),
+  date:new Date().toISOString(),
+  customer:name,phone,address,
+  items:cart.map(i=>{const p=data.products.find(x=>x.id===i.id);return {id:p.id,name:p.name,price:p.price,barcode:p.barcode,qty:i.qty};}),
+  total:cartSubtotal()
+ };
+ order.items.forEach(i=>{const p=data.products.find(x=>x.id===i.id);p.stock-=i.qty;});
+ data.sales.unshift(order);saveData();
+ showReceipt(order);
+ const lines=order.items.map(i=>`${i.name} | ${i.qty} x ${i.price} = ${i.qty*i.price} PKR`).join("\n");
+ const message=`*${data.storeName} - New Order*\nOrder: ${order.id}\nCustomer: ${name}\nPhone: ${phone}\nAddress: ${address}\n\n${lines}\n\n*Total: Rs ${order.total}*\nDate: ${new Date(order.date).toLocaleString()}`;
+ cart=[];persistCart();renderCart();closeCheckout();renderAll();
+ const url="https://wa.me/"+data.phone+"?text="+encodeURIComponent(message);
+ window.open(url,"_blank");
+}
+function showReceipt(order){
+ $("receiptOrderId").textContent="Order ID: "+order.id;
+ $("receiptDate").textContent=new Date(order.date).toLocaleString();
+ $("receiptCustomer").innerHTML=`Customer: ${safe(order.customer)}<br>Phone: ${safe(order.phone)}<br>Address: ${safe(order.address)}`;
+ $("receiptLines").innerHTML=order.items.map(i=>`<div class="flex justify-between gap-3 text-sm py-2 border-b"><span>${safe(i.name)} × ${i.qty}<br><small>Barcode: ${safe(i.barcode)}</small></span><b>Rs ${(i.price*i.qty).toLocaleString()}</b></div>`).join("");
+ $("receiptTotal").textContent="Rs "+order.total.toLocaleString();
+ $("receiptModal").classList.add("open");
+}
+function closeReceipt(){$("receiptModal").classList.remove("open");}
 
-  if(!navigator.mediaDevices?.getUserMedia){
-    alert("Camera is unavailable. Please use HTTPS and allow camera permission.");
-    return;
-  }
+/* BARCODE LOOKUP */
+function openBarcode(){$("barcodeModal").classList.add("open");$("clientBarcodeInput").value="";}
+function closeBarcode(){$("barcodeModal").classList.remove("open");}
+function lookupClientBarcode(){
+ const code=$("clientBarcodeInput").value.trim();
+ const p=data.products.find(x=>String(x.barcode)===code);
+ $("clientBarcodeResult").innerHTML=p?
+ `<div class="panel2 rounded-xl p-4"><h3 class="font-bold text-lg">${safe(p.name)}</h3><p class="gold font-extrabold text-2xl mt-2">${money(p.price)}</p><p class="muted text-sm mt-2">Stock: ${p.stock} | ${safe(p.category)}</p><button onclick="addToCart('${p.id}');closeBarcode()" class="btn btn-gold w-full mt-3">Add to Cart</button></div>`:
+ '<p class="text-red-400 text-sm">Product not found. Please check the barcode.</p>';
+}
+function lookupAdminBarcode(){
+ const code=$("adminBarcodeInput").value.trim();
+ const p=data.products.find(x=>String(x.barcode)===code);
+ $("barcodeResult").innerHTML=p?
+ `<div class="panel2 p-4 rounded-xl"><b>${safe(p.name)}</b><p class="gold mt-1">${money(p.price)}</p><p class="muted text-sm">Stock: ${p.stock}</p><button onclick="editProduct('${p.id}')" class="btn btn-soft mt-3">Edit Product</button></div>`:
+ `<div class="text-red-400 text-sm">Product not found. You can add it from Inventory.</div>`;
+}
 
-  let stream=null;
-  let stopped=false;
-  let scanning=false;
-  let overlay=null;
-
-  function stop(){
-    if(stopped)return;
-    stopped=true;
-    if(stream)stream.getTracks().forEach(t=>t.stop());
-    if(overlay)overlay.remove();
-  }
-
-  try{
-    const detector=new BarcodeDetector({
-      formats:["ean_13","ean_8","upc_a","upc_e","code_128","code_39","qr_code"]
-    });
-
-    stream=await navigator.mediaDevices.getUserMedia({
-      video:{facingMode:{ideal:"environment"}}
-    });
-
-    const video=document.createElement("video");
-    video.id="cameraVideo";
-    video.srcObject=stream;
-    video.setAttribute("playsinline","");
-    await video.play();
-
-    overlay=document.createElement("div");
-    overlay.id="cameraOverlay";
-
-    const status=document.createElement("p");
-    status.textContent="Point camera at product barcode";
-
-    const close=document.createElement("button");
-    close.textContent="CLOSE SCANNER";
-    close.className="btn-red";
-    close.onclick=stop;
-
-    overlay.append(status,video,close);
-    document.body.appendChild(overlay);
-
-    async function detect(){
-      if(stopped || scanning)return;
-
-      try{
-        const codes=await detector.detect(video);
-
-        if(codes.length){
-          scanning=true;
-          const code=codes[0].rawValue;
-          stop();
-          callback(code);
-          return;
-        }
-      }catch(e){}
-
-      if(!stopped)requestAnimationFrame(detect);
+/* CAMERA BARCODE SCANNER */
+async function startCamera(){
+ if(!("BarcodeDetector" in window)){toast("Camera barcode scanning is not supported here. Use manual entry.");return;}
+ try{
+  cameraStream=await navigator.mediaDevices.getUserMedia({video:{facingMode:"environment"}});
+  const video=$("barcodeVideo");video.srcObject=cameraStream;video.classList.remove("hidden");$("stopCameraBtn").classList.remove("hidden");
+  const detector=new BarcodeDetector();
+  const scan=async()=>{
+   if(!cameraStream)return;
+   try{
+    const codes=await detector.detect(video);
+    if(codes.length){
+     $("adminBarcodeInput").value=codes[0].rawValue;
+     lookupAdminBarcode();stopCamera();return;
     }
-
-    detect();
-
-  }catch(e){
-    stop();
-    alert("Camera permission is required. Please allow camera access.");
-  }
-}
-
-function scanForProduct(){
-  scanBarcode(code=>{
-    const existing=products.find(p=>p.barcode===code);
-
-    if(existing){
-      editProduct(existing.id);
-      alert("Existing product found. You can edit it.");
-    }else{
-      document.getElementById("pBarcode").value=code;
-      alert("Barcode filled. Enter product details and save.");
-    }
-  });
-}
-
-function scanForBill(){
-  scanBarcode(code=>{
-    document.getElementById("billSearch").value=code;
-    addProductToBillBySearch(code);
-  });
-}
-
-/* =========================
-   BILLING SYSTEM
-========================= */
-
-document.getElementById("billSearch").addEventListener("input",function(){
-  const q=this.value.trim().toLowerCase();
-
-  const results=products.filter(p=>
-    p.name.toLowerCase().includes(q)||
-    String(p.barcode||"").toLowerCase()===q
-  ).slice(0,10);
-
-  document.getElementById("billSearchResults").innerHTML=results.map(p=>`
-    <div class="card">
-      ${escapeHTML(p.name)} — Rs ${p.price} — Stock: ${p.stock}
-      <button class="btn-green" onclick="addToBill('${p.id}')">Add</button>
-    </div>
-  `).join("");
-});
-
-function addProductToBillBySearch(code){
-  const p=products.find(x=>x.barcode===code);
-  if(p)addToBill(p.id);
-  else alert("No product found with this barcode.");
-}
-
-function addToBill(id){
-  const p=products.find(x=>x.id===id);
-  if(!p)return;
-
-  if(p.stock<=0){
-    alert("Out of stock!");
-    return;
-  }
-
-  const item=currentBill.find(x=>x.id===id);
-
-  if(item){
-    if(item.qty>=p.stock){
-      alert("Not enough stock.");
-      return;
-    }
-    item.qty++;
-  }else{
-    currentBill.push({
-      id:p.id,name:p.name,price:p.price,qty:1
-    });
-  }
-
-  renderBill();
-}
-
-function changeQty(id,value){
-  const item=currentBill.find(x=>x.id===id);
-  const p=products.find(x=>x.id===id);
-  if(!item||!p)return;
-
-  let qty=Math.max(1,Math.floor(Number(value)||1));
-  if(qty>p.stock){
-    qty=p.stock;
-    alert("Quantity exceeds available stock.");
-  }
-  item.qty=qty;
-  renderBill();
-}
-
-function removeBillItem(id){
-  currentBill=currentBill.filter(x=>x.id!==id);
-  renderBill();
-}
-
-function renderBill(){
-  document.getElementById("billItems").innerHTML=currentBill.map(x=>`
-    <tr>
-      <td>${escapeHTML(x.name)}</td>
-      <td>${x.price}</td>
-      <td>
-        <input style="width:75px" type="number" min="1"
-          value="${x.qty}" onchange="changeQty('${x.id}',this.value)">
-      </td>
-      <td>${x.price*x.qty}</td>
-      <td><button class="btn-red" onclick="removeBillItem('${x.id}')">X</button></td>
-    </tr>
-  `).join("");
-
-  const subtotal=currentBill.reduce((s,x)=>s+x.price*x.qty,0);
-  const discount=Math.max(0,Number(document.getElementById("billDiscount").value)||0);
-
-  document.getElementById("grandTotal").textContent=
-    "Rs "+Math.max(0,subtotal-discount);
-}
-
-function clearBill(){
-  currentBill=[];
-  document.getElementById("customerName").value="";
-  document.getElementById("customerPhone").value="";
-  document.getElementById("billDiscount").value=0;
-  document.getElementById("billSearch").value="";
-  document.getElementById("billSearchResults").innerHTML="";
-  renderBill();
-}
-
-function saveBill(){
-  if(!currentBill.length){
-    alert("Add products to bill first.");
-    return;
-  }
-
-  for(const item of currentBill){
-    const p=products.find(x=>x.id===item.id);
-    if(!p||item.qty>p.stock){
-      alert("Stock is insufficient for "+item.name);
-      return;
-    }
-  }
-
-  const subtotal=currentBill.reduce((s,x)=>s+x.price*x.qty,0);
-  const discount=Math.max(0,Number(document.getElementById("billDiscount").value)||0);
-
-  const bill={
-    id:"BILL-"+Date.now(),
-    date:new Date().toLocaleString(),
-    customer:document.getElementById("customerName").value,
-    phone:document.getElementById("customerPhone").value,
-    items:JSON.parse(JSON.stringify(currentBill)),
-    subtotal,
-    discount,
-    total:Math.max(0,subtotal-discount)
+   }catch(e){}
+   cameraLoop=requestAnimationFrame(scan);
   };
-
-  currentBill.forEach(item=>{
-    const p=products.find(x=>x.id===item.id);
-    p.stock-=item.qty;
-  });
-
-  bills.unshift(bill);
-
-  saveData("wgs_products",products);
-  saveData("wgs_bills",bills);
-
-  printBill(bill);
-  clearBill();
-  updateDashboard();
+  video.onloadedmetadata=()=>scan();
+ }catch(e){toast("Camera permission denied or unavailable");}
+}
+function stopCamera(){
+ if(cameraLoop)cancelAnimationFrame(cameraLoop);
+ if(cameraStream)cameraStream.getTracks().forEach(t=>t.stop());
+ cameraStream=null;
+ $("barcodeVideo").classList.add("hidden");$("stopCameraBtn").classList.add("hidden");
+}
+function generateLabel(){
+ const name=$("labelName").value.trim(),code=$("labelBarcode").value.trim();
+ if(!name||!code)return toast("Enter product name and barcode");
+ if(!window.JsBarcode)return toast("Barcode library unavailable");
+ $("labelProductName").textContent=name;
+ try{JsBarcode("#barcodeSvg",code,{format:"CODE128",displayValue:true,lineColor:"#000",background:"#fff",width:2,height:65});$("barcodeLabel").classList.remove("hidden");}
+ catch(e){toast("Invalid barcode value");}
 }
 
-/* =========================
-   PRINT BILL
-========================= */
-
-function printBill(b){
-  const area=document.getElementById("printArea");
-
-  area.classList.remove("hidden");
-
-  area.innerHTML=`
-    <div style="max-width:700px;margin:auto;padding:20px;font-family:Arial">
-      <h1 style="text-align:center">${escapeHTML(store.name)}</h1>
-      <p style="text-align:center">Contact: ${escapeHTML(store.phone)}</p>
-      <hr>
-      <p>
-        Bill: ${escapeHTML(b.id)}<br>
-        Date: ${escapeHTML(b.date)}<br>
-        Customer: ${escapeHTML(b.customer||"Walk-in")}<br>
-        Phone: ${escapeHTML(b.phone||"-")}
-      </p>
-
-      <table style="width:100%;border-collapse:collapse">
-        <tr>
-          <th>Product</th><th>Price</th><th>Qty</th><th>Total</th>
-        </tr>
-        ${b.items.map(x=>`
-          <tr>
-            <td>${escapeHTML(x.name)}</td>
-            <td>${x.price}</td>
-            <td>${x.qty}</td>
-            <td>${x.price*x.qty}</td>
-          </tr>
-        `).join("")}
-      </table>
-
-      <hr>
-      <h3>Subtotal: Rs ${b.subtotal}</h3>
-      <h3>Discount: Rs ${b.discount}</h3>
-      <h2>Grand Total: Rs ${b.total}</h2>
-      <p style="text-align:center">Thank you for shopping!</p>
-    </div>
-  `;
-
-  window.print();
-  area.classList.add("hidden");
+/* PRODUCT CRUD */
+function openProductForm(){
+ $("productFormTitle").textContent="Add Product";
+ $("editProductId").value="";
+ ["pName","pPrice","pCost","pBarcode","pStock","pImage"].forEach(id=>$(id).value="");
+ $("pCategory").value="Grocery";$("productModal").classList.add("open");
+}
+function closeProductForm(){$("productModal").classList.remove("open");}
+function editProduct(id){
+ const p=data.products.find(x=>x.id===id);if(!p)return;
+ $("productFormTitle").textContent="Edit Product";$("editProductId").value=p.id;
+ $("pName").value=p.name;$("pPrice").value=p.price;$("pCost").value=p.cost;
+ $("pBarcode").value=p.barcode;$("pStock").value=p.stock;$("pCategory").value=p.category;$("pImage").value=p.image||"";
+ $("productModal").classList.add("open");
+}
+function saveProduct(){
+ const name=$("pName").value.trim(),price=Number($("pPrice").value);
+ if(!name||!Number.isFinite(price)||price<0)return toast("Enter a valid product name and price");
+ const id=$("editProductId").value;
+ const product={
+  id:id||"p"+Date.now(),name,price,cost:Number($("pCost").value)||0,
+  barcode:$("pBarcode").value.trim(),stock:Math.max(0,Number($("pStock").value)||0),
+  category:$("pCategory").value,
+  image:$("pImage").value.trim()||"https://placehold.co/500x350/142a21/d8b56d?text=Wasif+Store"
+ };
+ const duplicate=data.products.find(x=>x.barcode&&x.barcode===product.barcode&&x.id!==id);
+ if(duplicate)return toast("This barcode is already assigned to another product");
+ if(id){const index=data.products.findIndex(x=>x.id===id);data.products[index]=product;}
+ else data.products.unshift(product);
+ saveData();closeProductForm();renderAll();toast("Product saved successfully");
+}
+function deleteProduct(id){
+ if(!confirm("Delete this product?"))return;
+ data.products=data.products.filter(p=>p.id!==id);
+ cart=cart.filter(i=>i.id!==id);persistCart();saveData();renderAll();toast("Product deleted");
+}
+function renderInventory(){
+ const q=($("adminSearch").value||"").toLowerCase();
+ const list=data.products.filter(p=>p.name.toLowerCase().includes(q)||String(p.barcode).includes(q));
+ $("inventoryTable").innerHTML=list.map(p=>`<tr>
+ <td><b>${safe(p.name)}</b><div class="muted text-xs">${safe(p.category)}</div></td>
+ <td>${safe(p.barcode||"-")}</td><td>${money(p.price)}</td><td>${money(p.cost)}</td>
+ <td><span class="${p.stock<=5?'text-red-400':'text-green-400'} font-bold">${p.stock}</span></td>
+ <td><div class="flex gap-1"><button onclick="editProduct('${p.id}')" class="btn btn-soft !p-2"><i data-lucide="edit-3" size="15"></i></button><button onclick="deleteProduct('${p.id}')" class="btn btn-soft !p-2 text-red-400"><i data-lucide="trash-2" size="15"></i></button></div></td>
+ </tr>`).join("");
+ renderIcons();
 }
 
-/* =========================
-   BILL HISTORY
-========================= */
-
-function renderHistory(){
-  const box=document.getElementById("billHistory");
-
-  box.innerHTML=bills.map(b=>`
-    <div class="card">
-      <h3 class="gold">${escapeHTML(b.id)}</h3>
-      <p>Date: ${escapeHTML(b.date)}</p>
-      <p>Customer: ${escapeHTML(b.customer||"Walk-in")}</p>
-      <h3>Rs ${b.total}</h3>
-      <button class="btn-blue" onclick="reprintBill('${b.id}')">Print</button>
-      <button class="btn-red" onclick="deleteBill('${b.id}')">Delete</button>
-    </div>
-  `).join("")||"<p>No saved bills.</p>";
+/* DASHBOARD AND CHART */
+function renderDashboard(){
+ $("metricProducts").textContent=data.products.length.toLocaleString();
+ $("metricStock").textContent=money(data.products.reduce((s,p)=>s+p.cost*p.stock,0));
+ $("metricOut").textContent=data.products.filter(p=>p.stock===0).length;
+ const today=new Date().toDateString();
+ const todaySales=data.sales.filter(s=>new Date(s.date).toDateString()===today);
+ $("metricSales").textContent=money(todaySales.reduce((s,x)=>s+x.total,0));
+ const days=[];
+ for(let i=6;i>=0;i--){
+  const d=new Date();d.setDate(d.getDate()-i);
+  const total=data.sales.filter(s=>new Date(s.date).toDateString()===d.toDateString()).reduce((s,x)=>s+x.total,0);
+  days.push({label:d.toLocaleDateString("en",{weekday:"short"}),total});
+ }
+ const max=Math.max(...days.map(x=>x.total),1);
+ $("salesChart").innerHTML=days.map(d=>`<div class="flex-1 h-full flex flex-col justify-end items-center gap-2"><div class="text-[9px] muted">${d.total?Math.round(d.total):0}</div><div title="${d.total}" class="w-full rounded-t-md" style="height:${Math.max(5,d.total/max*75)}%;background:linear-gradient(#d8b56d,#16845d)"></div><div class="text-[10px] muted">${d.label}</div></div>`).join("");
+ const alerts=data.products.filter(p=>p.stock<=5).slice(0,7);
+ $("inventoryAlerts").innerHTML=alerts.length?alerts.map(p=>`<div class="flex justify-between panel2 rounded-lg p-3 text-sm"><span>${safe(p.name)}</span><b class="${p.stock===0?'text-red-400':'gold'}">${p.stock} left</b></div>`).join(""):'<p class="muted text-sm">No stock alerts. Great work!</p>';
 }
 
-function reprintBill(id){
-  const b=bills.find(x=>x.id===id);
-  if(b)printBill(b);
+/* SALES HISTORY */
+function renderSales(){
+ $("salesTable").innerHTML=data.sales.length?data.sales.map(s=>`<tr>
+ <td><b>${safe(s.id)}</b></td><td>${safe(s.customer)}</td>
+ <td>${new Date(s.date).toLocaleDateString()}</td><td>${money(s.total)}</td>
+ <td><button onclick="showReceipt(${JSON.stringify(s).replace(/"/g,'&quot;')})" class="btn btn-soft !p-2 text-xs">Receipt</button></td>
+ </tr>`).join(""):'<tr><td colspan="5" class="text-center muted">No sales recorded yet.</td></tr>';
 }
 
-function deleteBill(id){
-  if(!confirm("Delete this bill? Stock will NOT be restored automatically."))return;
-
-  bills=bills.filter(x=>x.id!==id);
-  saveData("wgs_bills",bills);
-  renderHistory();
-  updateDashboard();
-}
-
-/* =========================
-   CHANGE ADMIN PASSWORD
-========================= */
-
-function changeAdminCode(){
-  const current=document.getElementById("currentAdminCode").value;
-  const next=document.getElementById("newAdminCode").value;
-  const confirmCode=document.getElementById("confirmAdminCode").value;
-  const message=document.getElementById("passwordMessage");
-
-  if(current!==adminCode){
-    message.textContent="Current Admin Code is incorrect.";
-    return;
-  }
-
-  if(next.length<4){
-    message.textContent="New code must be at least 4 characters.";
-    return;
-  }
-
-  if(next!==confirmCode){
-    message.textContent="New codes do not match.";
-    return;
-  }
-
-  adminCode=next;
-  localStorage.setItem("wgs_admin_code",adminCode);
-
-  ["currentAdminCode","newAdminCode","confirmAdminCode"].forEach(id=>{
-    document.getElementById(id).value="";
-  });
-
-  message.textContent="Admin Code changed successfully!";
-}
-
-/* =========================
-   STORE SETTINGS
-========================= */
-
+/* SETTINGS */
 function saveStoreSettings(){
-  store={
-    name:document.getElementById("storeName").value.trim()||"Wasif General Store",
-    phone:document.getElementById("storePhone").value.trim()
-  };
-
-  saveData("wgs_store",store);
-  alert("Store settings saved.");
+ data.storeName=$("storeName").value.trim()||"Wasif General Store";
+ data.phone=$("storePhone").value.replace(/\D/g,"")||"923462916891";
+ saveData();toast("Store settings saved");
+}
+function changePassword(){
+ if($("oldPassword").value!==adminPassword)return toast("Current password is incorrect");
+ const n=$("newPassword").value,c=$("confirmPassword").value;
+ if(n.length<6)return toast("New password must be at least 6 characters");
+ if(n!==c)return toast("Passwords do not match");
+ adminPassword=n;localStorage.setItem("wgs_password",n);
+ ["oldPassword","newPassword","confirmPassword"].forEach(id=>$(id).value="");
+ toast("Admin password updated");
 }
 
-/* =========================
-   CLIENT PRODUCT DISPLAY
-========================= */
-
-function renderClientProducts(){
-  const q=(document.getElementById("clientSearch").value||"").toLowerCase();
-
-  const list=products.filter(p=>
-    p.name.toLowerCase().includes(q)||
-    String(p.category||"").toLowerCase().includes(q)
-  );
-
-  document.getElementById("clientProducts").innerHTML=list.map(p=>`
-    <div class="product-card">
-      <h3>${escapeHTML(p.name)}</h3>
-      <p class="muted">${escapeHTML(p.category||"General")}</p>
-      <h2 class="gold">Rs ${p.price}</h2>
-      <p class="small">${p.stock>0?"Available":"Out of stock"}</p>
-      <button class="btn-gold" ${p.stock<=0?"disabled":""}
-        onclick="addShopping('${p.id}')">
-        Add to Shopping List
-      </button>
-    </div>
-  `).join("")||"<p>No products available.</p>";
+/* IMPORT / EXPORT */
+function downloadFile(filename,content,type){
+ const blob=new Blob([content],{type}),url=URL.createObjectURL(blob);
+ const a=document.createElement("a");a.href=url;a.download=filename;a.click();URL.revokeObjectURL(url);
 }
-
-/* =========================
-   CLIENT SHOPPING LIST
-========================= */
-
-function addShopping(id){
-  const p=products.find(x=>x.id===id);
-
-  if(!p||p.stock<=0){
-    alert("Product is out of stock!");
-    return;
-  }
-
-  const item=shopping.find(x=>x.id===id);
-
-  if(item){
-    if(item.qty>=p.stock){
-      alert("Available stock is limited!");
-      return;
-    }
-    item.qty++;
-  }else{
-    shopping.push({
-      id:p.id,
-      name:p.name,
-      price:p.price,
-      qty:1
-    });
-  }
-
-  renderShopping();
+function exportJSON(){downloadFile("wasif-inventory.json",JSON.stringify(data.products,null,2),"application/json");}
+function exportCSV(){
+ const rows=[["Name","Price","Cost","Stock","Category","Barcode","Image"],...data.products.map(p=>[p.name,p.price,p.cost,p.stock,p.category,p.barcode,p.image])];
+ downloadFile("wasif-inventory.csv",rows.map(r=>r.map(v=>'"'+String(v??"").replace(/"/g,'""')+'"').join(",")).join("\n"),"text/csv");
 }
-
-function changeShoppingQty(id,value){
-  const item=shopping.find(x=>x.id===id);
-  const product=products.find(x=>x.id===id);
-
-  if(!item||!product)return;
-
-  let qty=Math.max(1,Math.floor(Number(value)||1));
-
-  if(qty>product.stock){
-    qty=product.stock;
-    alert("Available stock: "+product.stock);
-  }
-
-  item.qty=qty;
-  renderShopping();
+function importJSON(event){
+ const file=event.target.files[0];if(!file)return;
+ const reader=new FileReader();
+ reader.onload=()=>{
+  try{
+   const parsed=JSON.parse(reader.result);
+   const products=Array.isArray(parsed)?parsed:parsed.products;
+   if(!Array.isArray(products))throw Error();
+   if(!confirm("Replace current inventory with imported products?"))return;
+   data.products=products.map((p,i)=>({...p,id:p.id||"import"+i,price:Number(p.price)||0,cost:Number(p.cost)||0,stock:Number(p.stock)||0}));
+   saveData();renderAll();toast("Inventory imported");
+  }catch(e){toast("Invalid JSON inventory file");}
+ };
+ reader.readAsText(file);event.target.value="";
 }
-
-function renderShopping(){
-  document.getElementById("shoppingList").innerHTML=
-    shopping.map(x=>`
-      <tr>
-        <td>${escapeHTML(x.name)}</td>
-        <td>Rs ${x.price}</td>
-        <td>
-          <input type="number" min="1" value="${x.qty}"
-            style="width:75px"
-            onchange="changeShoppingQty('${x.id}',this.value)">
-        </td>
-        <td>Rs ${x.price*x.qty}</td>
-        <td>
-          <button class="btn-red" onclick="removeShopping('${x.id}')">X</button>
-        </td>
-      </tr>
-    `).join("")||
-    "<tr><td colspan='5'>Your shopping list is empty.</td></tr>";
-
-  const total=shopping.reduce((sum,x)=>sum+(x.price*x.qty),0);
-
-  document.getElementById("shoppingTotal").textContent=
-    "Grand Total: Rs "+total;
-}
-
-function removeShopping(id){
-  shopping=shopping.filter(x=>x.id!==id);
-  renderShopping();
-}
-
-function clearShoppingList(){
-  shopping=[];
-  renderShopping();
-}
-
-/* =========================
-   SEND ORDER TO WHATSAPP
-========================= */
-
-function shareShoppingList(){
-
-  if(!shopping.length){
-    alert("Please select products first!");
-    return;
-  }
-
-  const name=document.getElementById("clientName").value.trim();
-  const address=document.getElementById("clientAddress").value.trim();
-  const phone=document.getElementById("clientPhone").value.trim();
-
-  if(!name||!address||!phone){
-    alert("Please enter your name, address and phone number.");
-    return;
-  }
-
-  const total=shopping.reduce(
-    (sum,x)=>sum+(x.price*x.qty),0
-  );
-
-  let message=
-    "🛒 NEW ORDER - WASIF GENERAL STORE\n\n"+
-    "Customer Name: "+name+"\n"+
-    "Address: "+address+"\n"+
-    "Phone: "+phone+"\n\n"+
-    "ORDER DETAILS:\n";
-
-  shopping.forEach((item,index)=>{
-    message+=
-      (index+1)+". "+item.name+
-      "\nQuantity: "+item.qty+
-      "\nPrice: Rs "+item.price+
-      "\nTotal: Rs "+(item.price*item.qty)+
-      "\n\n";
-  });
-
-  message+=
-    "GRAND TOTAL: Rs "+total+
-    "\n\nPlease confirm my order.";
-
-  const whatsappNumber=STORE_WHATSAPP;
-
-  const whatsappURL=
-    "https://wa.me/"+whatsappNumber+
-    "?text="+encodeURIComponent(message);
-
-  window.open(whatsappURL,"_blank");
-}
-
-/* =========================
-   DASHBOARD
-========================= */
-
-function updateDashboard(){
-  document.getElementById("totalProducts").textContent=products.length;
-
-  document.getElementById("totalStock").textContent=
-    products.reduce((s,p)=>s+(Number(p.stock)||0),0);
-
-  document.getElementById("totalBills").textContent=bills.length;
-
-  document.getElementById("totalSales").textContent=
-    "Rs "+bills.reduce((s,b)=>s+(Number(b.total)||0),0);
-}
-
-/* =========================
-   CSV IMPORT / EXPORT
-========================= */
-
-function downloadFile(name,content,type){
-  const blob=new Blob([content],{type});
-  const url=URL.createObjectURL(blob);
-  const a=document.createElement("a");
-
-  a.href=url;
-  a.download=name;
-  a.click();
-
-  URL.revokeObjectURL(url);
-}
-
-function downloadTemplate(){
-  downloadFile(
-    "products-template.csv",
-    "name,category,barcode,cost,price,stock\nSugar 1 KG,Grocery,1234567890123,100,120,50\n",
-    "text/csv"
-  );
-}
-
-function exportProducts(){
-  const rows=[
-    ["name","category","barcode","cost","price","stock"],
-    ...products.map(p=>[
-      p.name,p.category,p.barcode,p.cost,p.price,p.stock
-    ])
-  ];
-
-  const csv=rows.map(r=>
-    r.map(v=>'"'+String(v??"").replace(/"/g,'""')+'"').join(",")
-  ).join("\n");
-
-  downloadFile("wasif-products.csv",csv,"text/csv");
-}
-
-function parseCSV(text){
-  const rows=[];
-  let row=[],value="",quoted=false;
-
-  for(let i=0;i<text.length;i++){
-    const c=text[i];
-
-    if(c==='"'){
-      if(quoted&&text[i+1]==='"'){
-        value+='"';
-        i++;
-      }else{
-        quoted=!quoted;
-      }
-    }else if(c===","&&!quoted){
-      row.push(value);
-      value="";
-    }else if((c==="\n"||c==="\r")&&!quoted){
-      if(c==="\r"&&text[i+1]==="\n")i++;
-      row.push(value);
-      rows.push(row);
-      row=[];
-      value="";
-    }else{
-      value+=c;
-    }
-  }
-
-  if(value||row.length){
-    row.push(value);
-    rows.push(row);
-  }
-
-  return rows;
-}
-
-function importProducts(event){
-  const file=event.target.files[0];
-  if(!file)return;
-
-  const reader=new FileReader();
-
-  reader.onload=()=>{
-    try{
-      const rows=parseCSV(reader.result);
-      const headers=rows.shift().map(x=>x.trim().toLowerCase());
-      let count=0;
-
-      rows.forEach(row=>{
-        const obj={};
-        headers.forEach((h,i)=>obj[h]=row[i]||"");
-
-        if(!obj.name)return;
-
-        const barcode=String(obj.barcode||"").trim();
-
-        const existing=barcode?
-          products.find(p=>p.barcode===barcode):null;
-
-        const product={
-          id:existing?existing.id:
-            String(Date.now()+Math.random()),
-          name:String(obj.name).trim(),
-          category:obj.category||"",
-          barcode,
-          cost:Number(obj.cost)||0,
-          price:Number(obj.price)||0,
-          stock:Number(obj.stock)||0
-        };
-
-        if(existing)Object.assign(existing,product);
-        else products.push(product);
-
-        count++;
-      });
-
-      saveData("wgs_products",products);
-      renderProducts();
-      updateDashboard();
-
-      alert(count+" products imported.");
-    }catch(e){
-      alert("Could not import this CSV file.");
-    }
-
-    event.target.value="";
-  };
-
-  reader.readAsText(file);
-}
-
-/* =========================
-   BACKUP AND RESTORE
-========================= */
-
-function backupData(){
-  const data={
-    products,
-    bills,
-    store,
-    adminCode,
-    backupDate:new Date().toISOString()
-  };
-
-  downloadFile(
-    "wasif-store-backup.json",
-    JSON.stringify(data,null,2),
-    "application/json"
-  );
-}
-
+function exportSales(){downloadFile("wasif-sales.json",JSON.stringify(data.sales,null,2),"application/json");}
+function backupData(){downloadFile("wasif-store-backup.json",JSON.stringify(data,null,2),"application/json");}
 function restoreData(event){
-  const file=event.target.files[0];
-  if(!file)return;
-
-  const reader=new FileReader();
-
-  reader.onload=()=>{
-    try{
-      const data=JSON.parse(reader.result);
-
-      if(!Array.isArray(data.products)||!Array.isArray(data.bills)){
-        throw new Error("Invalid backup");
-      }
-
-      if(!confirm("Restore backup? Current data will be replaced.")){
-        event.target.value="";
-        return;
-      }
-
-      products=data.products;
-      bills=data.bills;
-      store=data.store||store;
-
-      if(data.adminCode){
-        adminCode=data.adminCode;
-        localStorage.setItem("wgs_admin_code",adminCode);
-      }
-
-      saveData("wgs_products",products);
-      saveData("wgs_bills",bills);
-      saveData("wgs_store",store);
-
-      renderProducts();
-      updateDashboard();
-
-      alert("Backup restored successfully. Your Admin Code was also restored.");
-    }catch(e){
-      alert("Invalid backup file.");
-    }
-
-    event.target.value="";
-  };
-
-  reader.readAsText(file);
+ const file=event.target.files[0];if(!file)return;
+ const reader=new FileReader();
+ reader.onload=()=>{
+  try{
+   const backup=JSON.parse(reader.result);
+   if(!Array.isArray(backup.products)||!Array.isArray(backup.sales))throw Error();
+   if(!confirm("Restore this backup? Current data will be replaced."))return;
+   data=backup;saveData();renderAll();toast("Backup restored");
+  }catch(e){toast("Invalid backup file");}
+ };
+ reader.readAsText(file);event.target.value="";
+}
+function resetInventory(){
+ if(!confirm("Are you sure? Your current inventory will be replaced by sample products."))return;
+ data.products=sampleProducts.map(p=>({...p}));saveData();renderAll();toast("Sample inventory restored");
 }
 
-/* =========================
-   SAFE TEXT DISPLAY
-========================= */
-
-function escapeHTML(value){
-  return String(value??"").replace(/[&<>"']/g,c=>({
-    "&":"&amp;",
-    "<":"&lt;",
-    ">":"&gt;",
-    '"':"&quot;",
-    "'":"&#39;"
-  }[c]));
-}
-
-/* =========================
-   INITIAL LOAD
-========================= */
-
-renderShopping();
-renderBill();
-updateDashboard();
-
+/* INITIALIZE */
+$("storeName").value=data.storeName||"Wasif General Store";
+$("storePhone").value=data.phone||"923462916891";
+$("year").textContent=new Date().getFullYear();
+renderAll();
+setMode("client");
 </script>
 </body>
 </html>
